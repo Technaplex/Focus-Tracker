@@ -14,6 +14,8 @@ class CurrentTimerViewController: UIViewController {
     @IBOutlet weak var interruptValueTextField: UITextField!
     @IBOutlet weak var shiftsTableView: UITableView!
     
+    var start: Date!
+    var timer: Timer!
     
     var shiftsDataSource = ShiftsDataSource()
     
@@ -25,6 +27,25 @@ class CurrentTimerViewController: UIViewController {
         shiftsTableView.delegate = shiftsDataSource
         shiftsDataSource.delegate = self
         
+        start = Date()
+        
+        timer = Timer.scheduledTimer(timeInterval: 1.0,
+                                                   target: self,
+                                                   selector: #selector(self.update_timer),
+                                                   userInfo: nil,
+                                                   repeats: true)
+    }
+    
+    @objc func update_timer() {
+        let diff = Date().timeIntervalSince(start)
+        let interval = Int(diff)
+        
+        let hours = interval / 3600
+        let minutes = (interval % 3600) / 60
+        let seconds = interval % 60
+        let millis = diff - diff
+        
+        self.timerLabel.text = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
     }
     
     // MARK: - Actions
