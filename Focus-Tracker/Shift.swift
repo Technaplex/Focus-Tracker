@@ -20,6 +20,6 @@ struct Shift: Codable {
     
     // TODO: Make this not be a dummy time
     var elapsedTimeString: String {
-        return "10:32"
+        return timedelta_to_string(Int(end.timeIntervalSince(start)))
     }
 }
