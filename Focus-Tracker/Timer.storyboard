@@ -54,6 +54,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="152" height="30"/>
                                                         <state key="normal" title="Shift Activity"/>
                                                         <connections>
+                                                            <action selector="add_shift:" destination="Lg1-B7-A5h" eventType="touchUpInside" id="sBQ-DZ-cXM"/>
                                                             <action selector="shiftActivity:" destination="QWM-J0-1Hk" eventType="touchUpInside" id="zzi-sD-fZT"/>
                                                         </connections>
                                                     </button>
@@ -94,32 +95,37 @@
                                             </stepper>
                                         </subviews>
                                     </stackView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eee-4d-82S">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wPr-dD-avZ">
                                         <rect key="frame" x="8" y="255" width="304" height="121"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Wzg-0l-Sr8" detailTextLabel="9BV-GT-mA9" style="IBUITableViewCellStyleValue1" id="IsY-74-CoL" customClass="ShiftTableViewCell" customModule="Focus_Tracker" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShiftTableViewCell" id="oT4-vP-ZlP" customClass="ShiftTableViewCell" customModule="Focus_Tracker" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="304" height="43.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IsY-74-CoL" id="JSc-BM-zGa">
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oT4-vP-ZlP" id="nt7-bv-Zoq">
                                                     <rect key="frame" x="0.0" y="0.0" width="304" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wzg-0l-Sr8">
-                                                            <rect key="frame" x="16" y="12" width="33" height="20.5"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Kb-g4-1UN">
+                                                            <rect key="frame" x="246" y="11" width="42" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9BV-GT-mA9">
-                                                            <rect key="frame" x="244" y="12" width="44" height="20.5"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ed6-NM-mrY">
+                                                            <rect key="frame" x="16" y="11" width="42" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="activityLabel" destination="Ed6-NM-mrY" id="HBh-it-9n3"/>
+                                                    <outlet property="shiftLabel" destination="1Kb-g4-1UN" id="5Po-OP-fRb"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -140,7 +146,7 @@
                     <connections>
                         <outlet property="activityLabel" destination="wyg-vL-szw" id="vIH-fh-glP"/>
                         <outlet property="interruptValueTextField" destination="q7U-YQ-M5b" id="Xv7-3z-5Z8"/>
-                        <outlet property="shiftsTableView" destination="eee-4d-82S" id="fzK-GL-aIt"/>
+                        <outlet property="shiftsTableView" destination="wPr-dD-avZ" id="085-0w-Gpa"/>
                         <outlet property="timerLabel" destination="PEP-Rj-qr1" id="Cw9-Jv-47W"/>
                         <outlet property="typeLabel" destination="z6x-fk-zfa" id="CZy-vP-lXH"/>
                     </connections>
@@ -156,7 +162,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dVI-IX-d5A" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="77A-Ik-Gxv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

@@ -29,7 +29,7 @@ extension ShiftsDataSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShiftTableViewCell", for: indexPath) as! ShiftTableViewCell
-        
+                
         cell.activityLabel.text = shifts[indexPath.row].activity
         cell.shiftLabel.text = shifts[indexPath.row].elapsedTimeString
         return cell

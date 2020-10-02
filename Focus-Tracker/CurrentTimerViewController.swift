@@ -35,6 +35,8 @@ class CurrentTimerViewController: UIViewController {
         super.viewDidLoad()
         
         shiftsTableView.delegate = shiftsDataSource
+        shiftsTableView.dataSource = shiftsDataSource
+
         shiftsDataSource.delegate = self
         
         start = Date()
@@ -55,7 +57,7 @@ class CurrentTimerViewController: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction func shiftActivity(_ sender: Any) {
+    @IBAction func add_shift(_ sender: Any) {
         let end = Date()
         shiftsDataSource.add(shift: Shift(activity: "\(activities)", start: last_lap, end: end))
         last_lap = end
@@ -83,5 +85,4 @@ extension CurrentTimerViewController: ShiftsDataSourceDelegate {
     func shiftValueDidChange() {
         shiftsTableView.reloadData()
     }
-    
 }
