@@ -12,6 +12,7 @@ class CreateTimerViewController: UIViewController {
     @IBOutlet weak var type: UISegmentedControl!
     @IBOutlet weak var focus: UISegmentedControl!
     @IBOutlet weak var activity: UITextField!
+    @IBOutlet weak var goal: UITextField!
     
     @IBAction func start(_ sender: Any) {
         let presenter = presentingViewController as! UITabBarController
@@ -21,6 +22,8 @@ class CreateTimerViewController: UIViewController {
         timer.typeLabel.text = "Text: \(focus.titleForSegment(at: focus.selectedSegmentIndex)!) \(type.titleForSegment(at: type.selectedSegmentIndex)!)"
         timer.activityLabel.text = "Activity: \(activity.text!)"
         timer.running = true
+        timer.goal = Int(goal.text!)! * 60
+        
         timer.start_timer()
         
         dismiss(animated: true, completion: nil)

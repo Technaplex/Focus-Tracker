@@ -41,8 +41,6 @@ class CurrentTimerViewController: UIViewController {
         shiftsTableView.dataSource = shiftsDataSource
 
         shiftsDataSource.delegate = self
-    
-        start_timer()
         
         timer = Timer.scheduledTimer(timeInterval: 1.0,
                                                    target: self,
@@ -50,7 +48,7 @@ class CurrentTimerViewController: UIViewController {
                                                    userInfo: nil,
                                                    repeats: true)
         
-        goalLabel.text = "Goal: \(goal / 60) minutes"
+        
         
         if !running {
             performSegue(withIdentifier: "create_timer", sender: self)
@@ -58,6 +56,7 @@ class CurrentTimerViewController: UIViewController {
     }
     
     func start_timer() {
+        goalLabel.text = "Goal: \(goal / 60) minutes"
         start = Date()
         last_lap = start
     }
