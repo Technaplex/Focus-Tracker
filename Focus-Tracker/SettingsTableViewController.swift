@@ -7,13 +7,14 @@
 
 import UIKit
 
-class SettingsTableViewController: UITableViewController {
+class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var dayStartDatePicker: UIDatePicker!
     @IBOutlet weak var dayEndDatePicker: UIDatePicker!
     @IBOutlet weak var workStartDatePicker: UIDatePicker!
     @IBOutlet weak var workEndDatePicker: UIDatePicker!
-    // TODO: Connect settings table view to app settings defaultDayHours and defaultWorkHours
-
+    @IBOutlet weak var breakSessionGoalTF: UITextField!
+    @IBOutlet weak var workSessionGoalTF: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         dayStartDatePicker.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
@@ -34,7 +35,14 @@ class SettingsTableViewController: UITableViewController {
         dayEndDatePicker.setDate(dayEnd, animated: false)
         workStartDatePicker.setDate(workStart, animated: false)
         workEndDatePicker.setDate(workEnd, animated: false)
+        
+        breakSessionGoalTF.text = String(describing: AppSettings.breakSessionGoal)
+        workSessionGoalTF.text = String(describing: AppSettings.workSessionGoal)
+        breakSessionGoalTF.delegate = self
+        workSessionGoalTF.delegate = self
 
+        breakSessionGoalTF.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+        workSessionGoalTF.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
 
 
 
@@ -43,6 +51,17 @@ class SettingsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        if textField == breakSessionGoalTF {
+            // TODO what's a sensible default for an empty input? 0 might break other parts of the app which expect a positive value
+            AppSettings.breakSessionGoal = Int(breakSessionGoalTF.text ?? "1") ?? 1
+        }
+        
+        if textField == workSessionGoalTF {
+            AppSettings.workSessionGoal = Int(workSessionGoalTF.text ?? "1") ?? 1
+        }
     }
     
     @objc func handleDatePicker(_ datePicker: UIDatePicker) {
@@ -81,7 +100,6 @@ class SettingsTableViewController: UITableViewController {
             let hours = HourRange(type: .workHours, start: startTime, end: endTime)
             AppSettings.workHours = hours
         }
-        
     }
 
     

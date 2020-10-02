@@ -20,15 +20,15 @@ final class AppSettings {
     struct Key {
         static let dayHours = "dayHours"
         static let workHours = "workHours"
-        static let defaultBreakSessionGoal = "defaultBreakSessionGoal"
-        static let defaultWorkSessionGoal = "defaultWorkSessionGoal"
+        static let breakSessionGoal = "breakSessionGoal"
+        static let workSessionGoal = "workSessionGoal"
     }
     
     static func registerDefaults() {
         let defaults: [String: Any] = [Key.dayHours: encodeCodable(for: HourRange.exampleDayRange)!,
                                         Key.workHours: encodeCodable(for: HourRange.exampleWorkRange)!,
-                                        Key.defaultWorkSessionGoal: 30,
-                                        Key.defaultBreakSessionGoal: 30]
+                                        Key.workSessionGoal: 30,
+                                        Key.breakSessionGoal: 30]
         AppSettings.store.register(defaults: defaults)
     }
     
@@ -50,21 +50,21 @@ final class AppSettings {
         }
     }
     
-    var defaultWorkSessionGoal: Int {
+    public static var workSessionGoal: Int {
         get {
-            return AppSettings.int(for: Key.defaultWorkSessionGoal)
+            return AppSettings.int(for: Key.workSessionGoal)
         }
         set {
-            AppSettings.setInt(for: Key.defaultWorkSessionGoal, newValue)
+            AppSettings.setInt(for: Key.workSessionGoal, newValue)
         }
     }
     
-    var defaultBreakSessionGoal: Int {
+    public static var breakSessionGoal: Int {
         get {
-            return AppSettings.int(for: Key.defaultBreakSessionGoal)
+            return AppSettings.int(for: Key.breakSessionGoal)
         }
         set {
-            AppSettings.setInt(for: Key.defaultBreakSessionGoal, newValue)
+            AppSettings.setInt(for: Key.breakSessionGoal, newValue)
         }
     }
 }
