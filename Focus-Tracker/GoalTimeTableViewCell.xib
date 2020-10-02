@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GoalTimeTableViewCell" rowHeight="70" id="dLH-DX-2U5" customClass="GoalTimeTableViewCell" customModule="Focus_Tracker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dLH-DX-2U5" id="EBR-0M-W88">
+                <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Break Session Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1S-c7-6pe">
+                        <rect key="frame" x="20" y="25" width="147" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="rd4-XU-geh"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SDH-2C-6Zj">
+                        <rect key="frame" x="254" y="18" width="100" height="34"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="p32-8T-3SO"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="a1S-c7-6pe" firstAttribute="centerY" secondItem="EBR-0M-W88" secondAttribute="centerY" id="AsF-Tm-DXs"/>
+                    <constraint firstItem="a1S-c7-6pe" firstAttribute="leading" secondItem="EBR-0M-W88" secondAttribute="leading" constant="20" symbolic="YES" id="Eae-7V-vkH"/>
+                    <constraint firstAttribute="bottom" secondItem="SDH-2C-6Zj" secondAttribute="bottom" constant="18" id="Xbl-S4-gcJ"/>
+                    <constraint firstItem="SDH-2C-6Zj" firstAttribute="top" secondItem="EBR-0M-W88" secondAttribute="top" constant="18" id="cgV-sf-ths"/>
+                    <constraint firstAttribute="trailing" secondItem="SDH-2C-6Zj" secondAttribute="trailing" constant="20" symbolic="YES" id="izL-me-pf9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="goalTypeLabel" destination="a1S-c7-6pe" id="dqK-wN-Vyk"/>
+                <outlet property="minutesLabel" destination="SDH-2C-6Zj" id="B5r-5S-pGt"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="223.66071428571428"/>
+        </tableViewCell>
+    </objects>
+</document>

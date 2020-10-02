@@ -184,43 +184,82 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Default Work Hours" id="wHL-ee-rre">
+                            <tableViewSection headerTitle="Default Goal Times (Minutes)" id="wHL-ee-rre">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="uZ3-LW-414">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GoalTimeTableViewCell" rowHeight="70" id="XwU-g2-N6f" customClass="GoalTimeTableViewCell" customModule="Focus_Tracker" customModuleProvider="target">
                                         <rect key="frame" x="20" y="447.5" width="374" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uZ3-LW-414" id="1XN-63-ftQ">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XwU-g2-N6f" id="2bG-yD-efa">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Session Goal Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxZ-We-Nb5">
-                                                    <rect key="frame" x="20" y="25" width="155" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Break Session Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DrE-6j-N4z">
+                                                    <rect key="frame" x="20" y="25" width="147" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="wt1-1G-ST5"/>
+                                                        <constraint firstAttribute="width" constant="100" id="v1H-Af-VvR"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xet-qO-NLa">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nB2-p3-6hn">
                                                     <rect key="frame" x="254" y="18" width="100" height="34"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="rzv-gP-Ksw"/>
+                                                        <constraint firstAttribute="width" constant="100" id="gTV-qQ-ZUG"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Xet-qO-NLa" firstAttribute="top" secondItem="1XN-63-ftQ" secondAttribute="top" constant="18" id="PVV-aI-Xd5"/>
-                                                <constraint firstItem="bxZ-We-Nb5" firstAttribute="centerY" secondItem="1XN-63-ftQ" secondAttribute="centerY" id="ZTY-Oh-Uwm"/>
-                                                <constraint firstAttribute="trailing" secondItem="Xet-qO-NLa" secondAttribute="trailing" constant="20" symbolic="YES" id="eJm-B2-t8V"/>
-                                                <constraint firstAttribute="bottom" secondItem="Xet-qO-NLa" secondAttribute="bottom" constant="18" id="jHv-LD-vgg"/>
-                                                <constraint firstItem="bxZ-We-Nb5" firstAttribute="leading" secondItem="1XN-63-ftQ" secondAttribute="leading" constant="20" symbolic="YES" id="wwP-RR-XSW"/>
+                                                <constraint firstAttribute="trailing" secondItem="nB2-p3-6hn" secondAttribute="trailing" constant="20" symbolic="YES" id="6SC-vA-wD2"/>
+                                                <constraint firstItem="DrE-6j-N4z" firstAttribute="leading" secondItem="2bG-yD-efa" secondAttribute="leading" constant="20" symbolic="YES" id="8CW-8l-TcP"/>
+                                                <constraint firstItem="DrE-6j-N4z" firstAttribute="centerY" secondItem="2bG-yD-efa" secondAttribute="centerY" id="ZhH-xo-o3O"/>
+                                                <constraint firstAttribute="bottom" secondItem="nB2-p3-6hn" secondAttribute="bottom" constant="18" id="aTo-l1-wAj"/>
+                                                <constraint firstItem="nB2-p3-6hn" firstAttribute="top" secondItem="2bG-yD-efa" secondAttribute="top" constant="18" id="kLi-qQ-BaR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="label" destination="bxZ-We-Nb5" id="p90-CZ-sUE"/>
+                                            <outlet property="goalTypeLabel" destination="DrE-6j-N4z" id="p2L-UM-pIQ"/>
+                                            <outlet property="minutesLabel" destination="nB2-p3-6hn" id="5bW-4Q-ipt"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GoalTimeTableViewCell" rowHeight="70" id="vjS-zX-kis" customClass="GoalTimeTableViewCell" customModule="Focus_Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="517.5" width="374" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vjS-zX-kis" id="LUW-4n-j3M">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Work Session Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVd-J1-qaX">
+                                                    <rect key="frame" x="20" y="25" width="143" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="Wpz-rs-YgC"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eSu-Vz-njE">
+                                                    <rect key="frame" x="254" y="18" width="100" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="wUV-BN-uLz"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="eSu-Vz-njE" firstAttribute="top" secondItem="LUW-4n-j3M" secondAttribute="top" constant="18" id="0rG-E5-AvF"/>
+                                                <constraint firstAttribute="trailing" secondItem="eSu-Vz-njE" secondAttribute="trailing" constant="20" symbolic="YES" id="7Uu-QL-pTw"/>
+                                                <constraint firstItem="oVd-J1-qaX" firstAttribute="leading" secondItem="LUW-4n-j3M" secondAttribute="leading" constant="20" symbolic="YES" id="G4O-98-gw8"/>
+                                                <constraint firstAttribute="bottom" secondItem="eSu-Vz-njE" secondAttribute="bottom" constant="18" id="dVw-VL-bjY"/>
+                                                <constraint firstItem="oVd-J1-qaX" firstAttribute="centerY" secondItem="LUW-4n-j3M" secondAttribute="centerY" id="jqJ-52-YoO"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="goalTypeLabel" destination="oVd-J1-qaX" id="Nux-sU-ENI"/>
+                                            <outlet property="minutesLabel" destination="eSu-Vz-njE" id="9th-Jk-L8O"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>

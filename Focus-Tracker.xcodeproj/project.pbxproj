@@ -26,6 +26,8 @@
 		E30EB34F2527A80D009333F2 /* ElapsedTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E30EB34D2527A80D009333F2 /* ElapsedTimeTableViewCell.xib */; };
 		E329D7DE2527B3FC0007A2E2 /* ShiftsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E329D7DD2527B3FC0007A2E2 /* ShiftsDataSource.swift */; };
 		E329D7E12527B8B00007A2E2 /* Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E329D7E02527B8B00007A2E2 /* Shift.swift */; };
+		E329D7E52527CC980007A2E2 /* GoalTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E329D7E32527CC980007A2E2 /* GoalTimeTableViewCell.swift */; };
+		E329D7E62527CC980007A2E2 /* GoalTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E329D7E42527CC980007A2E2 /* GoalTimeTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		E30EB34D2527A80D009333F2 /* ElapsedTimeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ElapsedTimeTableViewCell.xib; sourceTree = "<group>"; };
 		E329D7DD2527B3FC0007A2E2 /* ShiftsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftsDataSource.swift; sourceTree = "<group>"; };
 		E329D7E02527B8B00007A2E2 /* Shift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shift.swift; sourceTree = "<group>"; };
+		E329D7E32527CC980007A2E2 /* GoalTimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTimeTableViewCell.swift; sourceTree = "<group>"; };
+		E329D7E42527CC980007A2E2 /* GoalTimeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoalTimeTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,8 @@
 				E30EB3312526B69E009333F2 /* HourRange.swift */,
 				E30EB32E2526B4F9009333F2 /* AppSettings.swift */,
 				E30EB3252526AD31009333F2 /* TimeTableViewCell.swift */,
+				E329D7E32527CC980007A2E2 /* GoalTimeTableViewCell.swift */,
+				E329D7E42527CC980007A2E2 /* GoalTimeTableViewCell.xib */,
 				E30EB3262526AD31009333F2 /* TimeTableViewCell.xib */,
 				E30EB34C2527A80D009333F2 /* ElapsedTimeTableViewCell.swift */,
 				E30EB34D2527A80D009333F2 /* ElapsedTimeTableViewCell.xib */,
@@ -171,6 +177,7 @@
 				E30EB31F2526A647009333F2 /* Settings.storyboard in Resources */,
 				E30EB30625267B2E009333F2 /* Main.storyboard in Resources */,
 				E30EB31B2526A5A2009333F2 /* History.storyboard in Resources */,
+				E329D7E62527CC980007A2E2 /* GoalTimeTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +191,7 @@
 				E30EB3272526AD31009333F2 /* TimeTableViewCell.swift in Sources */,
 				E30EB3322526B69E009333F2 /* HourRange.swift in Sources */,
 				E30EB32C2526AF45009333F2 /* SettingsTableViewController.swift in Sources */,
+				E329D7E52527CC980007A2E2 /* GoalTimeTableViewCell.swift in Sources */,
 				E329D7E12527B8B00007A2E2 /* Shift.swift in Sources */,
 				E30EB32F2526B4F9009333F2 /* AppSettings.swift in Sources */,
 				E30EB3362526BCEB009333F2 /* CurrentTimerViewController.swift in Sources */,
