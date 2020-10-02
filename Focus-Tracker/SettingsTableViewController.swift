@@ -8,18 +8,91 @@
 import UIKit
 
 class SettingsTableViewController: UITableViewController {
+    @IBOutlet weak var dayStartDatePicker: UIDatePicker!
+    @IBOutlet weak var dayEndDatePicker: UIDatePicker!
+    @IBOutlet weak var workStartDatePicker: UIDatePicker!
+    @IBOutlet weak var workEndDatePicker: UIDatePicker!
     // TODO: Connect settings table view to app settings defaultDayHours and defaultWorkHours
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        dayStartDatePicker.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
+        dayEndDatePicker.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
+        workStartDatePicker.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
+        workEndDatePicker.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
         
+        let dayHours = AppSettings.dayHours
+        let workHours = AppSettings.workHours
+        
+        let dayStart = Calendar.current.date(bySettingHour: dayHours.start.hour, minute: dayHours.start.minute, second: 0, of: Date())!
+        let dayEnd = Calendar.current.date(bySettingHour: dayHours.end.hour, minute: dayHours.end.minute, second: 0, of: Date())!
+        
+        let workStart = Calendar.current.date(bySettingHour: workHours.start.hour, minute: dayHours.start.minute, second: 0, of: Date())!
+        let workEnd = Calendar.current.date(bySettingHour: workHours.end.hour, minute: workHours.end.minute, second: 0, of: Date())!
+
+        dayStartDatePicker.setDate(dayStart, animated: false)
+        dayEndDatePicker.setDate(dayEnd, animated: false)
+        workStartDatePicker.setDate(workStart, animated: false)
+        workEndDatePicker.setDate(workEnd, animated: false)
+
+
+
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    @objc func handleDatePicker(_ datePicker: UIDatePicker) {
+        if datePicker == dayStartDatePicker {
+            let hour = Calendar.current.component(.hour, from: datePicker.date)
+            let minute = Calendar.current.component(.minute, from: datePicker.date)
+            let startTime = Time(hour: hour, minute: minute)
+            let endTime = AppSettings.dayHours.end
+            let hours = HourRange(type: .dayHours, start: startTime, end: endTime)
+            AppSettings.dayHours = hours
+        }
+        
+        if datePicker == dayEndDatePicker {
+            let hour = Calendar.current.component(.hour, from: datePicker.date)
+            let minute = Calendar.current.component(.minute, from: datePicker.date)
+            let startTime = AppSettings.dayHours.start
+            let endTime = Time(hour: hour, minute: minute)
+            let hours = HourRange(type: .dayHours, start: startTime, end: endTime)
+            AppSettings.dayHours = hours
+        }
+        
+        if datePicker == workStartDatePicker {
+            let hour = Calendar.current.component(.hour, from: datePicker.date)
+            let minute = Calendar.current.component(.minute, from: datePicker.date)
+            let startTime = Time(hour: hour, minute: minute)
+            let endTime = AppSettings.workHours.end
+            let hours = HourRange(type: .workHours, start: startTime, end: endTime)
+            AppSettings.workHours = hours
+        }
+        
+        if datePicker == workEndDatePicker {
+            let hour = Calendar.current.component(.hour, from: datePicker.date)
+            let minute = Calendar.current.component(.minute, from: datePicker.date)
+            let startTime = AppSettings.dayHours.start
+            let endTime = Time(hour: hour, minute: minute)
+            let hours = HourRange(type: .workHours, start: startTime, end: endTime)
+            AppSettings.workHours = hours
+        }
+        
+    }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
     // MARK: - Table view data source
     /*
     // Override to support conditional editing of the table view.

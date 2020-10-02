@@ -18,35 +18,35 @@ final class AppSettings {
     }()
     
     struct Key {
-        static let defaultDayHours = "defaultDayHours"
-        static let defaultWorkHours = "defaultWorkHours"
+        static let dayHours = "dayHours"
+        static let workHours = "workHours"
         static let defaultBreakSessionGoal = "defaultBreakSessionGoal"
         static let defaultWorkSessionGoal = "defaultWorkSessionGoal"
     }
     
     static func registerDefaults() {
-        let defaults: [String: Any] = [Key.defaultDayHours: encodeCodable(for: HourRange.exampleDayRange)!,
-                                        Key.defaultWorkHours: encodeCodable(for: HourRange.exampleWorkRange)!,
+        let defaults: [String: Any] = [Key.dayHours: encodeCodable(for: HourRange.exampleDayRange)!,
+                                        Key.workHours: encodeCodable(for: HourRange.exampleWorkRange)!,
                                         Key.defaultWorkSessionGoal: 30,
                                         Key.defaultBreakSessionGoal: 30]
         AppSettings.store.register(defaults: defaults)
     }
     
-    var defaultDayHours: HourRange {
+    public static var dayHours: HourRange {
         get {
-            return AppSettings.codable(for: Key.defaultDayHours) ?? HourRange.exampleDayRange
+            return AppSettings.codable(for: Key.dayHours)!
         }
         set {
-            AppSettings.setCodable(for: Key.defaultDayHours, newValue)
+            AppSettings.setCodable(for: Key.dayHours, newValue)
         }
     }
     
-    var defaultWorkHours: HourRange {
+    public static var workHours: HourRange {
         get {
-            return AppSettings.codable(for: Key.defaultWorkHours) ?? HourRange.exampleWorkRange
+            return AppSettings.codable(for: Key.workHours)!
         }
         set {
-            AppSettings.setCodable(for: Key.defaultWorkHours, newValue)
+            AppSettings.setCodable(for: Key.workHours, newValue)
         }
     }
     
