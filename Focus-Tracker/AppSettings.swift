@@ -20,11 +20,15 @@ final class AppSettings {
     struct Key {
         static let defaultDayHours = "defaultDayHours"
         static let defaultWorkHours = "defaultWorkHours"
+        static let defaultBreakSessionGoal = "defaultBreakSessionGoal"
+        static let defaultWorkSessionGoal = "defaultWorkSessionGoal"
     }
     
     static func registerDefaults() {
-        let defaults: [String: Data] = [Key.defaultDayHours: encodeCodable(for: HourRange.exampleDayRange)!,
-                                        Key.defaultWorkHours: encodeCodable(for: HourRange.exampleWorkRange)!]
+        let defaults: [String: Any] = [Key.defaultDayHours: encodeCodable(for: HourRange.exampleDayRange)!,
+                                        Key.defaultWorkHours: encodeCodable(for: HourRange.exampleWorkRange)!,
+                                        Key.defaultWorkSessionGoal: 30,
+                                        Key.defaultBreakSessionGoal: 30]
         AppSettings.store.register(defaults: defaults)
     }
     
@@ -64,6 +68,13 @@ private extension AppSettings {
         AppSettings.store.set(flag, forKey: key)
     }
     
+    static func int(for key: String) -> Int {
+        return AppSettings.store.integer(forKey: key)
+    }
+
+    static func setInt(for key: String, _ value: Int) {
+        AppSettings.store.set(value, forKey: key)
+    }
     static func encodeCodable<T: Codable>(for value: T) -> Data? {
         let encoder = JSONEncoder()
         return try? encoder.encode(value)
