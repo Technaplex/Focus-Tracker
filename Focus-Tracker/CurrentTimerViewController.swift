@@ -31,7 +31,7 @@ class CurrentTimerViewController: UIViewController {
     var running = false
     
     var shiftsDataSource = ShiftsDataSource()
-    
+        
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -99,6 +99,10 @@ class CurrentTimerViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        switch segue.identifier {
+        case "create_timer": break;
+        default: break;
+        }
     }
 
 }

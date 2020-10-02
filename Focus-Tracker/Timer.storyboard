@@ -150,7 +150,7 @@
                         <outlet property="shiftsTableView" destination="wPr-dD-avZ" id="085-0w-Gpa"/>
                         <outlet property="timerLabel" destination="PEP-Rj-qr1" id="Cw9-Jv-47W"/>
                         <outlet property="typeLabel" destination="z6x-fk-zfa" id="CZy-vP-lXH"/>
-                        <segue destination="5R7-7v-TcK" kind="presentation" identifier="create_timer" id="JMn-JB-uBY"/>
+                        <segue destination="5R7-7v-TcK" kind="presentation" identifier="create_timer" id="eEu-Yr-XWR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wUg-7w-tb0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -226,6 +226,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eqv-jV-Ud8">
                                         <rect key="frame" x="0.0" y="116.5" width="280" height="30"/>
                                         <state key="normal" title="Start"/>
+                                        <connections>
+                                            <action selector="start:" destination="5R7-7v-TcK" eventType="touchUpInside" id="AIe-4o-hBj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -239,6 +242,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="ovu-XP-hb0" userLabel="New Session"/>
+                    <connections>
+                        <outlet property="activity" destination="3Xs-2e-Y92" id="3tA-5l-ySo"/>
+                        <outlet property="focus" destination="8SB-Tf-UoO" id="VRC-px-Ugq"/>
+                        <outlet property="type" destination="HbA-2t-J69" id="Eln-50-Go8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1qk-zb-lGi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
