@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Current Timer-->
+        <!--Current Session-->
         <scene sceneID="2si-qi-CSt">
             <objects>
                 <viewController storyboardIdentifier="timerViewController" id="Lg1-B7-A5h" customClass="CurrentTimerViewController" customModule="Focus_Tracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -130,7 +130,7 @@
                             <constraint firstItem="pWa-5N-KD6" firstAttribute="top" secondItem="vId-fT-cum" secondAttribute="top" id="t3g-Y3-oaR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Current Timer" id="bf8-As-k04"/>
+                    <navigationItem key="navigationItem" title="Current Session" id="bf8-As-k04"/>
                     <connections>
                         <outlet property="activityLabel" destination="wyg-vL-szw" id="vIH-fh-glP"/>
                         <outlet property="interruptValueTextField" destination="q7U-YQ-M5b" id="Xv7-3z-5Z8"/>
