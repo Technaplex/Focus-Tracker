@@ -37,14 +37,12 @@ class CurrentTimerViewController: UIViewController {
     }
     
     @objc func update_timer() {
-        let diff = Date().timeIntervalSince(start)
-        let interval = Int(diff)
+        let interval = Int(Date().timeIntervalSince(start))
         
         let hours = interval / 3600
         let minutes = (interval % 3600) / 60
         let seconds = interval % 60
-        let millis = diff - diff
-        
+
         self.timerLabel.text = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
     }
     
