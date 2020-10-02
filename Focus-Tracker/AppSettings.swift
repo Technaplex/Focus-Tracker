@@ -49,6 +49,24 @@ final class AppSettings {
             AppSettings.setCodable(for: Key.defaultWorkHours, newValue)
         }
     }
+    
+    var defaultWorkSessionGoal: Int {
+        get {
+            return AppSettings.int(for: Key.defaultWorkSessionGoal)
+        }
+        set {
+            AppSettings.setInt(for: Key.defaultWorkSessionGoal, newValue)
+        }
+    }
+    
+    var defaultBreakSessionGoal: Int {
+        get {
+            return AppSettings.int(for: Key.defaultBreakSessionGoal)
+        }
+        set {
+            AppSettings.setInt(for: Key.defaultBreakSessionGoal, newValue)
+        }
+    }
 }
 
 private extension AppSettings {
