@@ -26,6 +26,7 @@ class CurrentTimerViewController: UIViewController {
     var timer: Timer!
     var activities = 0
     var last_lap: Date!
+    var goal = 2500 // goal in seconds (this is 25 minutes)
     
     var shiftsDataSource = ShiftsDataSource()
     
@@ -52,7 +53,13 @@ class CurrentTimerViewController: UIViewController {
     @objc func update_timer() {
         let interval = Int(Date().timeIntervalSince(start))
         
+        let progress = CGFloat(interval) / CGFloat(goal)
+        
         self.timerLabel.text = timedelta_to_string(interval)
+        self.timerLabel.textColor = UIColor(red: 1 - progress,
+                                            green: 0,
+                                            blue: progress,
+                                            alpha: 1.0)
     }
     
     // MARK: - Actions
