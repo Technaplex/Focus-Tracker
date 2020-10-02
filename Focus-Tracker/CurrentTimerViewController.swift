@@ -27,7 +27,7 @@ class CurrentTimerViewController: UIViewController {
     var timer: Timer!
     var activities = 0
     var last_lap: Date!
-    var goal = 2500 // goal in seconds (this is 25 minutes)
+    var goal = 1500 // goal in seconds (this is 25 minutes)
     
     var shiftsDataSource = ShiftsDataSource()
     
