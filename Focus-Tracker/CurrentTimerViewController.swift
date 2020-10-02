@@ -7,6 +7,14 @@
 
 import UIKit
 
+func timedelta_to_string(_ interval: Int) -> String {
+    let hours = interval / 3600
+    let minutes = (interval % 3600) / 60
+    let seconds = interval % 60
+
+    return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+}
+
 class CurrentTimerViewController: UIViewController {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var activityLabel: UILabel!
@@ -16,6 +24,8 @@ class CurrentTimerViewController: UIViewController {
     
     var start: Date!
     var timer: Timer!
+    var activities = 0
+    var last_lap: Date!
     
     var shiftsDataSource = ShiftsDataSource()
     
@@ -28,6 +38,7 @@ class CurrentTimerViewController: UIViewController {
         shiftsDataSource.delegate = self
         
         start = Date()
+        last_lap = start
         
         timer = Timer.scheduledTimer(timeInterval: 1.0,
                                                    target: self,
@@ -37,22 +48,18 @@ class CurrentTimerViewController: UIViewController {
     }
     
     @objc func update_timer() {
-        let diff = Date().timeIntervalSince(start)
-        let interval = Int(diff)
+        let interval = Int(Date().timeIntervalSince(start))
         
-        let hours = interval / 3600
-        let minutes = (interval % 3600) / 60
-        let seconds = interval % 60
-        let millis = diff - diff
-        
-        self.timerLabel.text = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+        self.timerLabel.text = timedelta_to_string(interval)
     }
     
     // MARK: - Actions
     
     @IBAction func shiftActivity(_ sender: Any) {
-        // TODO: Undummy this
-        shiftsDataSource.add(shift: Shift(activity: "CHICKEN", start: Date(), end: Date()))
+        let end = Date()
+        shiftsDataSource.add(shift: Shift(activity: "\(activities)", start: last_lap, end: end))
+        last_lap = end
+        activities += 1
     }
     
     @IBAction func endSession(_ sender: Any) {

@@ -32,8 +32,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal: 25 minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fN9-7J-7Nk">
+                                        <rect key="frame" x="8" y="68.5" width="304" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zXm-ik-V7E">
-                                        <rect key="frame" x="8" y="68.5" width="304" height="110"/>
+                                        <rect key="frame" x="8" y="97" width="304" height="110"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEP-Rj-qr1">
                                                 <rect key="frame" x="0.0" y="0.0" width="304" height="72"/>
@@ -63,25 +69,25 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jPF-zQ-3dT">
-                                        <rect key="frame" x="8" y="186.5" width="304" height="34"/>
+                                        <rect key="frame" x="8" y="215" width="304" height="32"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interrupts: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Htc-iq-JLD">
-                                                <rect key="frame" x="0.0" y="0.0" width="83.5" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="83.5" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="2NQ-hs-lME">
-                                                <rect key="frame" x="91.5" y="0.0" width="50" height="34"/>
+                                                <rect key="frame" x="91.5" y="0.0" width="50" height="32"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q7U-YQ-M5b">
-                                                <rect key="frame" x="149.5" y="0.0" width="52.5" height="34"/>
+                                                <rect key="frame" x="149.5" y="0.0" width="52.5" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="l04-Da-atW">
-                                                <rect key="frame" x="210" y="0.0" width="94" height="34"/>
+                                                <rect key="frame" x="210" y="0.0" width="94" height="32"/>
                                                 <connections>
                                                     <action selector="interruptValueChanged:" destination="Lg1-B7-A5h" eventType="valueChanged" id="edI-2c-nWh"/>
                                                 </connections>
@@ -89,7 +95,7 @@
                                         </subviews>
                                     </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eee-4d-82S">
-                                        <rect key="frame" x="8" y="228.5" width="304" height="147.5"/>
+                                        <rect key="frame" x="8" y="255" width="304" height="121"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Wzg-0l-Sr8" detailTextLabel="9BV-GT-mA9" style="IBUITableViewCellStyleValue1" id="IsY-74-CoL" customClass="ShiftTableViewCell" customModule="Focus_Tracker" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="304" height="43.5"/>
