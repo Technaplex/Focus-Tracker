@@ -20,7 +20,8 @@ class CreateTimerViewController: UIViewController {
         let timer = (presenter.viewControllers![0] as! UINavigationController).topViewController as! CurrentTimerViewController
         
         timer.typeLabel.text = "Text: \(focus.titleForSegment(at: focus.selectedSegmentIndex)!) \(type.titleForSegment(at: type.selectedSegmentIndex)!)"
-        timer.activityLabel.text = "Activity: \(activity.text!)"
+        
+        timer.activity = activity.text!
         timer.running = true
         timer.goal = Int(goal.text!)! * 60
         

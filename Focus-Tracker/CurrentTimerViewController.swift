@@ -25,7 +25,7 @@ class CurrentTimerViewController: UIViewController {
     
     var start: Date!
     var timer: Timer!
-    var activities = 0
+    var activity = ""
     var last_lap: Date!
     var goal = 1500 // goal in seconds (this is 25 minutes)
     var running = false
@@ -56,7 +56,9 @@ class CurrentTimerViewController: UIViewController {
     }
     
     func start_timer() {
+        activityLabel.text = "Activity: \(activity)"
         goalLabel.text = "Goal: \(goal / 60) minutes"
+        
         start = Date()
         last_lap = start
     }
@@ -81,9 +83,10 @@ class CurrentTimerViewController: UIViewController {
     
     @IBAction func add_shift(_ sender: Any) {
         let end = Date()
-        shiftsDataSource.add(shift: Shift(activity: "\(activities)", start: last_lap, end: end))
+        shiftsDataSource.add(shift: Shift(activity: activity, start: last_lap, end: end))
         last_lap = end
-        activities += 1
+        
+        self.present_for_activity()
     }
     
     @IBAction func endSession(_ sender: Any) {
@@ -92,6 +95,17 @@ class CurrentTimerViewController: UIViewController {
     @IBAction func interruptValueChanged(_ sender: Any) {
     }
     
+    func present_for_activity() {
+        let ac = UIAlertController(title: "Activity Name:", message: nil, preferredStyle: .alert)
+        ac.addTextField()
+
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
+            self.activity = ac.textFields![0].text!
+        }
+        ac.addAction(submitAction)
+
+        present(ac, animated: true)
+    }
 
     // MARK: - Navigation
     
@@ -104,6 +118,7 @@ class CurrentTimerViewController: UIViewController {
         }
     }
 
+    
 }
 
 extension CurrentTimerViewController: ShiftsDataSourceDelegate {
