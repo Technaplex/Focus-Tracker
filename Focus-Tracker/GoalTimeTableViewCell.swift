@@ -7,12 +7,13 @@
 
 import UIKit
 
-class GoalTimeTableViewCell: UITableViewCell {
+class GoalTimeTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var goalTypeLabel: UILabel!
     @IBOutlet weak var minutesLabel: UITextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        minutesLabel.delegate = self
         // Initialization code
     }
 
@@ -22,4 +23,10 @@ class GoalTimeTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    // MARK: UITextField Delegates
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let allowedCharacters = CharacterSet(charactersIn:"0123456789")
+        let characterSet = CharacterSet(charactersIn: string)
+        return allowedCharacters.isSuperset(of: characterSet)
+    }
 }
