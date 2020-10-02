@@ -21,6 +21,7 @@ class CurrentTimerViewController: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var interruptValueTextField: UITextField!
     @IBOutlet weak var shiftsTableView: UITableView!
+    @IBOutlet weak var goalLabel: UILabel!
     
     var start: Date!
     var timer: Timer!
@@ -48,6 +49,8 @@ class CurrentTimerViewController: UIViewController {
                                                    selector: #selector(self.update_timer),
                                                    userInfo: nil,
                                                    repeats: true)
+        
+        goalLabel.text = "Goal: \(goal / 60) minutes"
     }
     
     @objc func update_timer() {
