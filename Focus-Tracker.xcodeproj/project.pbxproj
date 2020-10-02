@@ -22,6 +22,10 @@
 		E30EB3322526B69E009333F2 /* HourRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30EB3312526B69E009333F2 /* HourRange.swift */; };
 		E30EB3362526BCEB009333F2 /* CurrentTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30EB3352526BCEB009333F2 /* CurrentTimerViewController.swift */; };
 		E30EB3392526BCFB009333F2 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30EB3382526BCFB009333F2 /* HistoryViewController.swift */; };
+		E30EB34E2527A80D009333F2 /* ElapsedTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30EB34C2527A80D009333F2 /* ElapsedTimeTableViewCell.swift */; };
+		E30EB34F2527A80D009333F2 /* ElapsedTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E30EB34D2527A80D009333F2 /* ElapsedTimeTableViewCell.xib */; };
+		E329D7DE2527B3FC0007A2E2 /* ShiftsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E329D7DD2527B3FC0007A2E2 /* ShiftsDataSource.swift */; };
+		E329D7E12527B8B00007A2E2 /* Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E329D7E02527B8B00007A2E2 /* Shift.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,10 @@
 		E30EB3312526B69E009333F2 /* HourRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourRange.swift; sourceTree = "<group>"; };
 		E30EB3352526BCEB009333F2 /* CurrentTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTimerViewController.swift; sourceTree = "<group>"; };
 		E30EB3382526BCFB009333F2 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		E30EB34C2527A80D009333F2 /* ElapsedTimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElapsedTimeTableViewCell.swift; sourceTree = "<group>"; };
+		E30EB34D2527A80D009333F2 /* ElapsedTimeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ElapsedTimeTableViewCell.xib; sourceTree = "<group>"; };
+		E329D7DD2527B3FC0007A2E2 /* ShiftsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftsDataSource.swift; sourceTree = "<group>"; };
+		E329D7E02527B8B00007A2E2 /* Shift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shift.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,15 +86,19 @@
 				E30EB30025267B2E009333F2 /* SceneDelegate.swift */,
 				E30EB30425267B2E009333F2 /* Main.storyboard */,
 				E30EB3132526A3DD009333F2 /* Timer.storyboard */,
+				E329D7DD2527B3FC0007A2E2 /* ShiftsDataSource.swift */,
 				E30EB3352526BCEB009333F2 /* CurrentTimerViewController.swift */,
 				E30EB3382526BCFB009333F2 /* HistoryViewController.swift */,
 				E30EB31A2526A5A2009333F2 /* History.storyboard */,
 				E30EB31E2526A647009333F2 /* Settings.storyboard */,
 				E30EB32B2526AF45009333F2 /* SettingsTableViewController.swift */,
+				E329D7E02527B8B00007A2E2 /* Shift.swift */,
 				E30EB3312526B69E009333F2 /* HourRange.swift */,
 				E30EB32E2526B4F9009333F2 /* AppSettings.swift */,
 				E30EB3252526AD31009333F2 /* TimeTableViewCell.swift */,
 				E30EB3262526AD31009333F2 /* TimeTableViewCell.xib */,
+				E30EB34C2527A80D009333F2 /* ElapsedTimeTableViewCell.swift */,
+				E30EB34D2527A80D009333F2 /* ElapsedTimeTableViewCell.xib */,
 				E30EB30725267B30009333F2 /* Assets.xcassets */,
 				E30EB30925267B30009333F2 /* LaunchScreen.storyboard */,
 				E30EB30C25267B30009333F2 /* Info.plist */,
@@ -155,6 +167,7 @@
 				E30EB30B25267B30009333F2 /* LaunchScreen.storyboard in Resources */,
 				E30EB30825267B30009333F2 /* Assets.xcassets in Resources */,
 				E30EB3142526A3DD009333F2 /* Timer.storyboard in Resources */,
+				E30EB34F2527A80D009333F2 /* ElapsedTimeTableViewCell.xib in Resources */,
 				E30EB31F2526A647009333F2 /* Settings.storyboard in Resources */,
 				E30EB30625267B2E009333F2 /* Main.storyboard in Resources */,
 				E30EB31B2526A5A2009333F2 /* History.storyboard in Resources */,
@@ -171,9 +184,12 @@
 				E30EB3272526AD31009333F2 /* TimeTableViewCell.swift in Sources */,
 				E30EB3322526B69E009333F2 /* HourRange.swift in Sources */,
 				E30EB32C2526AF45009333F2 /* SettingsTableViewController.swift in Sources */,
+				E329D7E12527B8B00007A2E2 /* Shift.swift in Sources */,
 				E30EB32F2526B4F9009333F2 /* AppSettings.swift in Sources */,
 				E30EB3362526BCEB009333F2 /* CurrentTimerViewController.swift in Sources */,
+				E329D7DE2527B3FC0007A2E2 /* ShiftsDataSource.swift in Sources */,
 				E30EB3392526BCFB009333F2 /* HistoryViewController.swift in Sources */,
+				E30EB34E2527A80D009333F2 /* ElapsedTimeTableViewCell.swift in Sources */,
 				E30EB2FF25267B2E009333F2 /* AppDelegate.swift in Sources */,
 				E30EB30125267B2E009333F2 /* SceneDelegate.swift in Sources */,
 			);
