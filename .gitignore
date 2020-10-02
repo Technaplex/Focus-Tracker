@@ -4,6 +4,7 @@
 
 .DS_Store
 wildcat_settings
+.idea/
 
 ## Build generated
 build/
