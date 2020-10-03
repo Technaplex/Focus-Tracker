@@ -93,12 +93,12 @@ class CurrentTimerViewController: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction func add_shift(_ sender: Any) {
+    @IBAction func addShift(_ sender: Any) {
         let end = Date()
         shiftsDataSource.add(shift: Shift(activity: activity == "" ? "None" : activity, start: last_lap, end: end))
         last_lap = end
         
-        self.present_for_activity()
+        self.createNewActivity()
     }
     
     @IBAction func endSession(_ sender: Any) {
@@ -110,7 +110,7 @@ class CurrentTimerViewController: UIViewController {
     @IBAction func interruptValueChanged(_ sender: Any) {
     }
     
-    func present_for_activity() {
+    func createNewActivity() {
         let ac = UIAlertController(title: "Activity Name:", message: nil, preferredStyle: .alert)
         ac.addTextField()
 

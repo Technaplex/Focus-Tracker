@@ -37,6 +37,8 @@
 		E35726A52528D98800291120 /* HistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35726A32528D98800291120 /* HistoryCollectionViewCell.swift */; };
 		E35726A92528DF1000291120 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35726A82528DF1000291120 /* User.swift */; };
 		E35726B02528F07A00291120 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35726AF2528F07A00291120 /* Section.swift */; };
+		E35726B725291A5600291120 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35726B625291A5600291120 /* Timer.swift */; };
+		E35726BA252924DD00291120 /* EndSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35726B9252924DD00291120 /* EndSessionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +76,8 @@
 		E35726A32528D98800291120 /* HistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		E35726A82528DF1000291120 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E35726AF2528F07A00291120 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		E35726B625291A5600291120 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		E35726B9252924DD00291120 /* EndSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndSessionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +180,8 @@
 				2038F2412527DB3C000DC9D2 /* ShiftTableViewCell.swift */,
 				E329D7DD2527B3FC0007A2E2 /* ShiftsDataSource.swift */,
 				2038F2B92527E3E5000DC9D2 /* CreateTimerViewController.swift */,
+				E35726B625291A5600291120 /* Timer.swift */,
+				E35726B9252924DD00291120 /* EndSessionViewController.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -339,10 +345,12 @@
 				2038F2422527DB3C000DC9D2 /* ShiftTableViewCell.swift in Sources */,
 				E35726B02528F07A00291120 /* Section.swift in Sources */,
 				E329D7E12527B8B00007A2E2 /* Shift.swift in Sources */,
+				E35726B725291A5600291120 /* Timer.swift in Sources */,
 				E35726A92528DF1000291120 /* User.swift in Sources */,
 				E30EB32F2526B4F9009333F2 /* AppSettings.swift in Sources */,
 				E30EB3362526BCEB009333F2 /* CurrentTimerViewController.swift in Sources */,
 				874EC7E62527E37900DA2B16 /* AuthViewController.swift in Sources */,
+				E35726BA252924DD00291120 /* EndSessionViewController.swift in Sources */,
 				E329D7DE2527B3FC0007A2E2 /* ShiftsDataSource.swift in Sources */,
 				2038F2BA2527E3E5000DC9D2 /* CreateTimerViewController.swift in Sources */,
 				E35726A52528D98800291120 /* HistoryCollectionViewCell.swift in Sources */,
