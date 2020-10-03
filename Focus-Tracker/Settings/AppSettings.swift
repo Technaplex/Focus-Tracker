@@ -35,6 +35,12 @@ final class AppSettings {
         AppSettings.store.register(defaults: defaults)
     }
     
+    // provided as a convenience for developers to flush old/invalid settings
+    static func flushSettings() {
+        AppSettings.store.set(nil, forKey: Key.dayHours)
+        AppSettings.store.set(nil, forKey: Key.workHours)
+    }
+    
     var dayHours: HourRange {
         get {
             return AppSettings.codable(for: Key.dayHours)!
