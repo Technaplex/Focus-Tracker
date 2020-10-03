@@ -116,33 +116,65 @@
 		E30EB2FD25267B2E009333F2 /* Focus-Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				E35725E42528C8CD00291120 /* History */,
+				E35725E32528C8B400291120 /* Timer */,
+				E35725E22528C6DB00291120 /* Model */,
+				E35725E02528C6AD00291120 /* Settings */,
 				E30EB2FE25267B2E009333F2 /* AppDelegate.swift */,
 				E30EB30025267B2E009333F2 /* SceneDelegate.swift */,
 				E30EB30425267B2E009333F2 /* Main.storyboard */,
-				E30EB3132526A3DD009333F2 /* Timer.storyboard */,
-				E329D7DD2527B3FC0007A2E2 /* ShiftsDataSource.swift */,
-				E30EB3352526BCEB009333F2 /* CurrentTimerViewController.swift */,
-				E30EB3382526BCFB009333F2 /* HistoryViewController.swift */,
-				E329D80F25280E6F0007A2E2 /* StudyDay.swift */,
-				E30EB31A2526A5A2009333F2 /* History.storyboard */,
+				E30EB30725267B30009333F2 /* Assets.xcassets */,
+				E30EB30925267B30009333F2 /* LaunchScreen.storyboard */,
+				E30EB30C25267B30009333F2 /* Info.plist */,
+				874EC7E22527E36600DA2B16 /* GoogleService-Info.plist */,
+				874EC7E52527E37900DA2B16 /* AuthViewController.swift */,
+			);
+			path = "Focus-Tracker";
+			sourceTree = "<group>";
+		};
+		E35725E02528C6AD00291120 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E30EB32E2526B4F9009333F2 /* AppSettings.swift */,
 				E30EB31E2526A647009333F2 /* Settings.storyboard */,
 				E30EB32B2526AF45009333F2 /* SettingsTableViewController.swift */,
-				E329D7E02527B8B00007A2E2 /* Shift.swift */,
-				E30EB3312526B69E009333F2 /* HourRange.swift */,
-				E30EB32E2526B4F9009333F2 /* AppSettings.swift */,
 				E30EB3252526AD31009333F2 /* TimeTableViewCell.swift */,
 				E329D7E32527CC980007A2E2 /* GoalTimeTableViewCell.swift */,
 				E329D7E42527CC980007A2E2 /* GoalTimeTableViewCell.xib */,
 				E30EB3262526AD31009333F2 /* TimeTableViewCell.xib */,
-				E30EB30725267B30009333F2 /* Assets.xcassets */,
-				E30EB30925267B30009333F2 /* LaunchScreen.storyboard */,
-				E30EB30C25267B30009333F2 /* Info.plist */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		E35725E22528C6DB00291120 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E30EB3312526B69E009333F2 /* HourRange.swift */,
+				E329D80F25280E6F0007A2E2 /* StudyDay.swift */,
+				E329D7E02527B8B00007A2E2 /* Shift.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E35725E32528C8B400291120 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				E30EB3132526A3DD009333F2 /* Timer.storyboard */,
+				E30EB3352526BCEB009333F2 /* CurrentTimerViewController.swift */,
 				2038F2412527DB3C000DC9D2 /* ShiftTableViewCell.swift */,
-				874EC7E22527E36600DA2B16 /* GoogleService-Info.plist */,
-				874EC7E52527E37900DA2B16 /* AuthViewController.swift */,
+				E329D7DD2527B3FC0007A2E2 /* ShiftsDataSource.swift */,
 				2038F2B92527E3E5000DC9D2 /* CreateTimerViewController.swift */,
 			);
-			path = "Focus-Tracker";
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		E35725E42528C8CD00291120 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				E30EB3382526BCFB009333F2 /* HistoryViewController.swift */,
+				E30EB31A2526A5A2009333F2 /* History.storyboard */,
+			);
+			path = History;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
