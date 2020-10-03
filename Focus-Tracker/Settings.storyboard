@@ -34,15 +34,15 @@
                         <sections>
                             <tableViewSection headerTitle="Default Day Hours" id="zJT-HZ-xdW">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="oWp-eF-rRa" customClass="TimeTableViewCell" customModule="Focus_Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="55.5" width="374" height="70"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="55" id="oWp-eF-rRa" customClass="TimeTableViewCell" customModule="Focus_Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="55.5" width="374" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oWp-eF-rRa" id="cym-Ur-xV1">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day Start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xS-Ku-ilR">
-                                                    <rect key="frame" x="20" y="24.5" width="100" height="21"/>
+                                                    <rect key="frame" x="20" y="17" width="100" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="Xs4-Ab-zN6"/>
                                                     </constraints>
@@ -51,7 +51,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="EFc-Lw-Uos">
-                                                    <rect key="frame" x="224" y="10" width="130" height="50"/>
+                                                    <rect key="frame" x="224" y="8" width="130" height="39"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="130" id="dRg-H0-gbT"/>
                                                     </constraints>
@@ -59,10 +59,10 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="EFc-Lw-Uos" secondAttribute="trailing" constant="20" symbolic="YES" id="0A5-S4-9Kh"/>
-                                                <constraint firstItem="EFc-Lw-Uos" firstAttribute="top" secondItem="cym-Ur-xV1" secondAttribute="top" constant="10" id="VIi-Hs-w87"/>
+                                                <constraint firstItem="EFc-Lw-Uos" firstAttribute="top" secondItem="cym-Ur-xV1" secondAttribute="top" constant="8" id="VIi-Hs-w87"/>
                                                 <constraint firstItem="0xS-Ku-ilR" firstAttribute="leading" secondItem="cym-Ur-xV1" secondAttribute="leading" constant="20" symbolic="YES" id="a4g-Yy-TEw"/>
                                                 <constraint firstItem="0xS-Ku-ilR" firstAttribute="centerY" secondItem="cym-Ur-xV1" secondAttribute="centerY" id="aiY-qS-BF8"/>
-                                                <constraint firstAttribute="bottom" secondItem="EFc-Lw-Uos" secondAttribute="bottom" constant="10" id="m0R-0i-Wqb"/>
+                                                <constraint firstAttribute="bottom" secondItem="EFc-Lw-Uos" secondAttribute="bottom" constant="8" id="m0R-0i-Wqb"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -70,15 +70,15 @@
                                             <outlet property="time" destination="EFc-Lw-Uos" id="nPa-uq-oWF"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="O4X-h3-5pT" customClass="TimeTableViewCell" customModule="Focus_Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="125.5" width="374" height="70"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="55" id="O4X-h3-5pT" customClass="TimeTableViewCell" customModule="Focus_Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="110.5" width="374" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="O4X-h3-5pT" id="rbb-Pb-Oqf">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day End" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuU-42-I3S">
-                                                    <rect key="frame" x="20" y="24.5" width="100" height="21"/>
+                                                    <rect key="frame" x="20" y="17" width="100" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="PCk-Ng-7Jj"/>
                                                     </constraints>
@@ -87,15 +87,15 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="KWm-EW-XgL">
-                                                    <rect key="frame" x="224" y="10" width="130" height="50"/>
+                                                    <rect key="frame" x="224" y="8" width="130" height="39"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="130" id="KMk-1J-iae"/>
                                                     </constraints>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="KWm-EW-XgL" secondAttribute="bottom" constant="10" id="4Ce-PE-Ic8"/>
-                                                <constraint firstItem="KWm-EW-XgL" firstAttribute="top" secondItem="rbb-Pb-Oqf" secondAttribute="top" constant="10" id="XCc-vf-i2v"/>
+                                                <constraint firstAttribute="bottom" secondItem="KWm-EW-XgL" secondAttribute="bottom" constant="8" id="4Ce-PE-Ic8"/>
+                                                <constraint firstItem="KWm-EW-XgL" firstAttribute="top" secondItem="rbb-Pb-Oqf" secondAttribute="top" constant="8" id="XCc-vf-i2v"/>
                                                 <constraint firstItem="iuU-42-I3S" firstAttribute="leading" secondItem="rbb-Pb-Oqf" secondAttribute="leading" constant="20" symbolic="YES" id="h3b-Zd-zng"/>
                                                 <constraint firstAttribute="trailing" secondItem="KWm-EW-XgL" secondAttribute="trailing" constant="20" symbolic="YES" id="mXi-GS-dMS"/>
                                                 <constraint firstItem="iuU-42-I3S" firstAttribute="centerY" secondItem="rbb-Pb-Oqf" secondAttribute="centerY" id="w19-xg-5OZ"/>
@@ -110,15 +110,15 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Default Work Hours" id="dTf-iT-gny">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="gon-g5-lfR" customClass="TimeTableViewCell" customModule="Focus_Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="251.5" width="374" height="70"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="55" id="gon-g5-lfR" customClass="TimeTableViewCell" customModule="Focus_Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="221.5" width="374" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gon-g5-lfR" id="PvW-iZ-DrY">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work Start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7S-Vo-Eia">
-                                                    <rect key="frame" x="20" y="24.5" width="100" height="21"/>
+                                                    <rect key="frame" x="20" y="17" width="100" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="XzQ-Yl-WCZ"/>
                                                     </constraints>
@@ -127,7 +127,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="wbM-pA-URh">
-                                                    <rect key="frame" x="224" y="10" width="130" height="50"/>
+                                                    <rect key="frame" x="224" y="8" width="130" height="39"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="130" id="E26-Ye-2xx"/>
                                                     </constraints>
@@ -136,8 +136,8 @@
                                             <constraints>
                                                 <constraint firstItem="r7S-Vo-Eia" firstAttribute="leading" secondItem="PvW-iZ-DrY" secondAttribute="leading" constant="20" symbolic="YES" id="AkC-Ka-vU7"/>
                                                 <constraint firstAttribute="trailing" secondItem="wbM-pA-URh" secondAttribute="trailing" constant="20" symbolic="YES" id="G0C-BT-nj3"/>
-                                                <constraint firstItem="wbM-pA-URh" firstAttribute="top" secondItem="PvW-iZ-DrY" secondAttribute="top" constant="10" id="JJa-fJ-0oI"/>
-                                                <constraint firstAttribute="bottom" secondItem="wbM-pA-URh" secondAttribute="bottom" constant="10" id="mXX-yP-dDf"/>
+                                                <constraint firstItem="wbM-pA-URh" firstAttribute="top" secondItem="PvW-iZ-DrY" secondAttribute="top" constant="8" id="JJa-fJ-0oI"/>
+                                                <constraint firstAttribute="bottom" secondItem="wbM-pA-URh" secondAttribute="bottom" constant="8" id="mXX-yP-dDf"/>
                                                 <constraint firstItem="r7S-Vo-Eia" firstAttribute="centerY" secondItem="PvW-iZ-DrY" secondAttribute="centerY" id="tSL-OD-HJM"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -146,15 +146,15 @@
                                             <outlet property="time" destination="wbM-pA-URh" id="rbx-iG-6Rj"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="VzD-w6-hpd" customClass="TimeTableViewCell" customModule="Focus_Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="321.5" width="374" height="70"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="55" id="VzD-w6-hpd" customClass="TimeTableViewCell" customModule="Focus_Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="276.5" width="374" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VzD-w6-hpd" id="gdi-c0-App">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work End" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQA-He-V59">
-                                                    <rect key="frame" x="20" y="24.5" width="100" height="21"/>
+                                                    <rect key="frame" x="20" y="17" width="100" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="8Ly-Tu-dc4"/>
                                                     </constraints>
@@ -163,7 +163,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9G1-BH-9CA">
-                                                    <rect key="frame" x="224" y="10" width="130" height="50"/>
+                                                    <rect key="frame" x="224" y="8" width="130" height="39"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="130" id="04g-2f-Esj"/>
                                                     </constraints>
@@ -171,8 +171,8 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="gQA-He-V59" firstAttribute="centerY" secondItem="gdi-c0-App" secondAttribute="centerY" id="G7a-nP-FTz"/>
-                                                <constraint firstItem="9G1-BH-9CA" firstAttribute="top" secondItem="gdi-c0-App" secondAttribute="top" constant="10" id="Tlc-qz-lhd"/>
-                                                <constraint firstAttribute="bottom" secondItem="9G1-BH-9CA" secondAttribute="bottom" constant="10" id="aKz-n2-2tJ"/>
+                                                <constraint firstItem="9G1-BH-9CA" firstAttribute="top" secondItem="gdi-c0-App" secondAttribute="top" constant="8" id="Tlc-qz-lhd"/>
+                                                <constraint firstAttribute="bottom" secondItem="9G1-BH-9CA" secondAttribute="bottom" constant="8" id="aKz-n2-2tJ"/>
                                                 <constraint firstAttribute="trailing" secondItem="9G1-BH-9CA" secondAttribute="trailing" constant="20" symbolic="YES" id="szf-va-Aiq"/>
                                                 <constraint firstItem="gQA-He-V59" firstAttribute="leading" secondItem="gdi-c0-App" secondAttribute="leading" constant="20" symbolic="YES" id="xV3-9Z-kDC"/>
                                             </constraints>
@@ -186,26 +186,26 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Default Goal Times (Minutes)" id="wHL-ee-rre">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GoalTimeTableViewCell" rowHeight="70" id="XwU-g2-N6f" customClass="GoalTimeTableViewCell" customModule="Focus_Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="447.5" width="374" height="70"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GoalTimeTableViewCell" rowHeight="50" id="XwU-g2-N6f" customClass="GoalTimeTableViewCell" customModule="Focus_Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="387.5" width="374" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XwU-g2-N6f" id="2bG-yD-efa">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Break Session Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DrE-6j-N4z">
-                                                    <rect key="frame" x="20" y="25" width="147" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Break Session Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DrE-6j-N4z">
+                                                    <rect key="frame" x="20" y="14.5" width="150" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="v1H-Af-VvR"/>
+                                                        <constraint firstAttribute="width" constant="150" id="v1H-Af-VvR"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nB2-p3-6hn">
-                                                    <rect key="frame" x="254" y="18" width="100" height="34"/>
+                                                    <rect key="frame" x="284" y="11" width="70" height="28"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="gTV-qQ-ZUG"/>
+                                                        <constraint firstAttribute="width" constant="70" id="gTV-qQ-ZUG"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -215,8 +215,8 @@
                                                 <constraint firstAttribute="trailing" secondItem="nB2-p3-6hn" secondAttribute="trailing" constant="20" symbolic="YES" id="6SC-vA-wD2"/>
                                                 <constraint firstItem="DrE-6j-N4z" firstAttribute="leading" secondItem="2bG-yD-efa" secondAttribute="leading" constant="20" symbolic="YES" id="8CW-8l-TcP"/>
                                                 <constraint firstItem="DrE-6j-N4z" firstAttribute="centerY" secondItem="2bG-yD-efa" secondAttribute="centerY" id="ZhH-xo-o3O"/>
-                                                <constraint firstAttribute="bottom" secondItem="nB2-p3-6hn" secondAttribute="bottom" constant="18" id="aTo-l1-wAj"/>
-                                                <constraint firstItem="nB2-p3-6hn" firstAttribute="top" secondItem="2bG-yD-efa" secondAttribute="top" constant="18" id="kLi-qQ-BaR"/>
+                                                <constraint firstAttribute="bottom" secondItem="nB2-p3-6hn" secondAttribute="bottom" constant="11" id="aTo-l1-wAj"/>
+                                                <constraint firstItem="nB2-p3-6hn" firstAttribute="top" secondItem="2bG-yD-efa" secondAttribute="top" constant="11" id="kLi-qQ-BaR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -224,36 +224,36 @@
                                             <outlet property="minutesLabel" destination="nB2-p3-6hn" id="5bW-4Q-ipt"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GoalTimeTableViewCell" rowHeight="70" id="vjS-zX-kis" customClass="GoalTimeTableViewCell" customModule="Focus_Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="517.5" width="374" height="70"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GoalTimeTableViewCell" rowHeight="50" id="vjS-zX-kis" customClass="GoalTimeTableViewCell" customModule="Focus_Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="437.5" width="374" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vjS-zX-kis" id="LUW-4n-j3M">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Work Session Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVd-J1-qaX">
-                                                    <rect key="frame" x="20" y="25" width="143" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work Session Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVd-J1-qaX">
+                                                    <rect key="frame" x="20" y="14.5" width="150" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="Wpz-rs-YgC"/>
+                                                        <constraint firstAttribute="width" constant="150" id="Wpz-rs-YgC"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eSu-Vz-njE">
-                                                    <rect key="frame" x="254" y="18" width="100" height="34"/>
+                                                    <rect key="frame" x="284" y="11" width="70" height="28"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="wUV-BN-uLz"/>
+                                                        <constraint firstAttribute="width" constant="70" id="wUV-BN-uLz"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="eSu-Vz-njE" firstAttribute="top" secondItem="LUW-4n-j3M" secondAttribute="top" constant="18" id="0rG-E5-AvF"/>
+                                                <constraint firstItem="eSu-Vz-njE" firstAttribute="top" secondItem="LUW-4n-j3M" secondAttribute="top" constant="11" id="0rG-E5-AvF"/>
                                                 <constraint firstAttribute="trailing" secondItem="eSu-Vz-njE" secondAttribute="trailing" constant="20" symbolic="YES" id="7Uu-QL-pTw"/>
                                                 <constraint firstItem="oVd-J1-qaX" firstAttribute="leading" secondItem="LUW-4n-j3M" secondAttribute="leading" constant="20" symbolic="YES" id="G4O-98-gw8"/>
-                                                <constraint firstAttribute="bottom" secondItem="eSu-Vz-njE" secondAttribute="bottom" constant="18" id="dVw-VL-bjY"/>
+                                                <constraint firstAttribute="bottom" secondItem="eSu-Vz-njE" secondAttribute="bottom" constant="11" id="dVw-VL-bjY"/>
                                                 <constraint firstItem="oVd-J1-qaX" firstAttribute="centerY" secondItem="LUW-4n-j3M" secondAttribute="centerY" id="jqJ-52-YoO"/>
                                             </constraints>
                                         </tableViewCellContentView>
