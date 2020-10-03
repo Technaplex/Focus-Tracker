@@ -25,16 +25,13 @@ class AuthViewController: UITabBarController, FUIAuthDelegate {
         authUI!.providers = providers
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if let user = user {
-                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let tabBarViewController = storyBoard.instantiateInitialViewController()
-                self.present(tabBarViewController!, animated: true, completion: nil)
+                print("found user already logged in")
             } else {
                 self.showLoginScreen()
             }
         }
-        let authViewController = authUI!.authViewController()
-        self.present(authViewController, animated: true, completion: nil)
     }
+    
     
     @objc func signOutButtonPressed() {
         do {
@@ -48,6 +45,7 @@ class AuthViewController: UITabBarController, FUIAuthDelegate {
         let authViewController = authUI!.authViewController()
         self.present(authViewController, animated: true, completion: nil)
     }
+    
     func application(_ app: UIApplication, open url: URL,
                      options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
         let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String?
