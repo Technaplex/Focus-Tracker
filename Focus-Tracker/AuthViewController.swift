@@ -47,5 +47,14 @@ class AuthViewController: UIViewController, FUIAuthDelegate {
         let authViewController = authUI!.authViewController()
         self.present(authViewController, animated: true, completion: nil)
     }
+    func application(_ app: UIApplication, open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
+        let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String?
+      if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
+        return true
+      }
+      // other URL handling goes here.
+      return false
+    }
 }
 
