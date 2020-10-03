@@ -8,6 +8,8 @@
 import UIKit
 
 class HistoryViewController: UIViewController {
+    //TODO: connect with Firestore
+    var history = [StudyDay.example, StudyDay.example]
 
     override func viewDidLoad() {
         super.viewDidLoad()
