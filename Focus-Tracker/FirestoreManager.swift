@@ -131,16 +131,16 @@ class FirestoreManager {
 //    }
     
     
-    func addSession(_ sessId: String, data: [String: Any]){
-        userRef.collection("sessions").document(sessId).setData(data) {err in
+    func addSession(_ sessId: String, data: Session){
+        userRef.collection("sessions").document(sessId).setData(data.dict) {err in
             if let err = err{
                 print("Error on write: \(err)")
             }
         }
     }
     
-    func addActivity(_ actId: String, sessId: String, data: [String: Any]){
-        userRef.collection("sessions").document(sessId).collection("activities").document(actId).setData(data) { err in
+    func addActivity(_ actId: String, sessId: String, data: Activity){
+        userRef.collection("sessions").document(sessId).collection("activities").document(actId).setData(data.dict) { err in
             if let err = err {
                 print("Error on write: \(err)")
             }
