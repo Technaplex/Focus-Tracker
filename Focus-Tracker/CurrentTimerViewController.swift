@@ -48,18 +48,30 @@ class CurrentTimerViewController: UIViewController {
                                                    userInfo: nil,
                                                    repeats: true)
         
-        
+        // if a timer was previously running when the app closed, make a new timer which
+        // shows the time since that date, so it looks as if the timer was running while
+        // the app was closed
+        if let startDate = AppSettings.shared.timerStartDate {
+            print(startDate)
+            start_timer(atDate: startDate)
+            running = true
+        }
         
         if !running {
             performSegue(withIdentifier: "create_timer", sender: self)
         }
     }
     
-    func start_timer() {
+    // if I use the name `date` instead of `date_`, it crashes...
+    func start_timer(atDate date_: Date? = nil) {
         activityLabel.text = "Activity: \(activity)"
         goalLabel.text = "Goal: \(goal / 60) minutes"
-        
-        start = Date()
+        start = date_ ?? Date()
+        // don't overwrite if it's nonnull, because we don't want to change the start date for
+        // a current session
+        if AppSettings.shared.timerStartDate == nil {
+            AppSettings.shared.timerStartDate = start
+        }
         last_lap = start
     }
     
@@ -90,6 +102,9 @@ class CurrentTimerViewController: UIViewController {
     }
     
     @IBAction func endSession(_ sender: Any) {
+        // reset the start date so we don't think we need to continue a session when we close and
+        // reopen the app
+        AppSettings.shared.timerStartDate = nil
     }
     
     @IBAction func interruptValueChanged(_ sender: Any) {

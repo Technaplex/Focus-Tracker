@@ -22,6 +22,7 @@ final class AppSettings {
         static let workHours = "workHours"
         static let breakSessionGoal = "breakSessionGoal"
         static let workSessionGoal = "workSessionGoal"
+        static let timerStartDate = "timerStartDate"
     }
     
     static func registerDefaults() {
@@ -65,6 +66,15 @@ final class AppSettings {
         }
         set {
             AppSettings.setInt(for: Key.breakSessionGoal, newValue)
+        }
+    }
+    
+    var timerStartDate: Date? {
+        get {
+            return AppSettings.codable(for: Key.timerStartDate)
+        }
+        set {
+            AppSettings.setCodable(for: Key.timerStartDate, newValue)
         }
     }
 }
