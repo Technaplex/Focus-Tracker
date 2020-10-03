@@ -11,6 +11,8 @@
 		2038F2BA2527E3E5000DC9D2 /* CreateTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2038F2B92527E3E5000DC9D2 /* CreateTimerViewController.swift */; };
 		874EC7E32527E36600DA2B16 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 874EC7E22527E36600DA2B16 /* GoogleService-Info.plist */; };
 		874EC7E62527E37900DA2B16 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874EC7E52527E37900DA2B16 /* AuthViewController.swift */; };
+		874EC8A025280E5F00DA2B16 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874EC89F25280E5F00DA2B16 /* FirestoreManager.swift */; };
+		8756459C2528FBD5001F5A13 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8756459B2528FBD5001F5A13 /* FirestoreManager.swift */; };
 		9C10C791831862EDB8080C19 /* Pods_Focus_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13719EB570D37BE27FBA2B22 /* Pods_Focus_Tracker.framework */; };
 		E30EB2FF25267B2E009333F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30EB2FE25267B2E009333F2 /* AppDelegate.swift */; };
 		E30EB30125267B2E009333F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30EB30025267B2E009333F2 /* SceneDelegate.swift */; };
@@ -45,6 +47,8 @@
 		3E22B78BAE6CEEE40FA01861 /* Pods-Focus-Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Focus-Tracker.debug.xcconfig"; path = "Target Support Files/Pods-Focus-Tracker/Pods-Focus-Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		874EC7E22527E36600DA2B16 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		874EC7E52527E37900DA2B16 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		874EC89F25280E5F00DA2B16 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		8756459B2528FBD5001F5A13 /* FirestoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		986953283F0CE4FCFC5A868D /* Pods-Focus-Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Focus-Tracker.release.xcconfig"; path = "Target Support Files/Pods-Focus-Tracker/Pods-Focus-Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		E30EB2FB25267B2E009333F2 /* Focus-Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Focus-Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E30EB2FE25267B2E009333F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 				E30EB30C25267B30009333F2 /* Info.plist */,
 				874EC7E22527E36600DA2B16 /* GoogleService-Info.plist */,
 				874EC7E52527E37900DA2B16 /* AuthViewController.swift */,
+				8756459B2528FBD5001F5A13 /* FirestoreManager.swift */,
 			);
 			path = "Focus-Tracker";
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 				2038F2412527DB3C000DC9D2 /* ShiftTableViewCell.swift */,
 				E329D7DD2527B3FC0007A2E2 /* ShiftsDataSource.swift */,
 				2038F2B92527E3E5000DC9D2 /* CreateTimerViewController.swift */,
+				874EC89F25280E5F00DA2B16 /* FirestoreManager.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -328,6 +334,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E30EB3272526AD31009333F2 /* TimeTableViewCell.swift in Sources */,
+				8756459C2528FBD5001F5A13 /* FirestoreManager.swift in Sources */,
+				874EC8A025280E5F00DA2B16 /* FirestoreManager.swift in Sources */,
 				E30EB3322526B69E009333F2 /* HourRange.swift in Sources */,
 				E30EB32C2526AF45009333F2 /* SettingsTableViewController.swift in Sources */,
 				E329D81025280E6F0007A2E2 /* StudyDay.swift in Sources */,
