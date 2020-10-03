@@ -20,7 +20,7 @@ final class AppSettings {
     struct Key {
         static let dayHours = "dayHours"
         static let workHours = "workHours"
-        static let breakSessionGoal = "breakSessionGoal"
+        static let playSessionGoal = "playSessionGoal"
         static let workSessionGoal = "workSessionGoal"
         static let timerStartDate = "timerStartDate"
     }
@@ -29,7 +29,7 @@ final class AppSettings {
         let defaults: [String: Any] = [Key.dayHours: encodeCodable(for: HourRange.exampleDayRange)!,
                                         Key.workHours: encodeCodable(for: HourRange.exampleWorkRange)!,
                                         Key.workSessionGoal: 30,
-                                        Key.breakSessionGoal: 30]
+                                        Key.playSessionGoal: 30]
         AppSettings.store.register(defaults: defaults)
     }
     
@@ -60,12 +60,12 @@ final class AppSettings {
         }
     }
     
-    var breakSessionGoal: Int {
+    var playSessionGoal: Int {
         get {
-            return AppSettings.int(for: Key.breakSessionGoal)
+            return AppSettings.int(for: Key.playSessionGoal)
         }
         set {
-            AppSettings.setInt(for: Key.breakSessionGoal, newValue)
+            AppSettings.setInt(for: Key.playSessionGoal, newValue)
         }
     }
     

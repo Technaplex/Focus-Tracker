@@ -12,7 +12,7 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var dayEndDatePicker: UIDatePicker!
     @IBOutlet weak var workStartDatePicker: UIDatePicker!
     @IBOutlet weak var workEndDatePicker: UIDatePicker!
-    @IBOutlet weak var breakSessionGoalTF: UITextField!
+    @IBOutlet weak var playSessionGoalTF: UITextField!
     @IBOutlet weak var workSessionGoalTF: UITextField!
     
     override func viewDidLoad() {
@@ -36,12 +36,12 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
         workStartDatePicker.setDate(workStart, animated: false)
         workEndDatePicker.setDate(workEnd, animated: false)
         
-        breakSessionGoalTF.text = String(describing: AppSettings.shared.breakSessionGoal)
+        playSessionGoalTF.text = String(describing: AppSettings.shared.playSessionGoal)
         workSessionGoalTF.text = String(describing: AppSettings.shared.workSessionGoal)
-        breakSessionGoalTF.delegate = self
+        playSessionGoalTF.delegate = self
         workSessionGoalTF.delegate = self
 
-        breakSessionGoalTF.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+        playSessionGoalTF.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
         workSessionGoalTF.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
 
 
@@ -54,9 +54,9 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-        if textField == breakSessionGoalTF {
+        if textField == playSessionGoalTF {
             // TODO what's a sensible default for an empty input? 0 might break other parts of the app which expect a positive value
-            AppSettings.shared.breakSessionGoal = Int(breakSessionGoalTF.text ?? "1") ?? 1
+            AppSettings.shared.playSessionGoal = Int(playSessionGoalTF.text ?? "1") ?? 1
         }
         
         if textField == workSessionGoalTF {

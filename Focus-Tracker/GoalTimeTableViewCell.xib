@@ -15,8 +15,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Break Session Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1S-c7-6pe">
-                        <rect key="frame" x="20" y="25" width="147" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Session Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1S-c7-6pe">
+                        <rect key="frame" x="20" y="25" width="99" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="rd4-XU-geh"/>
                         </constraints>
