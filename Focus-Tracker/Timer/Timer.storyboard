@@ -265,6 +265,21 @@
             </objects>
             <point key="canvasLocation" x="1273" y="-16"/>
         </scene>
+        <!--Auth View Controller-->
+        <scene sceneID="1fl-mt-UYT">
+            <objects>
+                <viewController id="DJ8-r0-Tq0" customClass="AuthViewController" customModule="Focus_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lg9-Er-d3V">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Jhh-d7-BSo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K70-hC-PPy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="377" y="1130"/>
+        </scene>
         <!--End Session View Controller-->
         <scene sceneID="c6R-bL-dYO">
             <objects>

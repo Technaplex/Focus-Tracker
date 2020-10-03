@@ -7,8 +7,9 @@
 
 import Foundation
 import FirebaseUI
+import UIKit
 
-class AuthViewController: UIViewController, FUIAuthDelegate {
+class AuthViewController: UITabBarController, FUIAuthDelegate {
     let authUI = FUIAuth.defaultAuthUI()
     
     override func viewDidLoad() {
