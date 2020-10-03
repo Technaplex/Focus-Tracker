@@ -26,12 +26,10 @@ class AuthViewController: UIViewController, FUIAuthDelegate {
             if let user = user {
                 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let tabBarViewController = storyBoard.instantiateInitialViewController()
-                self.present(tabBarViewController, animated: true, completion: nil)
+                self.present(tabBarViewController!, animated: true, completion: nil)
             } else {
-                
                 self.showLoginScreen()
             }
-            
         }
         let authViewController = authUI!.authViewController()
         self.present(authViewController, animated: true, completion: nil)
@@ -48,7 +46,6 @@ class AuthViewController: UIViewController, FUIAuthDelegate {
     func showLoginScreen() {
         let authViewController = authUI!.authViewController()
         self.present(authViewController, animated: true, completion: nil)
-            
     }
 }
 
