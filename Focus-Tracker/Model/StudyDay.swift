@@ -49,7 +49,7 @@ struct StudyDay: Hashable {
     }
     
     
-    // Rework to show using CategoryInfo or Category enum or however we implement
+    // TODO: Rework to show using CategoryInfo or Category enum or however we implement
     var mindfulPlayString: String {
         return "12:12"
     }
