@@ -14,8 +14,13 @@ struct Session {
     var date: String
     var timeStart: TimeInterval
     var timeEnd: TimeInterval
-
-    init?(data: [String: Any]) {
+    var dict: [String : Any]{
+        return ["id": id,
+                "date": date,
+                "timeStart": timeStart,
+                "timeEnd": timeEnd]
+    }
+    init?(_ data: [String: Any]) {
 
         guard let id = data["id"] as? String,
             let date = data["date"] as? String,
@@ -28,7 +33,6 @@ struct Session {
         self.date = date
         self.timeStart = timeStart
         self.timeEnd = timeEnd
-
     }
 
 }
@@ -40,8 +44,14 @@ struct Activity {
     var name: String
     var duration: Double
     var interrupts: Int
-
-    init?(data: [String: Any]) {
+    var dict: [String : Any]{
+        return ["id": id,
+                "sessId": sessId,
+                "name": name,
+                "duration": duration,
+                "interrupts": interrupts]
+    }
+    init?(_ data: [String: Any]) {
 
         guard let id = data["id"] as? String,
             let sessId = data["sessId"] as? String,
@@ -72,44 +82,44 @@ class FirestoreManager {
         self.userToken = userToken!
     }
     
-    func allSessions(completion: @escaping (([[String: Any]]) -> ())) {
+    func allSessions(completion: @escaping ([Session]) -> Void) {
         return userRef.collection("sessions").getDocuments(){
             (querySnapshot, err) in
             if let err = err{
                 print("Error during Firestore read: \(err)")
             } else {
-                completion((querySnapshot!.documents).map({$0.data()}))
+                completion((querySnapshot!.documents).map({Session($0.data())!}))
             }
         }
     }
     
-    func allActivities(_ sessId: String, completion: @escaping (([[String: Any]]) -> ())){
+    func allActivities(_ sessId: String, completion: @escaping ([Activity]) -> Void){
         return userRef.collection("sessions").document(sessId).collection("activities").getDocuments(){
             (querySnapshot, err) in
             if let err = err{
                 print("Error during Firestore read: \(err)")
             } else {
-                completion((querySnapshot!.documents).map({$0.data()}))
+                completion((querySnapshot!.documents).map({Activity($0.data())!}))
             }
         }
     }
     
-    func getSession(_ sessId: String, completion: @escaping (([String: Any]) -> ())){
+    func getSession(_ sessId: String, completion: @escaping (Session) -> Void){
         let sessRef = db.collection("users").document(userToken).collection("sessions").document(sessId)
         sessRef.getDocument { (document, error) in
             if let document = document, document.exists {
-                completion(document.data()!)
+                completion(Session(document.data()!)!)
             } else {
                 print("Error during Firestore read: \(error)")
             }
         }
     }
     
-    func getActivity(_ actId: String, sessId: String, completion: @escaping (([String: Any]) -> ())){
+    func getActivity(_ actId: String, sessId: String, completion: @escaping (Activity) -> Void){
         let actRef = db.collection("users").document(userToken).collection("sessions").document(sessId).collection("activities").document(actId)
         actRef.getDocument { (document, error) in
             if let document = document, document.exists {
-                completion(document.data()!)
+                completion(Activity(document.data()!)!)
             } else {
                 print("Error during Firestore read: \(error)")
             }
@@ -119,6 +129,7 @@ class FirestoreManager {
 //    func getSession(_ id: String){
 //        getSessions()
 //    }
+    
     
     func addSession(_ sessId: String, data: [String: Any]){
         userRef.collection("sessions").document(sessId).setData(data) {err in

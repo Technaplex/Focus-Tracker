@@ -25,7 +25,7 @@ class AuthViewController: UITabBarController, FUIAuthDelegate {
         authUI!.providers = providers
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if let user = user {
-                print("found user already logged in")
+                print("User already logged in.")
             } else {
                 self.showLoginScreen()
             }
