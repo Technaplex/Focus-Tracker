@@ -7,10 +7,11 @@
 
 import Foundation
 
-//enum Category {
-//    case mindfulWork(Int), mindfulPlay(Int), mindlessWork(Int), mindlessPlay(Int)
-//}
+enum Category {
+    case mindfulWork(Time), mindfulPlay(Time), mindlessWork(Time), mindlessPlay(Time)
+}
 
+// Maybe this shoudl be reworked
 struct CategoryInfo: Hashable {
     var mindfulWork: Time
     var mindfulPlay: Time
@@ -22,6 +23,7 @@ struct CategoryInfo: Hashable {
     }
 }
 
+// This is basically a ViewModel
 struct StudyDay: Hashable {
     static func == (lhs: StudyDay, rhs: StudyDay) -> Bool {
         lhs.date == rhs.date && lhs.user == rhs.user
@@ -29,13 +31,39 @@ struct StudyDay: Hashable {
     
     private let date: Date
     private let user: User
-    var dayHours: HourRange
-    var workHours: HourRange
-    var categories: CategoryInfo
+    private var dayHours: HourRange
+    private var workHours: HourRange
+    private var categories: CategoryInfo
     
     // TODO: Make computed property return day using date
     var dayString: String {
         return "Today"
+    }
+    
+    var dayHoursString: String {
+        return dayHours.toString()
+    }
+    
+    var workHoursString: String {
+        return workHours.toString()
+    }
+    
+    
+    // Rework to show using CategoryInfo or Category enum or however we implement
+    var mindfulPlayString: String {
+        return "12:12"
+    }
+    
+    var mindfulWorkString: String {
+        return "12:12"
+    }
+    
+    var mindlessPlayString: String {
+        return "12:12"
+    }
+    
+    var mindlessWorkString: String {
+        return "12:12"
     }
     
     init(date: Date, dayHours: HourRange, workHours: HourRange, categories: CategoryInfo) {

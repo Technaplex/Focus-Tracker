@@ -7,96 +7,151 @@
 
 import UIKit
 
-class HistoryViewController: UIViewController {
-    private let viewModel = HistoryViewModel(history: [StudyDay.example, StudyDay.example])
-    private lazy var collectionView = makeCollectionView()
-    private lazy var dataSource = makeDataSource()
+class HistoryViewController: UICollectionViewController {
+    enum Section {
+        case main
+    }
+
+    typealias DataSource = UICollectionViewDiffableDataSource<Section, StudyDay>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, StudyDay>
+//    private let viewModel = HistoryViewModel(history: [StudyDay.example, StudyDay.example])
+//    private lazy var collectionView = makeCollectionView()
+//    private lazy var dataSource = makeDataSource()
     // TODO: connect with Firestore
+    private lazy var dataSource = makeDataSource()
     var history = [StudyDay.example, StudyDay.example]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("CHICKEN")
-
-        collectionView.dataSource = dataSource
-        view.addSubview(collectionView)
-        updateList()
         // Do any additional setup after loading the view.
+        print("CHICKEN")
+        configureLayout()
+        applySnapshot(animatingDifferences: false)
     }
-}
 
-private extension HistoryViewController {
-    func makeCollectionView() -> UICollectionView {
-        let config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
-        let layout = UICollectionViewCompositionalLayout.list(using: config)
-        let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
-        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.backgroundColor = .systemBackground
-        return collectionView
-    }
-}
-
-private extension HistoryViewController {
-    func makeCellRegistration() -> UICollectionView.CellRegistration<UICollectionViewListCell, StudyDay> {
-        UICollectionView.CellRegistration { cell, _, studyDay in
-            // Configuring each cell's content:
-            var config = cell.defaultContentConfiguration()
-            config.text = studyDay.dayString
-            config.secondaryText = studyDay.dayHours.toString()
-            cell.contentConfiguration = config
-
-            // Configuring a trailing swipe action for deleting a contact:
-            /*
-             cell.trailingSwipeActionsConfiguration = UISwipeActionsConfiguration(
-                 actions: [UIContextualAction(
-                     style: .destructive,
-                     title: "Delete",
-                     handler: { [weak self] _, _, completion in
-                         self?.deleteContact(withID: contact.id)
-                         self?.updateList()
-                         completion(true)
-                     }
-                 )]
-             )
-             */
-
-            // Showing a disclosure indicator as the cell's accessory:
-            cell.accessories = [.disclosureIndicator()]
-        }
-    }
-}
-
-private extension HistoryViewController {
-    func makeDataSource() -> UICollectionViewDiffableDataSource<Section, StudyDay> {
-        let cellRegistration = makeCellRegistration()
-
-        return UICollectionViewDiffableDataSource<Section, StudyDay>(
+    func makeDataSource() -> DataSource {
+        let dataSource = DataSource(
             collectionView: collectionView,
-            cellProvider: { view, indexPath, item in
-                view.dequeueConfiguredReusableCell(
-                    using: cellRegistration,
-                    for: indexPath,
-                    item: item
-                )
+            cellProvider: { collectionView, indexPath, studyDay ->
+                UICollectionViewCell? in
+                let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: "HistoryCollectionViewCell",
+                    for: indexPath
+                ) as? HistoryCollectionViewCell
+                cell?.studyDay = studyDay
+                return cell
             }
         )
+        return dataSource
+    }
+    
+    func applySnapshot(animatingDifferences: Bool = true) {
+      // 2
+      var snapshot = Snapshot()
+      // 3
+      snapshot.appendSections([.main])
+      // 4
+      snapshot.appendItems(history)
+      // 5
+      dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }
 }
 
-enum Section: CaseIterable {
-    case favorites
-    case all
-}
+// MARK: - Layout Handling
 
-private extension HistoryViewController {
-    func updateList() {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, StudyDay>()
-        snapshot.appendSections(Section.allCases)
-        snapshot.appendItems(viewModel.favorites, toSection: .favorites)
-        snapshot.appendItems(viewModel.all, toSection: .all)
-        dataSource.apply(snapshot)
-    }
+extension HistoryViewController {
+    // From https://www.raywenderlich.com/8241072-ios-tutorial-collection-view-and-diffable-data-source
+  private func configureLayout() {
+    collectionView.collectionViewLayout = UICollectionViewCompositionalLayout(sectionProvider: { (_, layoutEnvironment) -> NSCollectionLayoutSection? in
+      let isPhone = layoutEnvironment.traitCollection.userInterfaceIdiom == UIUserInterfaceIdiom.phone
+      let size = NSCollectionLayoutSize(
+        widthDimension: NSCollectionLayoutDimension.fractionalWidth(1),
+        heightDimension: NSCollectionLayoutDimension.absolute(isPhone ? 280 : 250)
+      )
+      let itemCount = isPhone ? 1 : 3
+      let item = NSCollectionLayoutItem(layoutSize: size)
+      let group = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitem: item, count: itemCount)
+      let section = NSCollectionLayoutSection(group: group)
+      section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+      section.interGroupSpacing = 10
+      return section
+    })
+  }
 }
+/*
+ private extension HistoryViewController {
+     func makeCollectionView() -> UICollectionView {
+         let config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+         let layout = UICollectionViewCompositionalLayout.list(using: config)
+         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
+         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+         collectionView.backgroundColor = .systemBackground
+         return collectionView
+     }
+ }
+
+ private extension HistoryViewController {
+     func makeCellRegistration() -> UICollectionView.CellRegistration<UICollectionViewListCell, StudyDay> {
+         UICollectionView.CellRegistration { cell, _, studyDay in
+             // Configuring each cell's content:
+             var config = cell.defaultContentConfiguration()
+             config.text = studyDay.dayString
+             config.secondaryText = studyDay.dayHours.toString()
+             cell.contentConfiguration = config
+
+             // Configuring a trailing swipe action for deleting a contact:
+             /*
+              cell.trailingSwipeActionsConfiguration = UISwipeActionsConfiguration(
+                  actions: [UIContextualAction(
+                      style: .destructive,
+                      title: "Delete",
+                      handler: { [weak self] _, _, completion in
+                          self?.deleteContact(withID: contact.id)
+                          self?.updateList()
+                          completion(true)
+                      }
+                  )]
+              )
+              */
+
+             // Showing a disclosure indicator as the cell's accessory:
+             cell.accessories = [.disclosureIndicator()]
+         }
+     }
+ }
+
+ private extension HistoryViewController {
+     func makeDataSource() -> UICollectionViewDiffableDataSource<Section, StudyDay> {
+         let cellRegistration = makeCellRegistration()
+
+         return UICollectionViewDiffableDataSource<Section, StudyDay>(
+             collectionView: collectionView,
+             cellProvider: { view, indexPath, item in
+                 view.dequeueConfiguredReusableCell(
+                     using: cellRegistration,
+                     for: indexPath,
+                     item: item
+                 )
+             }
+         )
+     }
+ }
+
+ enum Section: CaseIterable {
+     case favorites
+     case all
+ }
+
+ private extension HistoryViewController {
+     func updateList() {
+         var snapshot = NSDiffableDataSourceSnapshot<Section, StudyDay>()
+         snapshot.appendSections(Section.allCases)
+         snapshot.appendItems(viewModel.favorites, toSection: .favorites)
+         snapshot.appendItems(viewModel.all, toSection: .all)
+         dataSource.apply(snapshot)
+     }
+ }
+ */
 
 /*
  class SectionDecorationViewController: UIViewController {
