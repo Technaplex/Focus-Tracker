@@ -8,58 +8,58 @@
 import Foundation
 import Firebase
 
-//struct Session {
-//
-//    var id: String
-//    var date: String
-//    var timeStart: String
-//    var timeEnd: String
-//
-//    init?(data: [String: Any]) {
-//
-//        guard let id = data["id"] as? String,
-//            let date = data["date"] as? String,
-//            let timeStart = data["timeStart"] as? String,
-//            let timeEnd = info["timeEnd"] as? String else {
-//                return nil
-//        }
-//
-//        self.id = id
-//        self.date = date
-//        self.timeStart = timeStart
-//        self.timeEnd = timeEnd
-//
-//    }
-//
-//}
-//
-//struct Activity {
-//
-//    var id: String
-//    var sessId: String
-//    var name: String
-//    var duration: Double
-//    var interrupts: Int
-//
-//    init?(data: [String: Any]) {
-//
-//        guard let id = data["id"] as? String,
-//            let sessId = data["sessId"] as? String,
-//            let name = data["name"] as? String,
-//            let duration = Double(data["duration"]),
-//            let interrupts = Int(data["interrupts"]) else {
-//            return nil
-//        }
-//
-//        self.id = id
-//        self.sessId = sessId
-//        self.name = name
-//        self.duration = duration
-//        self.interrupts = interrupts
-//
-//    }
-//
-//}
+struct Session {
+
+    var id: String
+    var date: String
+    var timeStart: TimeInterval
+    var timeEnd: TimeInterval
+
+    init?(data: [String: Any]) {
+
+        guard let id = data["id"] as? String,
+            let date = data["date"] as? String,
+            let timeStart = Double(data["timeStart"] as! String),
+            let timeEnd = Double(data["timeEnd"] as! String) else {
+                return nil
+        }
+
+        self.id = id
+        self.date = date
+        self.timeStart = timeStart
+        self.timeEnd = timeEnd
+
+    }
+
+}
+
+struct Activity {
+
+    var id: String
+    var sessId: String
+    var name: String
+    var duration: Double
+    var interrupts: Int
+
+    init?(data: [String: Any]) {
+
+        guard let id = data["id"] as? String,
+            let sessId = data["sessId"] as? String,
+            let name = data["name"] as? String,
+            let duration = Double(data["duration"] as! String),
+            let interrupts = Int(data["interrupts"] as! String) else {
+            return nil
+        }
+
+        self.id = id
+        self.sessId = sessId
+        self.name = name
+        self.duration = duration
+        self.interrupts = interrupts
+
+    }
+
+}
 
 class FirestoreManager {
 //    static let shared = FirestoreManager(Auth.auth().currentUser?.getIDTokenForcingRefresh(false))
