@@ -19,8 +19,8 @@ struct Session {
 
         guard let id = data["id"] as? String,
             let date = data["date"] as? String,
-            let timeStart = Double(data["timeStart"] as! String),
-            let timeEnd = Double(data["timeEnd"] as! String) else {
+            let timeStart = data["timeStart"] as? Double,
+            let timeEnd = data["timeEnd"] as? Double else {
                 return nil
         }
 
@@ -46,9 +46,9 @@ struct Activity {
         guard let id = data["id"] as? String,
             let sessId = data["sessId"] as? String,
             let name = data["name"] as? String,
-            let duration = Double(data["duration"] as! String),
-            let interrupts = Int(data["interrupts"] as! String) else {
-            return nil
+            let duration = data["duration"] as? Double,
+            let interrupts = data["interrupts"] as? Int else {
+                return nil
         }
 
         self.id = id
