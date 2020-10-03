@@ -24,9 +24,9 @@ class AuthViewController: UIViewController, FUIAuthDelegate {
         authUI!.providers = providers
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if let user = user {
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(self.signOutButtonPressed))
-                
-                // User is logged in, what to do?
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let tabBarViewController = storyBoard.instantiateInitialViewController()
+                self.present(tabBarViewController, animated: true, completion: nil)
             } else {
                 
                 self.showLoginScreen()
