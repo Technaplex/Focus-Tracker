@@ -32,7 +32,7 @@ final class AppSettings {
         AppSettings.store.register(defaults: defaults)
     }
     
-    public static var dayHours: HourRange {
+    var dayHours: HourRange {
         get {
             return AppSettings.codable(for: Key.dayHours)!
         }
@@ -41,7 +41,7 @@ final class AppSettings {
         }
     }
     
-    public static var workHours: HourRange {
+    var workHours: HourRange {
         get {
             return AppSettings.codable(for: Key.workHours)!
         }
@@ -50,7 +50,7 @@ final class AppSettings {
         }
     }
     
-    public static var workSessionGoal: Int {
+    var workSessionGoal: Int {
         get {
             return AppSettings.int(for: Key.workSessionGoal)
         }
@@ -59,7 +59,7 @@ final class AppSettings {
         }
     }
     
-    public static var breakSessionGoal: Int {
+    var breakSessionGoal: Int {
         get {
             return AppSettings.int(for: Key.breakSessionGoal)
         }

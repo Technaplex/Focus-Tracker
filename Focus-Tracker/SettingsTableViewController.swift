@@ -22,8 +22,8 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
         workStartDatePicker.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
         workEndDatePicker.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
         
-        let dayHours = AppSettings.dayHours
-        let workHours = AppSettings.workHours
+        let dayHours = AppSettings.shared.dayHours
+        let workHours = AppSettings.shared.workHours
         
         let dayStart = Calendar.current.date(bySettingHour: dayHours.start.hour, minute: dayHours.start.minute, second: 0, of: Date())!
         let dayEnd = Calendar.current.date(bySettingHour: dayHours.end.hour, minute: dayHours.end.minute, second: 0, of: Date())!
@@ -36,8 +36,8 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
         workStartDatePicker.setDate(workStart, animated: false)
         workEndDatePicker.setDate(workEnd, animated: false)
         
-        breakSessionGoalTF.text = String(describing: AppSettings.breakSessionGoal)
-        workSessionGoalTF.text = String(describing: AppSettings.workSessionGoal)
+        breakSessionGoalTF.text = String(describing: AppSettings.shared.breakSessionGoal)
+        workSessionGoalTF.text = String(describing: AppSettings.shared.workSessionGoal)
         breakSessionGoalTF.delegate = self
         workSessionGoalTF.delegate = self
 
@@ -56,11 +56,11 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
     @objc func textFieldDidChange(_ textField: UITextField) {
         if textField == breakSessionGoalTF {
             // TODO what's a sensible default for an empty input? 0 might break other parts of the app which expect a positive value
-            AppSettings.breakSessionGoal = Int(breakSessionGoalTF.text ?? "1") ?? 1
+            AppSettings.shared.breakSessionGoal = Int(breakSessionGoalTF.text ?? "1") ?? 1
         }
         
         if textField == workSessionGoalTF {
-            AppSettings.workSessionGoal = Int(workSessionGoalTF.text ?? "1") ?? 1
+            AppSettings.shared.workSessionGoal = Int(workSessionGoalTF.text ?? "1") ?? 1
         }
     }
     
@@ -69,36 +69,36 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
             let hour = Calendar.current.component(.hour, from: datePicker.date)
             let minute = Calendar.current.component(.minute, from: datePicker.date)
             let startTime = Time(hour: hour, minute: minute)
-            let endTime = AppSettings.dayHours.end
+            let endTime = AppSettings.shared.dayHours.end
             let hours = HourRange(type: .dayHours, start: startTime, end: endTime)
-            AppSettings.dayHours = hours
+            AppSettings.shared.dayHours = hours
         }
         
         if datePicker == dayEndDatePicker {
             let hour = Calendar.current.component(.hour, from: datePicker.date)
             let minute = Calendar.current.component(.minute, from: datePicker.date)
-            let startTime = AppSettings.dayHours.start
+            let startTime = AppSettings.shared.dayHours.start
             let endTime = Time(hour: hour, minute: minute)
             let hours = HourRange(type: .dayHours, start: startTime, end: endTime)
-            AppSettings.dayHours = hours
+            AppSettings.shared.dayHours = hours
         }
         
         if datePicker == workStartDatePicker {
             let hour = Calendar.current.component(.hour, from: datePicker.date)
             let minute = Calendar.current.component(.minute, from: datePicker.date)
             let startTime = Time(hour: hour, minute: minute)
-            let endTime = AppSettings.workHours.end
+            let endTime = AppSettings.shared.workHours.end
             let hours = HourRange(type: .workHours, start: startTime, end: endTime)
-            AppSettings.workHours = hours
+            AppSettings.shared.workHours = hours
         }
         
         if datePicker == workEndDatePicker {
             let hour = Calendar.current.component(.hour, from: datePicker.date)
             let minute = Calendar.current.component(.minute, from: datePicker.date)
-            let startTime = AppSettings.dayHours.start
+            let startTime = AppSettings.shared.dayHours.start
             let endTime = Time(hour: hour, minute: minute)
             let hours = HourRange(type: .workHours, start: startTime, end: endTime)
-            AppSettings.workHours = hours
+            AppSettings.shared.workHours = hours
         }
     }
 
