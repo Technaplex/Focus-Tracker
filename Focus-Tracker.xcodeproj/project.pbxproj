@@ -32,6 +32,10 @@
 		E329D7E52527CC980007A2E2 /* GoalTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E329D7E32527CC980007A2E2 /* GoalTimeTableViewCell.swift */; };
 		E329D7E62527CC980007A2E2 /* GoalTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E329D7E42527CC980007A2E2 /* GoalTimeTableViewCell.xib */; };
 		E329D81025280E6F0007A2E2 /* StudyDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E329D80F25280E6F0007A2E2 /* StudyDay.swift */; };
+		E357269D2528D45800291120 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E357269C2528D45800291120 /* HistoryViewModel.swift */; };
+		E35726A52528D98800291120 /* HistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35726A32528D98800291120 /* HistoryCollectionViewCell.swift */; };
+		E35726A62528D98800291120 /* HistoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E35726A42528D98800291120 /* HistoryCollectionViewCell.xib */; };
+		E35726A92528DF1000291120 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35726A82528DF1000291120 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +68,10 @@
 		E329D7E32527CC980007A2E2 /* GoalTimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTimeTableViewCell.swift; sourceTree = "<group>"; };
 		E329D7E42527CC980007A2E2 /* GoalTimeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoalTimeTableViewCell.xib; sourceTree = "<group>"; };
 		E329D80F25280E6F0007A2E2 /* StudyDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyDay.swift; sourceTree = "<group>"; };
+		E357269C2528D45800291120 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		E35726A32528D98800291120 /* HistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		E35726A42528D98800291120 /* HistoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		E35726A82528DF1000291120 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +160,7 @@
 				E30EB3312526B69E009333F2 /* HourRange.swift */,
 				E329D80F25280E6F0007A2E2 /* StudyDay.swift */,
 				E329D7E02527B8B00007A2E2 /* Shift.swift */,
+				E35726A82528DF1000291120 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -173,6 +182,9 @@
 			children = (
 				E30EB3382526BCFB009333F2 /* HistoryViewController.swift */,
 				E30EB31A2526A5A2009333F2 /* History.storyboard */,
+				E357269C2528D45800291120 /* HistoryViewModel.swift */,
+				E35726A32528D98800291120 /* HistoryCollectionViewCell.swift */,
+				E35726A42528D98800291120 /* HistoryCollectionViewCell.xib */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -242,6 +254,7 @@
 				874EC7E32527E36600DA2B16 /* GoogleService-Info.plist in Resources */,
 				E30EB30825267B30009333F2 /* Assets.xcassets in Resources */,
 				E30EB3142526A3DD009333F2 /* Timer.storyboard in Resources */,
+				E35726A62528D98800291120 /* HistoryCollectionViewCell.xib in Resources */,
 				E30EB31F2526A647009333F2 /* Settings.storyboard in Resources */,
 				E30EB30625267B2E009333F2 /* Main.storyboard in Resources */,
 				E30EB31B2526A5A2009333F2 /* History.storyboard in Resources */,
@@ -322,14 +335,17 @@
 				E329D7E52527CC980007A2E2 /* GoalTimeTableViewCell.swift in Sources */,
 				2038F2422527DB3C000DC9D2 /* ShiftTableViewCell.swift in Sources */,
 				E329D7E12527B8B00007A2E2 /* Shift.swift in Sources */,
+				E35726A92528DF1000291120 /* User.swift in Sources */,
 				E30EB32F2526B4F9009333F2 /* AppSettings.swift in Sources */,
 				E30EB3362526BCEB009333F2 /* CurrentTimerViewController.swift in Sources */,
 				874EC7E62527E37900DA2B16 /* AuthViewController.swift in Sources */,
 				E329D7DE2527B3FC0007A2E2 /* ShiftsDataSource.swift in Sources */,
 				2038F2BA2527E3E5000DC9D2 /* CreateTimerViewController.swift in Sources */,
+				E35726A52528D98800291120 /* HistoryCollectionViewCell.swift in Sources */,
 				E30EB3392526BCFB009333F2 /* HistoryViewController.swift in Sources */,
 				E30EB2FF25267B2E009333F2 /* AppDelegate.swift in Sources */,
 				E30EB30125267B2E009333F2 /* SceneDelegate.swift in Sources */,
+				E357269D2528D45800291120 /* HistoryViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct HourRange: Codable {
+struct HourRange: Codable, Hashable {
     enum HourType: String, Codable {
         case dayHours
         case workHours // work day should be a time range within a regular day
@@ -18,11 +18,16 @@ struct HourRange: Codable {
     var start: Time
     var end: Time
     
+    func toString() -> String {
+        // TODO: Care about seconds?
+        return "\(start.toString()) - \(end.toString())"
+    }
+    
     static let exampleDayRange = HourRange(type: .dayHours, start: Time.exampleEight, end: Time.exampleTwentyOne)
     static let exampleWorkRange = HourRange(type: .workHours, start: Time.exampleNine, end: Time.exampleSixteen)
 }
 
-struct Time: Codable {
+struct Time: Codable, Hashable {
     let hour: Int
     let minute: Int
     let second: Int // Maybe make optional?
@@ -56,8 +61,4 @@ extension Time {
     init(hour: Int) {
         self.init(hour: hour, minute: 0)
     }
-}
-
-extension Int {
-    
 }

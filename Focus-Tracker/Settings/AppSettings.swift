@@ -23,13 +23,15 @@ final class AppSettings {
         static let playSessionGoal = "playSessionGoal"
         static let workSessionGoal = "workSessionGoal"
         static let timerStartDate = "timerStartDate"
+        static let currentUser = "currentUser"
     }
     
     static func registerDefaults() {
         let defaults: [String: Any] = [Key.dayHours: encodeCodable(for: HourRange.exampleDayRange)!,
                                         Key.workHours: encodeCodable(for: HourRange.exampleWorkRange)!,
                                         Key.workSessionGoal: 30,
-                                        Key.playSessionGoal: 30]
+                                        Key.playSessionGoal: 30,
+                                        Key.currentUser: encodeCodable(for: User())!]
         AppSettings.store.register(defaults: defaults)
     }
     
@@ -75,6 +77,16 @@ final class AppSettings {
         }
         set {
             AppSettings.setCodable(for: Key.timerStartDate, newValue)
+        }
+    }
+    
+    // This should be retrieved from Firebase rather than user defaults
+    var activeUser: User {
+        get {
+            return AppSettings.codable(for: Key.currentUser)!
+        }
+        set {
+            AppSettings.setCodable(for: Key.currentUser, newValue)
         }
     }
 }

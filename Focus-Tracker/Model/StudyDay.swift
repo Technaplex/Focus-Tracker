@@ -11,7 +11,7 @@ import Foundation
 //    case mindfulWork(Int), mindfulPlay(Int), mindlessWork(Int), mindlessPlay(Int)
 //}
 
-struct CategoryInfo {
+struct CategoryInfo: Hashable {
     var mindfulWork: Time
     var mindfulPlay: Time
     var mindlessWork: Time
@@ -22,8 +22,13 @@ struct CategoryInfo {
     }
 }
 
-struct StudyDay {
+struct StudyDay: Hashable {
+    static func == (lhs: StudyDay, rhs: StudyDay) -> Bool {
+        lhs.date == rhs.date && lhs.user == rhs.user
+    }
+    
     private let date: Date
+    private let user: User
     var dayHours: HourRange
     var workHours: HourRange
     var categories: CategoryInfo
@@ -38,6 +43,7 @@ struct StudyDay {
         self.dayHours = dayHours
         self.workHours = workHours
         self.categories = categories
+        self.user = AppSettings.shared.activeUser
     }
     
     static var example: StudyDay {
