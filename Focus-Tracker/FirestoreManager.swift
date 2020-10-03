@@ -11,7 +11,7 @@ import Firebase
 struct Session {
 
     var id: String
-    var date: String
+    var date: Date
     var timeStart: TimeInterval
     var timeEnd: TimeInterval
     var dict: [String : Any]{
@@ -20,12 +20,11 @@ struct Session {
                 "timeStart": timeStart,
                 "timeEnd": timeEnd]
     }
-    init?(_ data: [String: Any]) {
-
+    init?(_ data: [String: Any], fs: Bool = false) {
         guard let id = data["id"] as? String,
-            let date = data["date"] as? String,
-            let timeStart = data["timeStart"] as? Double,
-            let timeEnd = data["timeEnd"] as? Double else {
+            let date = fs ? (data["date"] as? Timestamp).dateValue() : data["date"] as? Date,
+            let timeStart = data["timeStart"] as? TimeInterval,
+            let timeEnd = data["timeEnd"] as? TimeInterval else {
                 return nil
         }
 
@@ -42,7 +41,7 @@ struct Activity {
     var id: String
     var sessId: String
     var name: String
-    var duration: Double
+    var duration: TimeInterval
     var interrupts: Int
     var dict: [String : Any]{
         return ["id": id,
@@ -56,7 +55,7 @@ struct Activity {
         guard let id = data["id"] as? String,
             let sessId = data["sessId"] as? String,
             let name = data["name"] as? String,
-            let duration = data["duration"] as? Double,
+            let duration = data["duration"] as? TimeInterval,
             let interrupts = data["interrupts"] as? Int else {
                 return nil
         }
@@ -66,7 +65,6 @@ struct Activity {
         self.name = name
         self.duration = duration
         self.interrupts = interrupts
-
     }
 
 }
@@ -88,7 +86,7 @@ class FirestoreManager {
             if let err = err{
                 print("Error during Firestore read: \(err)")
             } else {
-                completion((querySnapshot!.documents).map({Session($0.data())!}))
+                completion((querySnapshot!.documents).map({Session($0.data(), fs: true)!}))
             }
         }
     }
@@ -108,7 +106,7 @@ class FirestoreManager {
         let sessRef = db.collection("users").document(userToken).collection("sessions").document(sessId)
         sessRef.getDocument { (document, error) in
             if let document = document, document.exists {
-                completion(Session(document.data()!)!)
+                completion(Session(document.data()!, fs: true)!)
             } else {
                 print("Error during Firestore read: \(error)")
             }
