@@ -95,7 +95,7 @@ class CurrentTimerViewController: UIViewController {
     
     @IBAction func add_shift(_ sender: Any) {
         let end = Date()
-        shiftsDataSource.add(shift: Shift(activity: activity, start: last_lap, end: end))
+        shiftsDataSource.add(shift: Shift(activity: activity == "" ? "None" : activity, start: last_lap, end: end))
         last_lap = end
         
         self.present_for_activity()
