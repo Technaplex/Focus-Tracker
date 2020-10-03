@@ -25,7 +25,7 @@ class AuthViewController: UIViewController, FUIAuthDelegate {
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if let user = user {
                 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let tabBarViewController = storyBoard.instantiateInitialViewController()
+                let tabBarViewController = storyBoard.instantiateInitialViewController()!
                 self.present(tabBarViewController, animated: true, completion: nil)
             } else {
                 
