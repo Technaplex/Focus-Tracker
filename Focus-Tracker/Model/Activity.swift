@@ -32,7 +32,6 @@ struct Activity {
         self.sessId = sessId
         self.name = name
         self.duration = duration
-        self.interrupts = interrupts
     }
 
 }

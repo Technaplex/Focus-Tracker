@@ -15,17 +15,13 @@ class FirestoreManager {
     private let db = Firestore.firestore()
     
     private init() {
-        Auth.auth().addStateDidChangeListener { (auth, user) in
-            if let user = user {
-                Auth.auth().currentUser?.getIDToken(completion: {(userToken, err) -> Void in
-                    if let err = err {
-                        print("Error during user authentication: \(err)")
-                    } else {
-                        self.userToken = userToken!
-                    }
-                })
+        Auth.auth().currentUser?.getIDToken(completion: {(userToken, err) -> Void in
+            if let err = err {
+                print("Error during user authentication: \(err)")
+            } else {
+                self.userToken = userToken!
             }
-        }
+        })
         self.userRef = db.collection("users").document(userToken)
     }
     

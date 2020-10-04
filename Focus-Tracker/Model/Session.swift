@@ -26,7 +26,7 @@ struct Session {
             let date = fs ? (data["date"] as? Timestamp)?.dateValue() : data["date"] as? Date,
             let timeStart = fs ? (data["timeStart"] as? Timestamp)?.dateValue() : data["timeStart"] as? Date,
             let timeEnd = fs ? (data["timeEnd"] as? Timestamp)?.dateValue() : data["timeEnd"] as? Date,
-            let interrupts = data["interrupts"] as? String else {
+            let interrupts = data["interrupts"] as? Int else {
                 return nil
         }
 
@@ -34,5 +34,6 @@ struct Session {
         self.date = date
         self.timeStart = timeStart
         self.timeEnd = timeEnd
+        self.interrupts = interrupts
     }
 }
