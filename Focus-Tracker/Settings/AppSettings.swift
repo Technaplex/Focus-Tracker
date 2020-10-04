@@ -28,6 +28,7 @@ final class AppSettings {
         static let interrupts = "interrupts"
         static let activity = "activity"
         static let shifts = "shifts"
+        static let ran = "ran"
     }
     
     static func registerDefaults() {
@@ -39,7 +40,8 @@ final class AppSettings {
                                         Key.timerCategory: 0,
                                         Key.interrupts: 0,
                                         Key.activity: "None",
-                                        Key.shifts: []]
+                                        Key.shifts: [],
+                                        Key.ran: true]
         AppSettings.store.register(defaults: defaults)
     }
     
@@ -47,6 +49,15 @@ final class AppSettings {
     static func flushSettings() {
         AppSettings.store.set(nil, forKey: Key.dayHours)
         AppSettings.store.set(nil, forKey: Key.workHours)
+    }
+    
+    var isFirstRun: Bool {
+        get {
+            return AppSettings.bool(for: Key.ran)
+        }
+        set {
+            AppSettings.setBool(for: Key.ran, newValue)
+        }
     }
     
     var dayHours: HourRange {
@@ -61,7 +72,9 @@ final class AppSettings {
     
     var workHours: HourRange {
         get {
-            return AppSettings.codable(for: Key.workHours)!
+            let hours: HourRange = AppSettings.codable(for: Key.workHours)!
+            FirestoreManager.shared.setWorkHours(hours)
+            return hours
         }
         set {
             AppSettings.setCodable(for: Key.workHours, newValue)
