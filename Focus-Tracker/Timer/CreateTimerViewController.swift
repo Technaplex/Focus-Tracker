@@ -9,10 +9,11 @@ import Foundation
 import UIKit
 
 class CreateTimerViewController: UIViewController {
-    @IBOutlet weak var type: UISegmentedControl!
-    @IBOutlet weak var activity: UITextField!
-    @IBOutlet weak var goal: UITextField!
+    @IBOutlet var type: UISegmentedControl!
+    @IBOutlet var activity: UITextField!
+    @IBOutlet var goal: UITextField!
     
+/*
     @IBAction func start(_ sender: Any) {
         let presenter = presentingViewController as! UITabBarController
         
@@ -28,11 +29,32 @@ class CreateTimerViewController: UIViewController {
         }
         
         timer.activity = activity.text!
-        timer.running = true
         timer.goal = Int(goal.text!)! * 60
         
         timer.startTimer()
         
         dismiss(animated: true, completion: nil)
+    }
+*/
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        switch segue.identifier {
+        case "showTimer":
+            guard let currentTimerViewController = segue.destination as? CurrentTimerViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            if type.selectedSegmentIndex == 0 {
+                currentTimerViewController.category = Category.mindfulWork
+            } else {
+                currentTimerViewController.category = Category.mindfulPlay
+            }
+            currentTimerViewController.activity = activity.text!
+            currentTimerViewController.running = true
+            currentTimerViewController.goal = Int(goal.text!)! * 60
+        default: fatalError("Unexpected segue")
+        }
+    
     }
 }

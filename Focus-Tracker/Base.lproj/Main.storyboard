@@ -54,10 +54,10 @@
             </objects>
             <point key="canvasLocation" x="263.768115942029" y="-206.25"/>
         </scene>
-        <!--timerViewController-->
+        <!--createSessionViewController-->
         <scene sceneID="Wiu-31-e3P">
             <objects>
-                <viewControllerPlaceholder storyboardName="Timer" referencedIdentifier="timerViewController" id="j0Z-Jo-GeM" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Timer" referencedIdentifier="createSessionViewController" id="j0Z-Jo-GeM" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="u0V-UW-ZPd"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZv-oq-7Wx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

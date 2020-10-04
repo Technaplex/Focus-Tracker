@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17124"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pWa-5N-KD6" customClass="TimerView" customModule="Focus_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="96" width="320" height="384"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEP-Rj-qr1">
                                         <rect key="frame" x="8" y="8" width="304" height="72"/>
@@ -61,25 +61,25 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jPF-zQ-3dT">
-                                        <rect key="frame" x="8" y="183" width="304" height="33"/>
+                                        <rect key="frame" x="8" y="183" width="304" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interrupts: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Htc-iq-JLD">
-                                                <rect key="frame" x="0.0" y="0.0" width="83.5" height="33"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="83.5" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="2NQ-hs-lME">
-                                                <rect key="frame" x="91.5" y="0.0" width="50" height="33"/>
+                                                <rect key="frame" x="91.5" y="0.0" width="50" height="34"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q7U-YQ-M5b">
-                                                <rect key="frame" x="149.5" y="0.0" width="52.5" height="33"/>
+                                                <rect key="frame" x="149.5" y="0.0" width="52.5" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="l04-Da-atW">
-                                                <rect key="frame" x="210" y="0.0" width="94" height="33"/>
+                                                <rect key="frame" x="210" y="0.0" width="94" height="34"/>
                                                 <connections>
                                                     <action selector="interruptValueChanged:" destination="Lg1-B7-A5h" eventType="valueChanged" id="edI-2c-nWh"/>
                                                 </connections>
@@ -87,7 +87,7 @@
                                         </subviews>
                                     </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wPr-dD-avZ">
-                                        <rect key="frame" x="8" y="224" width="304" height="152"/>
+                                        <rect key="frame" x="8" y="225" width="304" height="247"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShiftTableViewCell" id="oT4-vP-ZlP" customClass="ShiftTableViewCell" customModule="Focus_Tracker" customModuleProvider="target">
@@ -134,6 +134,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Current Session" id="bf8-As-k04"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="activityLabel" destination="z6x-fk-zfa" id="Iiy-nV-AlD"/>
                         <outlet property="goalLabel" destination="fN9-7J-7Nk" id="FSe-vW-6vH"/>
@@ -141,13 +143,12 @@
                         <outlet property="interruptValueTextField" destination="q7U-YQ-M5b" id="Xv7-3z-5Z8"/>
                         <outlet property="shiftsTableView" destination="wPr-dD-avZ" id="085-0w-Gpa"/>
                         <outlet property="timerLabel" destination="PEP-Rj-qr1" id="Cw9-Jv-47W"/>
-                        <segue destination="5R7-7v-TcK" kind="presentation" identifier="create_timer" id="eEu-Yr-XWR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wUg-7w-tb0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="QWM-J0-1Hk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="376.875" y="200"/>
+            <point key="canvasLocation" x="570" y="200"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="X7T-Pi-E6d">
@@ -155,28 +156,28 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dVI-IX-d5A" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="77A-Ik-Gxv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Lg1-B7-A5h" kind="relationship" relationship="rootViewController" id="8E0-cH-oxI"/>
+                        <segue destination="5R7-7v-TcK" kind="relationship" relationship="rootViewController" id="8df-1Y-YTK"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T1h-gZ-nnl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-431" y="200"/>
+            <point key="canvasLocation" x="-551" y="-558"/>
         </scene>
-        <!--Title-->
+        <!--Create Session-->
         <scene sceneID="CTQ-A1-BMr">
             <objects>
-                <viewController id="5R7-7v-TcK" customClass="CreateTimerViewController" customModule="Focus_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="createSessionViewController" id="5R7-7v-TcK" customClass="CreateTimerViewController" customModule="Focus_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hVJ-SN-LQa">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LJ5-wk-Q70">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="241.5"/>
+                                <rect key="frame" x="0.0" y="96" width="320" height="241.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Session Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9b-IH-fap">
                                         <rect key="frame" x="8" y="20" width="304" height="20.5"/>
@@ -194,14 +195,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h3x-g3-d7K">
                                         <rect key="frame" x="8" y="87.5" width="304" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4e-G6-DLf">
-                                                <rect key="frame" x="8" y="8" width="65.5" height="34"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starting Activity: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4e-G6-DLf">
+                                                <rect key="frame" x="8" y="8" width="130.5" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Xs-2e-Y92">
-                                                <rect key="frame" x="73.5" y="8" width="222.5" height="34"/>
+                                                <rect key="frame" x="138.5" y="8" width="157.5" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -229,7 +230,7 @@
                                         <rect key="frame" x="8" y="203.5" width="304" height="30"/>
                                         <state key="normal" title="Start"/>
                                         <connections>
-                                            <action selector="start:" destination="5R7-7v-TcK" eventType="touchUpInside" id="AIe-4o-hBj"/>
+                                            <segue destination="Lg1-B7-A5h" kind="show" identifier="showTimer" id="7pG-is-A1v"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -244,7 +245,7 @@
                             <constraint firstItem="LJ5-wk-Q70" firstAttribute="top" secondItem="Pqv-dH-Dlc" secondAttribute="top" id="edS-v0-BRx"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="ovu-XP-hb0" userLabel="New Session"/>
+                    <navigationItem key="navigationItem" title="Create Session" id="ovu-XP-hb0" userLabel="New Session"/>
                     <connections>
                         <outlet property="activity" destination="3Xs-2e-Y92" id="3tA-5l-ySo"/>
                         <outlet property="goal" destination="l7I-yr-0ss" id="K6o-a7-Y4V"/>
@@ -253,7 +254,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1qk-zb-lGi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1273" y="-16"/>
+            <point key="canvasLocation" x="377" y="-574"/>
         </scene>
         <!--Auth View Controller-->
         <scene sceneID="1fl-mt-UYT">

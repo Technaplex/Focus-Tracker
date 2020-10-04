@@ -29,21 +29,13 @@ class CurrentTimerViewController: UIViewController {
     
     var start: Date!
     var timer: Timer!
-    var activity = "Example Activity" {
-        didSet {
-            updateActivityLabel()
-        }
-    }
+    var activity = "Example Activity"
     var last_lap: Date!
     var goal = 1500 // goal in seconds (this is 25 minutes)
     var running = false
     var activities: [Activity] = []
     // set to mindfulWork just so it's nonnull, will be set to real value later
-    var category = Category.mindfulWork {
-        didSet {
-            updateActivityLabel()
-        }
-    }
+    var category = Category.mindfulWork
     var interrupts = 0
     
     var shiftsDataSource = ShiftsDataSource()
@@ -69,19 +61,24 @@ class CurrentTimerViewController: UIViewController {
         // the app was closed
         if let startDate = AppSettings.shared.timerStartDate {
             startTimer(atDate: startDate)
-            running = true
+        } else {
+            startTimer()
         }
+        
+        running = true
         
         if let timerCategory = AppSettings.shared.timerCategory {
             category = timerCategory
+            print("CHICKENSDFJLSDKF")
+            updateActivityLabel()
         }
         
         interrupts = AppSettings.shared.interrupts
 
-        
-        if !running {
-            performSegue(withIdentifier: "create_timer", sender: self)
-        }
+        self.navigationItem.setHidesBackButton(true, animated: true)
+//        if !running {
+//            performSegue(withIdentifier: "create_timer", sender: self)
+//        }
     }
     
     // MARK: - Actions
@@ -104,6 +101,8 @@ class CurrentTimerViewController: UIViewController {
                             end: end))
         
         last_lap = end
+        
+        
     }
     
     @IBAction func endSession(_ sender: Any) {
@@ -122,10 +121,14 @@ class CurrentTimerViewController: UIViewController {
     func createNewActivity() {
         let ac = UIAlertController(title: "Activity Name:", message: nil, preferredStyle: .alert)
         ac.addTextField()
-
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
             self.activity = ac.textFields![0].text!
+            self.updateActivityLabel()
         }
+        
+        ac.addAction(cancelAction)
         ac.addAction(submitAction)
 
         present(ac, animated: true)
@@ -133,14 +136,14 @@ class CurrentTimerViewController: UIViewController {
 
     // MARK: - Navigation
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        switch segue.identifier {
-        case "create_timer": break;
-        default: break;
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destination.
+//        // Pass the selected object to the new view controller.
+//        switch segue.identifier {
+//        case "create_timer": break;
+//        default: break;
+//        }
+//    }
 
     
 }
