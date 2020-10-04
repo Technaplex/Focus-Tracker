@@ -45,13 +45,13 @@ exports.calculateStudyDay = functions.firestore.document('/users/{userId}/sessio
 			}
 			tmpDate = sessData.date.toDate();
 			tmpDate.setHours(0,0,0,0);
-			const date = tmpDate.getTime() + 86400000;
+			const date = tmpDate.getTime();
 			const dayStart = date + getTimeInt(userData['dayHours'].slice(1, 4));
 			const dayEnd = date + getTimeInt(userData['dayHours'].slice(4, 7));
 			const workStart = date + getTimeInt(userData['workHours'].slice(1, 4));
 			const workEnd = date + getTimeInt(userData['workHours'].slice(4, 7));
 			if (date in histToDate) {
-				dataToday = histToDate[date];
+				dataToday = histToDate[date + 86400000];
 				studyDay = {
 			
 					0: dataToday[0],
@@ -84,10 +84,13 @@ exports.calculateStudyDay = functions.firestore.document('/users/{userId}/sessio
 			} else {
 				studyDay[1] += dur;
 			}
+			console.log(sessStart, sessEnd, workStart, workEnd, dayStart, dayEnd)
+			console.log(getOverlap(sessStart, sessEnd, dayStart, workStart))
+			console.log(getOverlap(sessStart, sessEnd, workEnd, dayEnd))
 			studyDay[2] -= getOverlap(sessStart, sessEnd, workStart, workEnd);
-			studyDay[3] = studyDay[3] - getOverlap(sessStart, sessEnd, dayStart, workStart) - getOverlap(sessStart, sessEnd, workEnd, dayStart);
+			studyDay[3] = studyDay[3] - getOverlap(sessStart, sessEnd, dayStart, workStart) - getOverlap(sessStart, sessEnd, workEnd, dayEnd);
 			studyDay["interrupts"] += sessData.interrupts
-			histToDate[date] = studyDay;
+			histToDate[date + 86400000] = studyDay;
 			return db.collection("users").doc(context.params.userId).set({"hist": histToDate}, {merge: true})
 		})
 	});
