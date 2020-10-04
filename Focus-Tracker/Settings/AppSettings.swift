@@ -180,9 +180,7 @@ final class AppSettings {
     }
     
     func clearShifts() {
-        let s: [Shift] = []
-        
-        AppSettings.shared.shifts = s
+        AppSettings.shared.shifts = [Shift]()
     }
 }
 

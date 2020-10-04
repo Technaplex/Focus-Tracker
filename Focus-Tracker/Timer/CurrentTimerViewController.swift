@@ -120,7 +120,7 @@ class CurrentTimerViewController: UIViewController {
         // TODO: Fix so that activity is not added when Stop is clicked. Instead, add the activity in the 'save session' method of end session controller
         // reset the start date so we don't think we need to continue a session when we close and
         // reopen the app
-        addActivity()
+        
     }
     
     @IBAction func interruptValueChanged(_ sender: Any) {
