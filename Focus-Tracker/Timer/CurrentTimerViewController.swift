@@ -44,7 +44,7 @@ class CurrentTimerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         shiftsTableView.delegate = shiftsDataSource
         shiftsTableView.dataSource = shiftsDataSource
 
@@ -61,11 +61,15 @@ class CurrentTimerViewController: UIViewController {
         // the app was closed
         
         running = true
+
         if let startDate = AppSettings.shared.timerStartDate {
             startTimer(atDate: startDate)
         } else {
             startTimer()
         }
+        
+        updateTimer()
+        
         if let timerCategory = AppSettings.shared.timerCategory {
             category = timerCategory
             updateActivityLabel()
