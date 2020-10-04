@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--History View Controller-->
+        <!--History-->
         <scene sceneID="9G3-wC-ekf">
             <objects>
                 <collectionViewController storyboardIdentifier="historyViewController" id="otu-2G-PAA" customClass="HistoryViewController" customModule="Focus_Tracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -183,7 +183,7 @@
                             <outlet property="delegate" destination="otu-2G-PAA" id="3v5-dO-h6K"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="pTc-gg-J1x"/>
+                    <navigationItem key="navigationItem" title="History" id="pTc-gg-J1x"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BOv-ul-942" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
