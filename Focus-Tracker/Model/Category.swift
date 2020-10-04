@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Category {
+enum Category : CustomStringConvertible {
     case mindfulWork, mindfulPlay, mindlessWork, mindlessPlay
     
     func toInt() -> Int {
@@ -20,6 +20,15 @@ enum Category {
             return 2
         case .mindlessPlay:
             return 3
+        }
+    }
+    
+    var description : String {
+        switch self {
+        case .mindfulWork: return "Mindful Work"
+        case .mindfulPlay: return "Mindful Play"
+        case .mindlessWork: return "Mindless Work"
+        case .mindlessPlay: return "Mindless Play"
         }
     }
 }

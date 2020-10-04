@@ -161,7 +161,8 @@ extension CurrentTimerViewController {
     }
     
     func updateActivityLabel() {
-        activityLabel.text = "\(activity) (\(String(describing: category)))"
+        let activityText = activity != "" ? activity : "Unspecified"
+        activityLabel.text = "\(activityText) (\(String(describing: category)))"
     }
     
     @objc func updateTimer() {
