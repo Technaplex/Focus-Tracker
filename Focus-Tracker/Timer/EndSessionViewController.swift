@@ -31,7 +31,7 @@ class EndSessionViewController: UIViewController {
             date: timer.start,
             start: timer.start,
             end: timer.last_lap,
-            interrupts: 0, // todo interrupts
+            interrupts: timer.interrupts,
             activities: timer.activities,
             category: timer.category.toInt())
             

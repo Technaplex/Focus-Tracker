@@ -36,6 +36,7 @@ class CurrentTimerViewController: UIViewController {
     var running = false
     var activities: [Activity] = []
     var category: Category!
+    var interrupts = 0
     
     var shiftsDataSource = ShiftsDataSource()
         
@@ -66,6 +67,8 @@ class CurrentTimerViewController: UIViewController {
         if let timerCategory = AppSettings.shared.timerCategory {
             category = timerCategory
         }
+        
+        interrupts = AppSettings.shared.interrupts
 
         
         if !running {
@@ -99,11 +102,13 @@ class CurrentTimerViewController: UIViewController {
         // reset the start date so we don't think we need to continue a session when we close and
         // reopen the app
         AppSettings.shared.timerStartDate = nil
+        AppSettings.shared.interrupts = 0
         addActivity()
     }
     
     @IBAction func interruptValueChanged(_ sender: Any) {
-        interruptValueTextField.text = "\(interruptStepper.value)"
+        interrupts = Int(interruptStepper.value)
+        interruptValueTextField.text = "\(interrupts)"
     }
     
     func createNewActivity() {

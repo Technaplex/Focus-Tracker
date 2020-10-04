@@ -25,6 +25,7 @@ final class AppSettings {
         static let timerStartDate = "timerStartDate"
         static let currentUser = "currentUser"
         static let timerCategory = "timerCategory"
+        static let interrupts = "interrupts"
     }
     
     static func registerDefaults() {
@@ -33,7 +34,8 @@ final class AppSettings {
                                         Key.workSessionGoal: 30,
                                         Key.playSessionGoal: 30,
                                         Key.currentUser: encodeCodable(for: User())!,
-                                        Key.timerCategory: 0]
+                                        Key.timerCategory: 0,
+                                        Key.interrupts: 0]
         AppSettings.store.register(defaults: defaults)
     }
     
@@ -122,6 +124,16 @@ final class AppSettings {
                     AppSettings.setInt(for: Key.timerCategory, 3)
                 }
             }
+        }
+    }
+    
+    var interrupts: Int {
+        get {
+            return AppSettings.int(for: Key.interrupts)
+        }
+        
+        set {
+            AppSettings.setInt(for: Key.interrupts, newValue)
         }
     }
 }
