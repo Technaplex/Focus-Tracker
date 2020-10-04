@@ -23,7 +23,7 @@ struct Duration: Codable, Hashable {
     }
     
     static var randomExample: Duration {
-        return Duration(hour: Int.random(in: 1...12), minute: Int.random(in: 1...59))
+        return Duration(hour: Int.random(in: 1...4), minute: Int.random(in: 1...59))
     }
     
     static let exampleEight = Time(hour: 8, minute: 0)
