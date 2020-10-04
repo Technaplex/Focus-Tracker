@@ -38,7 +38,8 @@ class CurrentTimerViewController: UIViewController {
     var goal = 1500 // goal in seconds (this is 25 minutes)
     var running = false
     var activities: [Activity] = []
-    var category: Category! {
+    // set to mindfulWork just so it's nonnull, will be set to real value later
+    var category = Category.mindfulWork {
         didSet {
             updateActivityLabel()
         }
@@ -160,7 +161,7 @@ extension CurrentTimerViewController {
     }
     
     func updateActivityLabel() {
-        activityLabel.text = "\(activity) (\(category))"
+        activityLabel.text = "\(activity) (\(String(describing: category)))"
     }
     
     @objc func updateTimer() {

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17124"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -135,12 +135,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="Current Session" id="bf8-As-k04"/>
                     <connections>
+                        <outlet property="activityLabel" destination="z6x-fk-zfa" id="Iiy-nV-AlD"/>
                         <outlet property="goalLabel" destination="fN9-7J-7Nk" id="FSe-vW-6vH"/>
                         <outlet property="interruptStepper" destination="l04-Da-atW" id="gNF-D4-HnW"/>
                         <outlet property="interruptValueTextField" destination="q7U-YQ-M5b" id="Xv7-3z-5Z8"/>
                         <outlet property="shiftsTableView" destination="wPr-dD-avZ" id="085-0w-Gpa"/>
                         <outlet property="timerLabel" destination="PEP-Rj-qr1" id="Cw9-Jv-47W"/>
-                        <outlet property="typeLabel" destination="z6x-fk-zfa" id="CZy-vP-lXH"/>
                         <segue destination="5R7-7v-TcK" kind="presentation" identifier="create_timer" id="eEu-Yr-XWR"/>
                     </connections>
                 </viewController>
@@ -172,7 +172,7 @@
             <objects>
                 <viewController id="5R7-7v-TcK" customClass="CreateTimerViewController" customModule="Focus_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hVJ-SN-LQa">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LJ5-wk-Q70">
