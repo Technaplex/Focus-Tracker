@@ -43,6 +43,7 @@
 		E35726B02528F07A00291120 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35726AF2528F07A00291120 /* Section.swift */; };
 		E35726B725291A5600291120 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35726B625291A5600291120 /* Timer.swift */; };
 		E35726BA252924DD00291120 /* EndSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35726B9252924DD00291120 /* EndSessionViewController.swift */; };
+		E35726E82529616700291120 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35726E72529616700291120 /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		E35726AF2528F07A00291120 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		E35726B625291A5600291120 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		E35726B9252924DD00291120 /* EndSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndSessionViewController.swift; sourceTree = "<group>"; };
+		E35726E72529616700291120 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 				87C1357925294A3E00F00A38 /* Time.swift */,
 				87C1357C25294A7600F00A38 /* Session.swift */,
 				7E30CF66252957D000A2DAE4 /* Duration.swift */,
+				E35726E72529616700291120 /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				E30EB3392526BCFB009333F2 /* HistoryViewController.swift in Sources */,
 				E30EB2FF25267B2E009333F2 /* AppDelegate.swift in Sources */,
 				87C1357D25294A7600F00A38 /* Session.swift in Sources */,
+				E35726E82529616700291120 /* Category.swift in Sources */,
 				E30EB30125267B2E009333F2 /* SceneDelegate.swift in Sources */,
 				87C1357A25294A3E00F00A38 /* Time.swift in Sources */,
 				E357269D2528D45800291120 /* HistoryViewModel.swift in Sources */,

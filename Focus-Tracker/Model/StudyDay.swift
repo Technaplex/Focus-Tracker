@@ -7,10 +7,6 @@
 
 import Foundation
 
-enum Category {
-    case mindfulWork(Duration), mindfulPlay(Duration), mindlessWork(Duration), mindlessPlay(Duration)
-}
-
 // Maybe this shoudl be reworked
 struct CategoryInfo: Hashable {
     var mindfulWork: Duration
