@@ -63,35 +63,6 @@ class CurrentTimerViewController: UIViewController {
         }
     }
     
-    // if I use the name `date` instead of `date_`, it crashes...
-    func startTimer(atDate date_: Date? = nil) {
-        activityLabel.text = "Activity: \(activity)"
-        goalLabel.text = "Goal: \(goal / 60) minutes"
-        start = date_ ?? Date()
-        // don't overwrite if it's nonnull, because we don't want to change the start date for
-        // a current session
-        if AppSettings.shared.timerStartDate == nil {
-            AppSettings.shared.timerStartDate = start
-        }
-        last_lap = start
-    }
-    
-    @objc func updateTimer() {
-        if !running {
-            return
-        }
-        
-        let interval = Int(Date().timeIntervalSince(start))
-        
-        let progress = CGFloat(interval) / CGFloat(goal)
-        
-        self.timerLabel.text = timedeltaToString(interval)
-        self.timerLabel.textColor = UIColor(red: 1 - progress,
-                                            green: 0,
-                                            blue: progress,
-                                            alpha: 1.0)
-    }
-    
     // MARK: - Actions
     
     @IBAction func addShift(_ sender: Any) {
@@ -136,6 +107,38 @@ class CurrentTimerViewController: UIViewController {
     }
 
     
+}
+
+// MARK: - Timer
+extension CurrentTimerViewController {
+    // if I use the name `date` instead of `date_`, it crashes...
+    func startTimer(atDate date_: Date? = nil) {
+        activityLabel.text = "Activity: \(activity)"
+        goalLabel.text = "Goal: \(goal / 60) minutes"
+        start = date_ ?? Date()
+        // don't overwrite if it's nonnull, because we don't want to change the start date for
+        // a current session
+        if AppSettings.shared.timerStartDate == nil {
+            AppSettings.shared.timerStartDate = start
+        }
+        last_lap = start
+    }
+    
+    @objc func updateTimer() {
+        if !running {
+            return
+        }
+        
+        let interval = Int(Date().timeIntervalSince(start))
+        
+        let progress = CGFloat(interval) / CGFloat(goal)
+        
+        self.timerLabel.text = timedeltaToString(interval)
+        self.timerLabel.textColor = UIColor(red: 1 - progress,
+                                            green: 0,
+                                            blue: progress,
+                                            alpha: 1.0)
+    }
 }
 
 extension CurrentTimerViewController: ShiftsDataSourceDelegate {
