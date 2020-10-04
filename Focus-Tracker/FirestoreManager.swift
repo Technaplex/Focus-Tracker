@@ -69,7 +69,7 @@ class FirestoreManager {
     func addSession(_ sessId: String, data: Session) {
         db.collection("users").document(userToken).collection("sessions").document(sessId).setData(data.toDict()) {err in
             if let err = err{
-                print("Error on write: \(err)")
+                print("Error on write (addSession): \(err)")
             }
         }
     }
@@ -77,7 +77,7 @@ class FirestoreManager {
     func setDayHours(_ dayHours: HourRange) {
         db.collection("users").document(userToken).setData(["dayHours": dayHours.hash()]) { err in
             if let err = err {
-                print("Error writing document: \(err)")
+                print("Error writing document (setDayHours): \(err)")
             } else {
                 print("Document successfully written!")
             }
@@ -87,7 +87,7 @@ class FirestoreManager {
     func setWorkHours(_ workHours: HourRange) {
         db.collection("users").document(userToken).setData(["workHours": workHours.hash()]) { err in
             if let err = err {
-                print("Error writing document: \(err)")
+                print("Error writing document (setWorkHours): \(err)")
             } else {
                 print("Document successfully written!")
             }
@@ -120,7 +120,7 @@ class FirestoreManager {
                 }
                 completion(studyDays)
             } else {
-                print("Error during Firestore read: \(error)")
+                print("Error during Firestore read (getStudyDays): \(error)")
             }
         }
     }

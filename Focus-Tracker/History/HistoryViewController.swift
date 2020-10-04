@@ -19,7 +19,7 @@ class HistoryViewController: UICollectionViewController {
 //    private lazy var dataSource = makeDataSource()
     // TODO: connect with Firestore
     private lazy var dataSource = makeDataSource()
-    var history = [StudyDay]()
+    var history = [StudyDay.example, StudyDay.example]
 
     override func viewDidLoad() {
         super.viewDidLoad()
