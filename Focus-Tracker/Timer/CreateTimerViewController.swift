@@ -69,7 +69,10 @@ class CreateTimerViewController: UIViewController {
                 currentTimerViewController.category = Category.mindfulPlay
             }
             AppSettings.shared.timerCategory = currentTimerViewController.category
+            
             currentTimerViewController.activity = activity.text!
+            AppSettings.shared.activity = activity.text!
+            
             currentTimerViewController.running = true
             currentTimerViewController.goal = Int(goal.text!)! * 60
         default: fatalError("Unexpected segue")
