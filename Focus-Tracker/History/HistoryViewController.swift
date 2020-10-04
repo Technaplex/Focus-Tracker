@@ -23,6 +23,9 @@ class HistoryViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        FirestoreManager.shared.getStudyDays(){(studyDays) in
+            self.history = studyDays
+        }
         // Do any additional setup after loading the view.
         configureLayout()
         applySnapshot(animatingDifferences: false)
