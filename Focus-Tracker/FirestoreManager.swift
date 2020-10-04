@@ -76,7 +76,7 @@ class FirestoreManager {
 //    }
     
     /// Add Session should add a session from a stopped timer session.
-    func addSession(_ sessId: String, data: Session){
+    func addSession(_ sessId: String, data: Session) {
         db.collection("users").document(userToken).collection("sessions").document(sessId).setData(data.toDict()) {err in
             if let err = err{
                 print("Error on write: \(err)")
