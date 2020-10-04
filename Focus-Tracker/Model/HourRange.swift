@@ -29,7 +29,7 @@ struct HourRange: Codable, Hashable {
         return [n, start.hour, start.minute, start.second, end.hour, end.minute, end.second]
     }
     
-    func from_hash(_ hash: [Int]) -> HourRange {
+    static func from_hash(_ hash: [Int]) -> HourRange {
         HourRange(type: hash[0] == 0 ? .dayHours : .workHours, start: Time(hour: hash[1], minute: hash[2], second: hash[3]), end: Time(hour: hash[4], minute: hash[5], second: hash[6]))
     }
     
