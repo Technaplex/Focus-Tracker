@@ -44,6 +44,7 @@
 		E35726B725291A5600291120 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35726B625291A5600291120 /* Timer.swift */; };
 		E35726BA252924DD00291120 /* EndSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35726B9252924DD00291120 /* EndSessionViewController.swift */; };
 		E35726E82529616700291120 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35726E72529616700291120 /* Category.swift */; };
+		E35726EB252987CA00291120 /* ViewController+hideKeyboardWhenTappedAround.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35726EA252987CA00291120 /* ViewController+hideKeyboardWhenTappedAround.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		E35726B625291A5600291120 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		E35726B9252924DD00291120 /* EndSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndSessionViewController.swift; sourceTree = "<group>"; };
 		E35726E72529616700291120 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		E35726EA252987CA00291120 /* ViewController+hideKeyboardWhenTappedAround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+hideKeyboardWhenTappedAround.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +197,7 @@
 				2038F2412527DB3C000DC9D2 /* ShiftTableViewCell.swift */,
 				E329D7DD2527B3FC0007A2E2 /* ShiftsDataSource.swift */,
 				2038F2B92527E3E5000DC9D2 /* CreateTimerViewController.swift */,
+				E35726EA252987CA00291120 /* ViewController+hideKeyboardWhenTappedAround.swift */,
 				E35726B625291A5600291120 /* Timer.swift */,
 				E35726B9252924DD00291120 /* EndSessionViewController.swift */,
 			);
@@ -353,6 +356,7 @@
 			files = (
 				E30EB3272526AD31009333F2 /* TimeTableViewCell.swift in Sources */,
 				8756459C2528FBD5001F5A13 /* FirestoreManager.swift in Sources */,
+				E35726EB252987CA00291120 /* ViewController+hideKeyboardWhenTappedAround.swift in Sources */,
 				E30EB3322526B69E009333F2 /* HourRange.swift in Sources */,
 				E30EB32C2526AF45009333F2 /* SettingsTableViewController.swift in Sources */,
 				E329D81025280E6F0007A2E2 /* StudyDay.swift in Sources */,

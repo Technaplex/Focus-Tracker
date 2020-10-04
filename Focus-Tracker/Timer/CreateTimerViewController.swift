@@ -36,6 +36,12 @@ class CreateTimerViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 */
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+        
+    }
     func updateDefaultGoalTime() {
         if type.selectedSegmentIndex == 0 {
             goal.text = String(AppSettings.shared.workSessionGoal)
