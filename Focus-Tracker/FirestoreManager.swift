@@ -94,6 +94,9 @@ class FirestoreManager {
         }
     }
     
+    func getCategories(){
+        db.collection("users").document(userToken)
+    }
     /*
     func addActivity(_ actId: String, sessId: String, data: Activity){
         db.collection("users").document(userToken).collection("sessions").document(sessId).collection("activities").document(actId).setData(data.toDict()) { err in
