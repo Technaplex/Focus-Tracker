@@ -25,7 +25,7 @@ class CreateTimerViewController: UIViewController {
         timer.running = true
         timer.goal = Int(goal.text!)! * 60
         
-        timer.start_timer()
+        timer.startTimer()
         
         dismiss(animated: true, completion: nil)
     }
