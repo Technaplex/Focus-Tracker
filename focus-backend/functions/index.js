@@ -29,14 +29,18 @@ exports.calculateStudyDay = functions.firestore.document('/users/{userId}/sessio
 		const sessStart = sessData.start.toMillis()
 		const sessEnd = sessData.end.toMillis()
 		const dur = sessStart - sessEnd
-		userData = db.doc('/users/' + context.params.userId).data()
-		histToDate = userData.hist
+		userData = db.collection("users").doc(context.params.userId).get()
+		if (typeof userData.get('hist') !== 'undefined'){
+			histToDate = userData.hist
+		} else {
+			histToDate = {}
+		}
 		const date = data.date.toMillis()
-		const dayStart = userData.dayHours[0].toMillis()
-		const dayEnd = userData.dayHours[1].toMillis()
-		const workStart = userData.workHours[0].toMillis()
-		const workEnd = userData.workHours[1].toMillis()
-		if (date in userData.hist) {
+		const dayStart = userData.get('dayHours')[0].toMillis()
+		const dayEnd = userData.get('dayHours')[1].toMillis()
+		const workStart = userData.get('workHours')[0].toMillis()
+		const workEnd = userData.get('workHours')[1].toMillis()
+		if (date in histToDate) {
 			dataToday = histToDate[date];
 			studyDay = {
 				0: dataToday[0],
@@ -62,5 +66,5 @@ exports.calculateStudyDay = functions.firestore.document('/users/{userId}/sessio
 		studyDay[2] -= getOverlap(sessStart, sessEnd, workStart, workEnd)
 		studyDay[3] = studyDay[3] - getOverlap(sessStart, sessEnd, dayStart, workStart) - getOverlap(sessStart, sessEnd, workEnd, dayStart)
 		histToDate[date] = studyDay
-		db.doc('/users/' + context.params.userId).set({"hist": histToDate}, {merge: true})
+		return db.collection("users").doc(context.params.userId).set({"hist": histToDate}, {merge: true})
 	});
