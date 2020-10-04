@@ -66,7 +66,8 @@ extension HistoryViewController {
       let isPhone = layoutEnvironment.traitCollection.userInterfaceIdiom == UIUserInterfaceIdiom.phone
       let size = NSCollectionLayoutSize(
         widthDimension: NSCollectionLayoutDimension.fractionalWidth(1),
-        heightDimension: NSCollectionLayoutDimension.absolute(isPhone ? 280 : 250)
+        // change this value if you want to change the height of the cell
+        heightDimension: NSCollectionLayoutDimension.absolute(150)
       )
       let itemCount = isPhone ? 1 : 3
       let item = NSCollectionLayoutItem(layoutSize: size)

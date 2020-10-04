@@ -6,24 +6,25 @@
 //
 
 import Foundation
+import FirebaseFirestore.FIRTimestamp
 import Firebase
-
+import FirebaseFirestore
 
 struct Session {
-    var id: UUID
+    var id: String
     var date: Date
     var start: Date
     var end: Date
     var interrupts: Int
     var activities: [Activity] = []
-    var category: Category
+    var category: Int
 }
 
 extension Session {
     // Let me know Bryan if this is not what we actually want
     private var activitiesDict: [String: [String: Any]] {
         activities.reduce(into: [String: [String: Any]]()) {
-            $0[$1.id.uuidString] = $1.toDict()
+            $0[$1.id] = $1.toDict()
         }
     }
     
@@ -49,7 +50,7 @@ extension Session {
     
     init?(_ data: [String: Any]) {
         //as? [Activity] likely causes failures but method is currently unused
-        guard let id = data[Session.Keys.id] as? UUID,
+        guard let id = data[Session.Keys.id] as? String,
             let date = (data[Session.Keys.date] as? Timestamp)?.dateValue(),
             let start = (data[Session.Keys.start] as? Timestamp)?.dateValue(),
             let end = (data[Session.Keys.start] as? Timestamp)?.dateValue(),
@@ -65,6 +66,6 @@ extension Session {
         self.end = end
         self.interrupts = interrupts
         self.activities = activities
-        self.category = category
+        self.category = category.toInt()
     }
 }

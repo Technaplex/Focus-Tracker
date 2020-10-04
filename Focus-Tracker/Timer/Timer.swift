@@ -6,3 +6,29 @@
 //
 
 import Foundation
+
+protocol TimerManagerDelegate {
+    
+}
+
+/*
+class TimerManager {
+    var running: Bool
+    var timer = Timer()
+    var startDate: Date
+    // What is last lap
+    init() {
+        
+    }
+    
+    func addShift() {
+        
+    }
+    
+    func endSession() {
+        
+    }
+    
+    
+}
+*/

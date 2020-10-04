@@ -21,6 +21,12 @@ class CreateTimerViewController: UIViewController {
         
         timer.typeLabel.text = "Text: Mindful \(type.titleForSegment(at: type.selectedSegmentIndex)!)"
         
+        if type.selectedSegmentIndex == 0 {
+            timer.category = Category.mindfulWork
+        } else {
+            timer.category = Category.mindfulPlay
+        }
+        
         timer.activity = activity.text!
         timer.running = true
         timer.goal = Int(goal.text!)! * 60

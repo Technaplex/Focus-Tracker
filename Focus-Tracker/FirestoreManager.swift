@@ -12,18 +12,8 @@ import FirebaseFirestore
 class FirestoreManager {
     static let shared = FirestoreManager()
     private let db = Firestore.firestore()
-    private var userToken : String = ""
-    
-    private init() {
-        Auth.auth().currentUser?.getIDToken(completion: {(userToken, err) -> Void in
-            if let err = err {
-                print("Error during user authentication: \(err)")
-            } else {
-                self.userToken = userToken!
-            }
-        })
-    }
-    
+    private var userToken : String = Auth.auth().currentUser!.uid
+
     // Commented out because unused for Hackathon
     /*
     func allSessions(completion: @escaping ([Session]) -> Void) {

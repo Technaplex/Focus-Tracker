@@ -15,6 +15,10 @@ func timedeltaToString(_ interval: Int) -> String {
     return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
 }
 
+func createUUID() -> String {
+    return UUID().uuidString.replacingOccurrences(of: "-", with: "")
+}
+
 class CurrentTimerViewController: UIViewController {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var activityLabel: UILabel!
@@ -30,6 +34,8 @@ class CurrentTimerViewController: UIViewController {
     var last_lap: Date!
     var goal = 1500 // goal in seconds (this is 25 minutes)
     var running = false
+    var activities: [Activity] = []
+    var category: Category!
     
     var shiftsDataSource = ShiftsDataSource()
         
@@ -53,10 +59,14 @@ class CurrentTimerViewController: UIViewController {
         // shows the time since that date, so it looks as if the timer was running while
         // the app was closed
         if let startDate = AppSettings.shared.timerStartDate {
-            print(startDate)
             startTimer(atDate: startDate)
             running = true
         }
+        
+        if let timerCategory = AppSettings.shared.timerCategory {
+            category = timerCategory
+        }
+
         
         if !running {
             performSegue(withIdentifier: "create_timer", sender: self)
@@ -66,17 +76,30 @@ class CurrentTimerViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func addShift(_ sender: Any) {
-        let end = Date()
-        shiftsDataSource.add(shift: Shift(activity: activity == "" ? "None" : activity, start: last_lap, end: end))
-        last_lap = end
-        
+        addActivity()
         self.createNewActivity()
+    }
+    
+    func addActivity() {
+        let end = Date()
+
+        let name = activity == "" ? "None" : activity
+    
+        shiftsDataSource.add(shift: Shift(activity: name, start: last_lap, end: end))
+        activities.append(Activity(
+                            id: createUUID(),
+                            name: name,
+                            start: last_lap,
+                            end: end))
+        
+        last_lap = end
     }
     
     @IBAction func endSession(_ sender: Any) {
         // reset the start date so we don't think we need to continue a session when we close and
         // reopen the app
         AppSettings.shared.timerStartDate = nil
+        addActivity()
     }
     
     @IBAction func interruptValueChanged(_ sender: Any) {
