@@ -44,7 +44,7 @@ class CurrentTimerViewController: UIViewController {
         
         timer = Timer.scheduledTimer(timeInterval: 1.0,
                                                    target: self,
-                                                   selector: #selector(self.update_timer),
+                                                   selector: #selector(self.updateTimer),
                                                    userInfo: nil,
                                                    repeats: true)
         
@@ -53,7 +53,7 @@ class CurrentTimerViewController: UIViewController {
         // the app was closed
         if let startDate = AppSettings.shared.timerStartDate {
             print(startDate)
-            start_timer(atDate: startDate)
+            startTimer(atDate: startDate)
             running = true
         }
         
@@ -63,7 +63,7 @@ class CurrentTimerViewController: UIViewController {
     }
     
     // if I use the name `date` instead of `date_`, it crashes...
-    func start_timer(atDate date_: Date? = nil) {
+    func startTimer(atDate date_: Date? = nil) {
         activityLabel.text = "Activity: \(activity)"
         goalLabel.text = "Goal: \(goal / 60) minutes"
         start = date_ ?? Date()
@@ -75,7 +75,7 @@ class CurrentTimerViewController: UIViewController {
         last_lap = start
     }
     
-    @objc func update_timer() {
+    @objc func updateTimer() {
         if !running {
             return
         }

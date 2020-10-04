@@ -8,30 +8,44 @@
 import Foundation
 
 struct Activity {
-
-    var id: String
-    var sessId: String
+    var id: UUID
     var name: String
-    var duration: TimeInterval
-    var dict: [String : Any]{
-        return ["id": id,
-                "sessId": sessId,
-                "name": name,
-                "duration": duration]
+    var start: Date
+    var end: Date
+    
+    
+    // Let me know if we do actually want duration
+    // var duration: TimeInterval
+}
+
+extension Activity {
+    enum Keys {
+        static let id = "id"
+        static let name = "name"
+        static let start = "start"
+        static let end = "end"
     }
+    
+    // May be used during communication with FireStoreManager
+    func toDict() -> [String: Any] {
+        return [Activity.Keys.id: id,
+                Activity.Keys.name: name,
+                Activity.Keys.start: start,
+                Activity.Keys.end: end]
+    }
+    
     init?(_ data: [String: Any]) {
 
-        guard let id = data["id"] as? String,
-            let sessId = data["sessId"] as? String,
-            let name = data["name"] as? String,
-            let duration = data["duration"] as? TimeInterval else {
+        guard let id = data[Activity.Keys.id] as? UUID,
+            let name = data[Activity.Keys.name] as? String,
+            let start = data[Activity.Keys.start] as? Date,
+            let end = data[Activity.Keys.end] as? Date else {
                 return nil
         }
 
         self.id = id
-        self.sessId = sessId
         self.name = name
-        self.duration = duration
+        self.start = start
+        self.end = end
     }
-
 }

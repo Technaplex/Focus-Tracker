@@ -24,13 +24,15 @@ class FirestoreManager {
         })
     }
     
+    // Commented out because unused for Hackathon
+    /*
     func allSessions(completion: @escaping ([Session]) -> Void) {
         return db.collection("users").document(userToken).collection("sessions").getDocuments(){
             (querySnapshot, err) in
             if let err = err{
                 print("Error during Firestore read: \(err)")
             } else {
-                completion((querySnapshot!.documents).map({Session($0.data(), fs: true)!}))
+                completion((querySnapshot!.documents).map({Session($0.data())!}))
             }
         }
     }
@@ -50,7 +52,7 @@ class FirestoreManager {
         let sessRef = db.collection("users").document(userToken).collection("sessions").document(sessId)
         sessRef.getDocument { (document, error) in
             if let document = document, document.exists {
-                completion(Session(document.data()!, fs: true)!)
+                completion(Session(document.data()!)!)
             } else {
                 print("Error during Firestore read: \(error)")
             }
@@ -67,25 +69,28 @@ class FirestoreManager {
             }
         }
     }
+    */
     
 //    func getSession(_ id: String){
 //        getSessions()
 //    }
     
-    
+    /// Add Session should add a session from a stopped timer session.
     func addSession(_ sessId: String, data: Session){
-        db.collection("users").document(userToken).collection("sessions").document(sessId).setData(data.dict) {err in
+        db.collection("users").document(userToken).collection("sessions").document(sessId).setData(data.toDict()) {err in
             if let err = err{
                 print("Error on write: \(err)")
             }
         }
     }
     
+    /*
     func addActivity(_ actId: String, sessId: String, data: Activity){
-        db.collection("users").document(userToken).collection("sessions").document(sessId).collection("activities").document(actId).setData(data.dict) { err in
+        db.collection("users").document(userToken).collection("sessions").document(sessId).collection("activities").document(actId).setData(data.toDict()) { err in
             if let err = err {
                 print("Error on write: \(err)")
             }
         }
     }
+    */
 }
