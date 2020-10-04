@@ -38,7 +38,7 @@
         <!--Current-->
         <scene sceneID="pPc-kb-hkF">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="K0U-T8-bj3" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="K0U-T8-bj3" customClass="TimerNavigationViewController" customModule="Focus_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Current" image="sun.min" catalog="system" id="QTw-nB-dG9"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="72o-Fu-R5D">

@@ -40,6 +40,7 @@ class CreateTimerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        navigationController?.navigationBar.prefersLargeTitles = true
         
     }
     func updateDefaultGoalTime() {
@@ -76,6 +77,7 @@ class CreateTimerViewController: UIViewController {
     }
     
     @IBAction func unwindToCreateTimer(unwindSegue: UIStoryboardSegue) {
+        loadViewIfNeeded()
         updateDefaultGoalTime()
         activity.text = ""
     }

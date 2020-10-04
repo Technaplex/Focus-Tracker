@@ -45,6 +45,7 @@
 		E35726BA252924DD00291120 /* EndSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35726B9252924DD00291120 /* EndSessionViewController.swift */; };
 		E35726E82529616700291120 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35726E72529616700291120 /* Category.swift */; };
 		E35726EB252987CA00291120 /* ViewController+hideKeyboardWhenTappedAround.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35726EA252987CA00291120 /* ViewController+hideKeyboardWhenTappedAround.swift */; };
+		E35726F22529905900291120 /* TimerNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35726F12529905900291120 /* TimerNavigationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		E35726B9252924DD00291120 /* EndSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndSessionViewController.swift; sourceTree = "<group>"; };
 		E35726E72529616700291120 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		E35726EA252987CA00291120 /* ViewController+hideKeyboardWhenTappedAround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+hideKeyboardWhenTappedAround.swift"; sourceTree = "<group>"; };
+		E35726F12529905900291120 /* TimerNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerNavigationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				E30EB2FE25267B2E009333F2 /* AppDelegate.swift */,
 				E30EB30025267B2E009333F2 /* SceneDelegate.swift */,
 				E30EB30425267B2E009333F2 /* Main.storyboard */,
+				E35726F12529905900291120 /* TimerNavigationViewController.swift */,
 				E30EB30725267B30009333F2 /* Assets.xcassets */,
 				E30EB30925267B30009333F2 /* LaunchScreen.storyboard */,
 				E30EB30C25267B30009333F2 /* Info.plist */,
@@ -379,6 +382,7 @@
 				E30EB2FF25267B2E009333F2 /* AppDelegate.swift in Sources */,
 				87C1357D25294A7600F00A38 /* Session.swift in Sources */,
 				E35726E82529616700291120 /* Category.swift in Sources */,
+				E35726F22529905900291120 /* TimerNavigationViewController.swift in Sources */,
 				E30EB30125267B2E009333F2 /* SceneDelegate.swift in Sources */,
 				87C1357A25294A3E00F00A38 /* Time.swift in Sources */,
 				E357269D2528D45800291120 /* HistoryViewModel.swift in Sources */,

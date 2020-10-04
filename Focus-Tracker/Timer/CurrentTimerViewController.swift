@@ -41,10 +41,10 @@ class CurrentTimerViewController: UIViewController {
     var shiftsDataSource = ShiftsDataSource()
         
     // MARK: - Lifecycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         shiftsTableView.delegate = shiftsDataSource
         shiftsTableView.dataSource = shiftsDataSource
 
@@ -59,14 +59,14 @@ class CurrentTimerViewController: UIViewController {
         // if a timer was previously running when the app closed, make a new timer which
         // shows the time since that date, so it looks as if the timer was running while
         // the app was closed
+        
+        
+        running = true
         if let startDate = AppSettings.shared.timerStartDate {
             startTimer(atDate: startDate)
         } else {
             startTimer()
         }
-        
-        running = true
-        
         if let timerCategory = AppSettings.shared.timerCategory {
             category = timerCategory
             updateActivityLabel()
@@ -80,6 +80,12 @@ class CurrentTimerViewController: UIViewController {
 //        }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
     // MARK: - Actions
     
     @IBAction func addShift(_ sender: Any) {
