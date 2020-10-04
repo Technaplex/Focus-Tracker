@@ -7,7 +7,7 @@
 
 import UIKit
 
-func timedelta_to_string(_ interval: Int) -> String {
+func timedeltaToString(_ interval: Int) -> String {
     let hours = interval / 3600
     let minutes = (interval % 3600) / 60
     let seconds = interval % 60
@@ -84,7 +84,7 @@ class CurrentTimerViewController: UIViewController {
         
         let progress = CGFloat(interval) / CGFloat(goal)
         
-        self.timerLabel.text = timedelta_to_string(interval)
+        self.timerLabel.text = timedeltaToString(interval)
         self.timerLabel.textColor = UIColor(red: 1 - progress,
                                             green: 0,
                                             blue: progress,
