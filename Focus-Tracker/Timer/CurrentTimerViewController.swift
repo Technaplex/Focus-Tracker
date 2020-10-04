@@ -20,7 +20,6 @@ func createUUID() -> String {
 }
 
 class CurrentTimerViewController: UIViewController {
-    @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var activityLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var interruptValueTextField: UITextField!
@@ -30,12 +29,20 @@ class CurrentTimerViewController: UIViewController {
     
     var start: Date!
     var timer: Timer!
-    var activity = ""
+    var activity = "Example Activity" {
+        didSet {
+            updateActivityLabel()
+        }
+    }
     var last_lap: Date!
     var goal = 1500 // goal in seconds (this is 25 minutes)
     var running = false
     var activities: [Activity] = []
-    var category: Category!
+    var category: Category! {
+        didSet {
+            updateActivityLabel()
+        }
+    }
     var interrupts = 0
     
     var shiftsDataSource = ShiftsDataSource()
@@ -141,7 +148,7 @@ class CurrentTimerViewController: UIViewController {
 extension CurrentTimerViewController {
     // if I use the name `date` instead of `date_`, it crashes...
     func startTimer(atDate date_: Date? = nil) {
-        activityLabel.text = "Activity: \(activity)"
+        updateActivityLabel()
         goalLabel.text = "Goal: \(goal / 60) minutes"
         start = date_ ?? Date()
         // don't overwrite if it's nonnull, because we don't want to change the start date for
@@ -150,6 +157,10 @@ extension CurrentTimerViewController {
             AppSettings.shared.timerStartDate = start
         }
         last_lap = start
+    }
+    
+    func updateActivityLabel() {
+        activityLabel.text = "\(activity) (\(category))"
     }
     
     @objc func updateTimer() {
