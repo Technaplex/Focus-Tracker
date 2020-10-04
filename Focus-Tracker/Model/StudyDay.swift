@@ -38,7 +38,7 @@ struct StudyDay: Hashable {
     }
     
     var dayHoursString: String {
-        return "Day: \(dayHours.toString())"
+        return "Day:  \(dayHours.toString())"
     }
     
     var workHoursString: String {
