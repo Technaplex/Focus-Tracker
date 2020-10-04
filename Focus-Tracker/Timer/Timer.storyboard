@@ -63,6 +63,7 @@
                                                         <state key="normal" title="Stop"/>
                                                         <connections>
                                                             <action selector="endSession:" destination="QWM-J0-1Hk" eventType="touchUpInside" id="cUl-dQ-Wq3"/>
+                                                            <action selector="endSession:" destination="Lg1-B7-A5h" eventType="touchUpInside" id="j0a-p4-n5P"/>
                                                             <segue destination="lpt-dO-4Uh" kind="presentation" id="qua-Vi-A6H"/>
                                                         </connections>
                                                     </button>
@@ -297,7 +298,11 @@
                                                 <action selector="cancel:" destination="lpt-dO-4Uh" id="hm2-oa-Aid"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Save" id="0MM-tL-uPg"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Save" id="0MM-tL-uPg">
+                                            <connections>
+                                                <action selector="saveSession:" destination="lpt-dO-4Uh" id="efV-dr-Rx3"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

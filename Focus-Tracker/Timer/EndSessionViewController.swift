@@ -19,4 +19,22 @@ class EndSessionViewController: UIViewController {
     @IBAction func cancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func saveSession(_ sender: Any) {
+        print("ending session")
+        let presenter = presentingViewController as! UITabBarController
+
+        let timer = (presenter.viewControllers![0] as! UINavigationController).topViewController as! CurrentTimerViewController
+
+        let currentSession = Session(
+            id: createUUID(),
+            date: timer.start,
+            start: timer.start,
+            end: timer.last_lap,
+            interrupts: 0, // todo interrupts
+            activities: timer.activities,
+            category: timer.category.toInt())
+            
+        FirestoreManager.shared.addSession(currentSession.id, data: currentSession)
+    }
 }

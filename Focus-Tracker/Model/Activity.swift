@@ -8,7 +8,7 @@
 import Foundation
 
 struct Activity {
-    var id: UUID
+    var id: String
     var name: String
     var start: Date
     var end: Date
@@ -36,7 +36,7 @@ extension Activity {
     
     init?(_ data: [String: Any]) {
 
-        guard let id = data[Activity.Keys.id] as? UUID,
+        guard let id = data[Activity.Keys.id] as? String,
             let name = data[Activity.Keys.name] as? String,
             let start = data[Activity.Keys.start] as? Date,
             let end = data[Activity.Keys.end] as? Date else {

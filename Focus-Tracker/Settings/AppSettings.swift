@@ -24,6 +24,7 @@ final class AppSettings {
         static let workSessionGoal = "workSessionGoal"
         static let timerStartDate = "timerStartDate"
         static let currentUser = "currentUser"
+        static let timerCategory = "timerCategory"
     }
     
     static func registerDefaults() {
@@ -31,7 +32,8 @@ final class AppSettings {
                                         Key.workHours: encodeCodable(for: HourRange.exampleWorkRange)!,
                                         Key.workSessionGoal: 30,
                                         Key.playSessionGoal: 30,
-                                        Key.currentUser: encodeCodable(for: User())!]
+                                        Key.currentUser: encodeCodable(for: User())!,
+                                        Key.timerCategory: 0]
         AppSettings.store.register(defaults: defaults)
     }
     
@@ -93,6 +95,33 @@ final class AppSettings {
         }
         set {
             AppSettings.setCodable(for: Key.currentUser, newValue)
+        }
+    }
+    
+    var timerCategory: Category? {
+        get {
+            switch AppSettings.int(for: Key.timerCategory) {
+            case 0:  return .mindfulWork
+            case 1:  return .mindfulPlay
+            case 2:  return .mindlessWork
+            case 3:  return .mindlessPlay
+            default: return nil
+            }
+        }
+        
+        set {
+            if let value = newValue {
+                switch value {
+                case .mindfulWork:
+                    AppSettings.setInt(for: Key.timerCategory, 0)
+                case .mindfulPlay:
+                    AppSettings.setInt(for: Key.timerCategory, 1)
+                case .mindlessWork:
+                    AppSettings.setInt(for: Key.timerCategory, 2)
+                case .mindlessPlay:
+                    AppSettings.setInt(for: Key.timerCategory, 3)
+                }
+            }
         }
     }
 }
