@@ -30,6 +30,8 @@ class CurrentTimerViewController: UIViewController {
     var goal = 1500 // goal in seconds (this is 25 minutes)
     var running = false
     
+    let fsManager = FirestoreManager(
+    
     var shiftsDataSource = ShiftsDataSource()
         
     // MARK: - Lifecycle

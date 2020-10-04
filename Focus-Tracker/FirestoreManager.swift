@@ -70,14 +70,25 @@ struct Activity {
 }
 
 class FirestoreManager {
-//    static let shared = FirestoreManager(Auth.auth().currentUser?.getIDTokenForcingRefresh(false))
-    private let userRef : DocumentReference
-    private let userToken : String
+    static let shared = FirestoreManager()
+    private var userRef : DocumentReference
+    private var userToken : String
     private let db = Firestore.firestore()
     
-    private init(_ userToken: String?) {
-        self.userRef = db.collection("users").document(userToken!)
-        self.userToken = userToken!
+    private init() {
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if let user = user {
+                Auth.auth().currentUser?.getIDToken(completion: {(userToken, err) -> Void in
+                    if let err = err {
+                        print("Error during user authentication: \(err)")
+                    } else {
+                        self.userToken = userToken!
+                    }
+                })
+            }
+        }
+        
+        self.userRef = db.collection("users").document(userToken)
     }
     
     func allSessions(completion: @escaping ([Session]) -> Void) {
@@ -103,7 +114,7 @@ class FirestoreManager {
     }
     
     func getSession(_ sessId: String, completion: @escaping (Session) -> Void){
-        let sessRef = db.collection("users").document(userToken).collection("sessions").document(sessId)
+        let sessRef = userRef.collection("sessions").document(sessId)
         sessRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 completion(Session(document.data()!, fs: true)!)
@@ -114,7 +125,7 @@ class FirestoreManager {
     }
     
     func getActivity(_ actId: String, sessId: String, completion: @escaping (Activity) -> Void){
-        let actRef = db.collection("users").document(userToken).collection("sessions").document(sessId).collection("activities").document(actId)
+        let actRef = userRef.collection("sessions").document(sessId).collection("activities").document(actId)
         actRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 completion(Activity(document.data()!)!)
