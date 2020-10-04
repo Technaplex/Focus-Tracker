@@ -19,16 +19,21 @@ class HistoryViewController: UICollectionViewController {
 //    private lazy var dataSource = makeDataSource()
     // TODO: connect with Firestore
     private lazy var dataSource = makeDataSource()
-    var history = [StudyDay.example, StudyDay.example]
+    var history = [StudyDay]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        FirestoreManager.shared.getStudyDays(){(studyDays) in
-            self.history = studyDays
-        }
         // Do any additional setup after loading the view.
         configureLayout()
         applySnapshot(animatingDifferences: false)
+    }
+    
+    override func viewDidAppear(_ animated: Bool){
+        super.viewDidAppear(animated)
+        FirestoreManager.shared.getStudyDays(){(studyDays) in
+            self.history = studyDays
+        }
+        applySnapshot(animatingDifferences: true)
     }
 
     func makeDataSource() -> DataSource {

@@ -75,7 +75,7 @@ class FirestoreManager {
     }
     
     func setDayHours(_ dayHours: HourRange) {
-        db.collection("users").document(userToken).setData(["dayHours": dayHours.hash()]) { err in
+        db.collection("users").document(userToken).setData(["dayHours": dayHours.hash()], merge: true) { err in
             if let err = err {
                 print("Error writing document (setDayHours): \(err)")
             } else {
@@ -85,7 +85,7 @@ class FirestoreManager {
     }
     
     func setWorkHours(_ workHours: HourRange) {
-        db.collection("users").document(userToken).setData(["workHours": workHours.hash()]) { err in
+        db.collection("users").document(userToken).setData(["workHours": workHours.hash()], merge: true) { err in
             if let err = err {
                 print("Error writing document (setWorkHours): \(err)")
             } else {
@@ -102,24 +102,25 @@ class FirestoreManager {
             if let document = document, document.exists {
                 let data : [String : Any] = document.data()!
                 print(data)
-                let hist : [String : Any] = data["hist"] as! [String : Any]
-                print(hist)
-                for (key, value) in hist {
-                    let dayValues = value as! [String : Any]
-                    let date = Date(timeIntervalSince1970: Double(key)! / 1000)
-                    let dayHours = HourRange.from_hash(self.convertTime(dayValues["dstart"] as! Int) + self.convertTime(dayValues["dend"] as! Int))
-                    let workHours = HourRange.from_hash(self.convertTime(dayValues["wstart"] as! Int) + self.convertTime(dayValues["wend"] as! Int))
-                    let categories = CategoryInfo(
-                        mindfulWork:
-                            Duration(time: self.convertTime(dayValues["0"] as! Int)),
-                        mindfulPlay:
-                            Duration(time: self.convertTime(dayValues["1"] as! Int)),
-                        mindlessWork:
-                            Duration(time: self.convertTime(dayValues["2"] as! Int)),
-                        mindlessPlay:
-                            Duration(time: self.convertTime(dayValues["3"] as! Int))
-                    )
-                    studyDays.append(StudyDay(date: date, dayHours: dayHours, workHours: workHours, categories: categories))
+                
+                if let hist = data["hist"] as? [String : Any] {
+                    for (key, value) in hist {
+                        let dayValues = value as! [String : Any]
+                        let date = Date(timeIntervalSince1970: Double(key)! / 1000)
+                        let dayHours = HourRange.from_hash([0] + self.convertTime(dayValues["dstart"] as! Int) + self.convertTime(dayValues["dend"] as! Int))
+                        let workHours = HourRange.from_hash([1] + self.convertTime(dayValues["wstart"] as! Int) + self.convertTime(dayValues["wend"] as! Int))
+                        let categories = CategoryInfo(
+                            mindfulWork:
+                                Duration(time: self.convertTime(dayValues["0"] as! Int)),
+                            mindfulPlay:
+                                Duration(time: self.convertTime(dayValues["1"] as! Int)),
+                            mindlessWork:
+                                Duration(time: self.convertTime(dayValues["2"] as! Int)),
+                            mindlessPlay:
+                                Duration(time: self.convertTime(dayValues["3"] as! Int))
+                        )
+                        studyDays.append(StudyDay(date: date, dayHours: dayHours, workHours: workHours, categories: categories))
+                    }
                 }
                 completion(studyDays)
             } else {
