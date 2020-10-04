@@ -95,12 +95,15 @@ class FirestoreManager {
     }
     
     func getStudyDays(completion: @escaping ([StudyDay]) -> Void){
+        print(userToken)
         let userRef = db.collection("users").document(userToken)
         var studyDays = [StudyDay]()
         userRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let data : [String : Any] = document.data()!
+                print(data)
                 let hist : [String : Any] = data["hist"] as! [String : Any]
+                print(hist)
                 for (key, value) in hist {
                     let dayValues = value as! [String : Any]
                     let date = Date(timeIntervalSince1970: Double(key)! / 1000)
