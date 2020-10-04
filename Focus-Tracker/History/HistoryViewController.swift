@@ -63,21 +63,22 @@ class HistoryViewController: UICollectionViewController {
 
 extension HistoryViewController {
     // From https://www.raywenderlich.com/8241072-ios-tutorial-collection-view-and-diffable-data-source
-  private func configureLayout() {
-    collectionView.collectionViewLayout = UICollectionViewCompositionalLayout(sectionProvider: { (_, layoutEnvironment) -> NSCollectionLayoutSection? in
-      let isPhone = layoutEnvironment.traitCollection.userInterfaceIdiom == UIUserInterfaceIdiom.phone
-      let size = NSCollectionLayoutSize(
-        widthDimension: NSCollectionLayoutDimension.fractionalWidth(1),
-        // change this value if you want to change the height of the cell
-        heightDimension: NSCollectionLayoutDimension.absolute(150)
-      )
-      let itemCount = isPhone ? 1 : 3
-      let item = NSCollectionLayoutItem(layoutSize: size)
-      let group = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitem: item, count: itemCount)
-      let section = NSCollectionLayoutSection(group: group)
-      section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
-      section.interGroupSpacing = 10
-      return section
-    })
-  }
+    private func configureLayout() {
+        collectionView.collectionViewLayout = UICollectionViewCompositionalLayout(sectionProvider: { (_, layoutEnvironment) -> NSCollectionLayoutSection? in
+            let isPhone = layoutEnvironment.traitCollection.userInterfaceIdiom == UIUserInterfaceIdiom.phone
+            let size = NSCollectionLayoutSize(
+                widthDimension: NSCollectionLayoutDimension.fractionalWidth(1),
+                // change this value if you want to change the height of the cell
+                heightDimension: NSCollectionLayoutDimension.absolute(150)
+            )
+            let itemCount = isPhone ? 1 : 3
+            let item = NSCollectionLayoutItem(layoutSize: size)
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitem: item, count: itemCount)
+            group.interItemSpacing = .fixed(10)
+            let section = NSCollectionLayoutSection(group: group)
+            section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+            section.interGroupSpacing = 10
+            return section
+        })
+    }
 }
