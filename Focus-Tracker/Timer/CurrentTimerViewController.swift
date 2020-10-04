@@ -69,7 +69,6 @@ class CurrentTimerViewController: UIViewController {
         
         if let timerCategory = AppSettings.shared.timerCategory {
             category = timerCategory
-            print("CHICKENSDFJLSDKF")
             updateActivityLabel()
         }
         
@@ -84,14 +83,13 @@ class CurrentTimerViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func addShift(_ sender: Any) {
-        addActivity()
         self.createNewActivity()
     }
     
     func addActivity() {
         let end = Date()
 
-        let name = activity == "" ? "None" : activity
+        let name = activity == "" ? "Unspecified" : activity
     
         shiftsDataSource.add(shift: Shift(activity: name, start: last_lap, end: end))
         activities.append(Activity(
@@ -124,6 +122,7 @@ class CurrentTimerViewController: UIViewController {
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
+            self.addActivity()
             self.activity = ac.textFields![0].text!
             self.updateActivityLabel()
         }
