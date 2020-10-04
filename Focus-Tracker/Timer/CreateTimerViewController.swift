@@ -19,7 +19,7 @@ class CreateTimerViewController: UIViewController {
         // Definitely feels like there's a better way to do this
         let timer = (presenter.viewControllers![0] as! UINavigationController).topViewController as! CurrentTimerViewController
         
-        timer.typeLabel.text = "Text: Mindful \(type.titleForSegment(at: type.selectedSegmentIndex)!)"
+//        timer.activityLabel.text = "Text: Mindful \(type.titleForSegment(at: type.selectedSegmentIndex)!)"
         
         if type.selectedSegmentIndex == 0 {
             timer.category = Category.mindfulWork

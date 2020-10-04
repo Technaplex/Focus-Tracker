@@ -20,77 +20,66 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pWa-5N-KD6" customClass="TimerView" customModule="Focus_Tracker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="96" width="320" height="384"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type: Mindful Work" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6x-fk-zfa">
-                                        <rect key="frame" x="8" y="8" width="304" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEP-Rj-qr1">
+                                        <rect key="frame" x="8" y="8" width="304" height="72"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                        <color key="textColor" red="0.93828427790000002" green="0.5534931421" blue="0.20378777379999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity: Chicken" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyg-vL-szw">
-                                        <rect key="frame" x="8" y="40" width="304" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Example Activity (Example Type)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6x-fk-zfa">
+                                        <rect key="frame" x="8" y="88" width="304" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal: 25 minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fN9-7J-7Nk">
-                                        <rect key="frame" x="8" y="68.5" width="304" height="20.5"/>
+                                        <rect key="frame" x="8" y="116.5" width="304" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zXm-ik-V7E">
-                                        <rect key="frame" x="8" y="97" width="304" height="110"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Tho-FJ-vwn">
+                                        <rect key="frame" x="8" y="145" width="304" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEP-Rj-qr1">
-                                                <rect key="frame" x="0.0" y="0.0" width="304" height="72"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Tho-FJ-vwn">
-                                                <rect key="frame" x="0.0" y="80" width="304" height="30"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FMy-RW-J2K">
-                                                        <rect key="frame" x="0.0" y="0.0" width="152" height="30"/>
-                                                        <state key="normal" title="Shift Activity"/>
-                                                        <connections>
-                                                            <action selector="addShift:" destination="Lg1-B7-A5h" eventType="touchUpInside" id="sBQ-DZ-cXM"/>
-                                                            <action selector="shiftActivity:" destination="QWM-J0-1Hk" eventType="touchUpInside" id="zzi-sD-fZT"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIh-f1-l9C">
-                                                        <rect key="frame" x="152" y="0.0" width="152" height="30"/>
-                                                        <state key="normal" title="Stop"/>
-                                                        <connections>
-                                                            <action selector="endSession:" destination="QWM-J0-1Hk" eventType="touchUpInside" id="cUl-dQ-Wq3"/>
-                                                            <action selector="endSession:" destination="Lg1-B7-A5h" eventType="touchUpInside" id="j0a-p4-n5P"/>
-                                                            <segue destination="lpt-dO-4Uh" kind="presentation" id="qua-Vi-A6H"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FMy-RW-J2K">
+                                                <rect key="frame" x="0.0" y="0.0" width="152" height="30"/>
+                                                <state key="normal" title="Shift Activity"/>
+                                                <connections>
+                                                    <action selector="addShift:" destination="Lg1-B7-A5h" eventType="touchUpInside" id="sBQ-DZ-cXM"/>
+                                                    <action selector="shiftActivity:" destination="QWM-J0-1Hk" eventType="touchUpInside" id="zzi-sD-fZT"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIh-f1-l9C">
+                                                <rect key="frame" x="152" y="0.0" width="152" height="30"/>
+                                                <state key="normal" title="Stop"/>
+                                                <connections>
+                                                    <action selector="endSession:" destination="QWM-J0-1Hk" eventType="touchUpInside" id="cUl-dQ-Wq3"/>
+                                                    <action selector="endSession:" destination="Lg1-B7-A5h" eventType="touchUpInside" id="j0a-p4-n5P"/>
+                                                    <segue destination="lpt-dO-4Uh" kind="presentation" id="qua-Vi-A6H"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jPF-zQ-3dT">
-                                        <rect key="frame" x="8" y="215" width="304" height="32"/>
+                                        <rect key="frame" x="8" y="183" width="304" height="33"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interrupts: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Htc-iq-JLD">
-                                                <rect key="frame" x="0.0" y="0.0" width="83.5" height="32"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="83.5" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="2NQ-hs-lME">
-                                                <rect key="frame" x="91.5" y="0.0" width="50" height="32"/>
+                                                <rect key="frame" x="91.5" y="0.0" width="50" height="33"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q7U-YQ-M5b">
-                                                <rect key="frame" x="149.5" y="0.0" width="52.5" height="32"/>
+                                                <rect key="frame" x="149.5" y="0.0" width="52.5" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="l04-Da-atW">
-                                                <rect key="frame" x="210" y="0.0" width="94" height="32"/>
+                                                <rect key="frame" x="210" y="0.0" width="94" height="33"/>
                                                 <connections>
                                                     <action selector="interruptValueChanged:" destination="Lg1-B7-A5h" eventType="valueChanged" id="edI-2c-nWh"/>
                                                 </connections>
@@ -98,7 +87,7 @@
                                         </subviews>
                                     </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wPr-dD-avZ">
-                                        <rect key="frame" x="8" y="255" width="304" height="121"/>
+                                        <rect key="frame" x="8" y="224" width="304" height="152"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShiftTableViewCell" id="oT4-vP-ZlP" customClass="ShiftTableViewCell" customModule="Focus_Tracker" customModuleProvider="target">
@@ -146,13 +135,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Current Session" id="bf8-As-k04"/>
                     <connections>
-                        <outlet property="activityLabel" destination="wyg-vL-szw" id="vIH-fh-glP"/>
                         <outlet property="goalLabel" destination="fN9-7J-7Nk" id="FSe-vW-6vH"/>
                         <outlet property="interruptStepper" destination="l04-Da-atW" id="gNF-D4-HnW"/>
                         <outlet property="interruptValueTextField" destination="q7U-YQ-M5b" id="Xv7-3z-5Z8"/>
                         <outlet property="shiftsTableView" destination="wPr-dD-avZ" id="085-0w-Gpa"/>
                         <outlet property="timerLabel" destination="PEP-Rj-qr1" id="Cw9-Jv-47W"/>
                         <outlet property="typeLabel" destination="z6x-fk-zfa" id="CZy-vP-lXH"/>
+                        <segue destination="5R7-7v-TcK" kind="presentation" identifier="create_timer" id="eEu-Yr-XWR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wUg-7w-tb0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
