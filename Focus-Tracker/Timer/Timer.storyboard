@@ -373,6 +373,9 @@
                                         <state key="normal" title="Lost your focus? Discard">
                                             <color key="titleColor" systemColor="systemRedColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="discardSession:" destination="lpt-dO-4Uh" eventType="touchUpInside" id="RVw-7E-wxR"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
