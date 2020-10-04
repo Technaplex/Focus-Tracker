@@ -156,10 +156,13 @@ final class AppSettings {
     var shifts: [Shift] {
         get {
             let s = AppSettings.store.object(forKey: Key.shifts)
+            if let arr = s as? Data {
+                let dec = NSKeyedUnarchiver.unarchiveObject(with: arr) as? [Shift]
             
-            let dec = NSKeyedUnarchiver.unarchiveObject(with: s as! Data) as? [Shift]
-        
-            return dec ?? [Shift]()
+                return dec ?? [Shift]()
+            } else {
+                return [Shift]()
+            }
         }
         
         set {
