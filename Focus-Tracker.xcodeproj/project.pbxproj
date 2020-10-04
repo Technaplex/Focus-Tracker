@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2038F2422527DB3C000DC9D2 /* ShiftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2038F2412527DB3C000DC9D2 /* ShiftTableViewCell.swift */; };
 		2038F2BA2527E3E5000DC9D2 /* CreateTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2038F2B92527E3E5000DC9D2 /* CreateTimerViewController.swift */; };
+		7E30CF67252957D000A2DAE4 /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E30CF66252957D000A2DAE4 /* Duration.swift */; };
 		874EC7E32527E36600DA2B16 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 874EC7E22527E36600DA2B16 /* GoogleService-Info.plist */; };
 		874EC7E62527E37900DA2B16 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874EC7E52527E37900DA2B16 /* AuthViewController.swift */; };
 		8756459C2528FBD5001F5A13 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8756459B2528FBD5001F5A13 /* FirestoreManager.swift */; };
@@ -49,6 +50,7 @@
 		2038F2412527DB3C000DC9D2 /* ShiftTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftTableViewCell.swift; sourceTree = "<group>"; };
 		2038F2B92527E3E5000DC9D2 /* CreateTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTimerViewController.swift; sourceTree = "<group>"; };
 		3E22B78BAE6CEEE40FA01861 /* Pods-Focus-Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Focus-Tracker.debug.xcconfig"; path = "Target Support Files/Pods-Focus-Tracker/Pods-Focus-Tracker.debug.xcconfig"; sourceTree = "<group>"; };
+		7E30CF66252957D000A2DAE4 /* Duration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
 		874EC7E22527E36600DA2B16 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		874EC7E52527E37900DA2B16 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		8756459B2528FBD5001F5A13 /* FirestoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				E35726A82528DF1000291120 /* User.swift */,
 				87C1357925294A3E00F00A38 /* Time.swift */,
 				87C1357C25294A7600F00A38 /* Session.swift */,
+				7E30CF66252957D000A2DAE4 /* Duration.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				874EC7E62527E37900DA2B16 /* AuthViewController.swift in Sources */,
 				E35726BA252924DD00291120 /* EndSessionViewController.swift in Sources */,
 				E329D7DE2527B3FC0007A2E2 /* ShiftsDataSource.swift in Sources */,
+				7E30CF67252957D000A2DAE4 /* Duration.swift in Sources */,
 				2038F2BA2527E3E5000DC9D2 /* CreateTimerViewController.swift in Sources */,
 				E35726A52528D98800291120 /* HistoryCollectionViewCell.swift in Sources */,
 				E30EB3392526BCFB009333F2 /* HistoryViewController.swift in Sources */,

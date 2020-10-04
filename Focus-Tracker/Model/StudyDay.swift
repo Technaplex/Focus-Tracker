@@ -8,18 +8,18 @@
 import Foundation
 
 enum Category {
-    case mindfulWork(Time), mindfulPlay(Time), mindlessWork(Time), mindlessPlay(Time)
+    case mindfulWork(Duration), mindfulPlay(Duration), mindlessWork(Duration), mindlessPlay(Duration)
 }
 
 // Maybe this shoudl be reworked
 struct CategoryInfo: Hashable {
-    var mindfulWork: Time
-    var mindfulPlay: Time
-    var mindlessWork: Time
-    var mindlessPlay: Time
+    var mindfulWork: Duration
+    var mindfulPlay: Duration
+    var mindlessWork: Duration
+    var mindlessPlay: Duration
     
     static var example: CategoryInfo {
-        CategoryInfo(mindfulWork: Time.randomExample, mindfulPlay: Time.randomExample, mindlessWork: Time.randomExample, mindlessPlay: Time.randomExample)
+        CategoryInfo(mindfulWork: Duration.randomExample, mindfulPlay: Duration.randomExample, mindlessWork: Duration.randomExample, mindlessPlay: Duration.randomExample)
     }
 }
 
@@ -35,9 +35,10 @@ struct StudyDay: Hashable {
     private var workHours: HourRange
     private var categories: CategoryInfo
     
-    // TODO: Make computed property return day using date
     var dayString: String {
-        return "Today"
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yyyy"
+        return formatter.string(from: date)
     }
     
     var dayHoursString: String {
@@ -47,23 +48,22 @@ struct StudyDay: Hashable {
     var workHoursString: String {
         return workHours.toString()
     }
+
     
-    
-    // TODO: Rework to show using CategoryInfo or Category enum or however we implement
     var mindfulPlayString: String {
-        return "12:12"
+        return categories.mindfulPlay.toString()
     }
     
     var mindfulWorkString: String {
-        return "12:12"
+        return categories.mindfulWork.toString()
     }
     
     var mindlessPlayString: String {
-        return "12:12"
+        return categories.mindlessPlay.toString()
     }
     
     var mindlessWorkString: String {
-        return "12:12"
+        return categories.mindlessWork.toString()
     }
     
     init(date: Date, dayHours: HourRange, workHours: HourRange, categories: CategoryInfo) {
