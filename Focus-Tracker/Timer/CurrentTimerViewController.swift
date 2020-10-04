@@ -72,10 +72,15 @@ class CurrentTimerViewController: UIViewController {
         
         if let timerCategory = AppSettings.shared.timerCategory {
             category = timerCategory
-            updateActivityLabel()
         }
         
         interrupts = AppSettings.shared.interrupts
+        
+        if let act = AppSettings.shared.activity {
+            activity = act
+        }
+        
+        updateActivityLabel()
 
         navigationItem.setHidesBackButton(true, animated: true)
 //        if !running {
@@ -132,6 +137,7 @@ class CurrentTimerViewController: UIViewController {
         let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
             self.addActivity()
             self.activity = ac.textFields![0].text!
+            AppSettings.shared.activity = self.activity
             self.updateActivityLabel()
         }
         
@@ -181,6 +187,7 @@ extension CurrentTimerViewController {
     func updateActivityLabel() {
         let activityText = activity != "" ? activity : "Unspecified"
         activityLabel.text = "\(activityText) (\(String(describing: category)))"
+        interruptValueTextField.text = "\(interrupts)"
     }
     
     @objc func updateTimer() {
