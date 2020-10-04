@@ -68,6 +68,7 @@ class CreateTimerViewController: UIViewController {
             } else {
                 currentTimerViewController.category = Category.mindfulPlay
             }
+            AppSettings.shared.timerCategory = currentTimerViewController.category
             currentTimerViewController.activity = activity.text!
             currentTimerViewController.running = true
             currentTimerViewController.goal = Int(goal.text!)! * 60
