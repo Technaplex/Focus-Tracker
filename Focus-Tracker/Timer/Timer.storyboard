@@ -55,7 +55,7 @@
                                                 <connections>
                                                     <action selector="endSession:" destination="QWM-J0-1Hk" eventType="touchUpInside" id="cUl-dQ-Wq3"/>
                                                     <action selector="endSession:" destination="Lg1-B7-A5h" eventType="touchUpInside" id="j0a-p4-n5P"/>
-                                                    <segue destination="lpt-dO-4Uh" kind="presentation" id="qua-Vi-A6H"/>
+                                                    <segue destination="lpt-dO-4Uh" kind="presentation" identifier="endSession" id="qua-Vi-A6H"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -155,7 +155,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dVI-IX-d5A" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="77A-Ik-Gxv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -359,6 +359,7 @@
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="58p-F1-Dzm">
                                                 <rect key="frame" x="202" y="8" width="94" height="34"/>
                                                 <connections>
+                                                    <action selector="interruptValueChanged:" destination="lpt-dO-4Uh" eventType="valueChanged" id="UTq-kc-kM4"/>
                                                     <action selector="interruptValueChanged:" destination="Lg1-B7-A5h" eventType="valueChanged" id="t4Z-gf-Peg"/>
                                                 </connections>
                                             </stepper>
@@ -389,6 +390,12 @@
                             <constraint firstItem="3Ub-6R-NtI" firstAttribute="leading" secondItem="VA2-eH-uuh" secondAttribute="leading" id="raW-aC-fih"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="interruptStepper" destination="58p-F1-Dzm" id="lVx-Cg-jfG"/>
+                        <outlet property="interruptsTextField" destination="3wW-Yn-rkP" id="5Sg-hS-JeM"/>
+                        <outlet property="sessionEndDatePicker" destination="ZfJ-p2-dz2" id="iUf-lL-Jgo"/>
+                        <outlet property="sessionStartDatePicker" destination="wTT-BH-7wY" id="67p-tr-9HH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p2n-Ib-iC5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Ly8-dF-qjw" userLabel="Exit" sceneMemberID="exit"/>

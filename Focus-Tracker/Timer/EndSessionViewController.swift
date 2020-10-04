@@ -8,12 +8,28 @@
 import UIKit
 
 class EndSessionViewController: UIViewController {
-
+    @IBOutlet weak var sessionStartDatePicker: UIDatePicker!
+    @IBOutlet weak var sessionEndDatePicker: UIDatePicker!
+    @IBOutlet weak var interruptsTextField: UITextField!
+    @IBOutlet weak var interruptStepper: UIStepper!
+    var start: Date!
+    var interrupts: Int!
+    var activities: [Activity]!
+    var category: Category!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        sessionStartDatePicker.date = start
+        sessionEndDatePicker.date = Date()
+        interruptStepper.value = Double(interrupts)
+        interruptsTextField.text = String(interrupts)
     }
     
-
+    @IBAction func interruptValueChanged(_ sender: Any) {
+        interrupts = Int(interruptStepper.value)
+        interruptsTextField.text = String(interrupts)
+    }
+    
     // MARK: - Navigation
 
     @IBAction func cancel(_ sender: Any) {
@@ -21,18 +37,16 @@ class EndSessionViewController: UIViewController {
     }
     
     @IBAction func saveSession(_ sender: Any) {
-        let presenter = presentingViewController as! UITabBarController
-
-        let timer = (presenter.viewControllers![0] as! UINavigationController).topViewController as! CurrentTimerViewController
-
+        AppSettings.shared.timerStartDate = nil
+        AppSettings.shared.interrupts = 0
         let currentSession = Session(
             id: createUUID(),
-            date: timer.start,
-            start: timer.start,
-            end: timer.last_lap,
-            interrupts: timer.interrupts,
-            activities: timer.activities,
-            category: timer.category.toInt())
+            date: sessionStartDatePicker.date,
+            start: sessionStartDatePicker.date,
+            end: sessionEndDatePicker.date, // Explain why this used to be
+            interrupts: interrupts,
+            activities: activities,
+            category: category.toInt())
             
         FirestoreManager.shared.addSession(currentSession.id, data: currentSession)
     }

@@ -20,12 +20,12 @@ func createUUID() -> String {
 }
 
 class CurrentTimerViewController: UIViewController {
-    @IBOutlet weak var activityLabel: UILabel!
-    @IBOutlet weak var timerLabel: UILabel!
-    @IBOutlet weak var interruptValueTextField: UITextField!
-    @IBOutlet weak var shiftsTableView: UITableView!
-    @IBOutlet weak var goalLabel: UILabel!
-    @IBOutlet weak var interruptStepper: UIStepper!
+    @IBOutlet var activityLabel: UILabel!
+    @IBOutlet var timerLabel: UILabel!
+    @IBOutlet var interruptValueTextField: UITextField!
+    @IBOutlet var shiftsTableView: UITableView!
+    @IBOutlet var goalLabel: UILabel!
+    @IBOutlet var interruptStepper: UIStepper!
     
     var start: Date!
     var timer: Timer!
@@ -51,15 +51,14 @@ class CurrentTimerViewController: UIViewController {
         shiftsDataSource.delegate = self
         
         timer = Timer.scheduledTimer(timeInterval: 1.0,
-                                                   target: self,
-                                                   selector: #selector(self.updateTimer),
-                                                   userInfo: nil,
-                                                   repeats: true)
+                                     target: self,
+                                     selector: #selector(updateTimer),
+                                     userInfo: nil,
+                                     repeats: true)
         
         // if a timer was previously running when the app closed, make a new timer which
         // shows the time since that date, so it looks as if the timer was running while
         // the app was closed
-        
         
         running = true
         if let startDate = AppSettings.shared.timerStartDate {
@@ -74,22 +73,24 @@ class CurrentTimerViewController: UIViewController {
         
         interrupts = AppSettings.shared.interrupts
 
-        self.navigationItem.setHidesBackButton(true, animated: true)
+        navigationItem.setHidesBackButton(true, animated: true)
 //        if !running {
 //            performSegue(withIdentifier: "create_timer", sender: self)
 //        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
     }
+
     override func viewWillDisappear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = false
+        tabBarController?.tabBar.isHidden = false
     }
+
     // MARK: - Actions
     
     @IBAction func addShift(_ sender: Any) {
-        self.createNewActivity()
+        createNewActivity()
     }
     
     func addActivity() {
@@ -99,21 +100,18 @@ class CurrentTimerViewController: UIViewController {
     
         shiftsDataSource.add(shift: Shift(activity: name, start: last_lap, end: end))
         activities.append(Activity(
-                            id: createUUID(),
-                            name: name,
-                            start: last_lap,
-                            end: end))
+            id: createUUID(),
+            name: name,
+            start: last_lap,
+            end: end))
         
         last_lap = end
-        
-        
     }
     
     @IBAction func endSession(_ sender: Any) {
+        // TODO: Fix so that activity is not added when Stop is clicked. Instead, add the activity in the 'save session' method of end session controller
         // reset the start date so we don't think we need to continue a session when we close and
         // reopen the app
-        AppSettings.shared.timerStartDate = nil
-        AppSettings.shared.interrupts = 0
         addActivity()
     }
     
@@ -141,18 +139,27 @@ class CurrentTimerViewController: UIViewController {
 
     // MARK: - Navigation
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Get the new view controller using segue.destination.
-//        // Pass the selected object to the new view controller.
-//        switch segue.identifier {
-//        case "create_timer": break;
-//        default: break;
-//        }
-//    }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        switch segue.identifier {
+        case "endSession":
+            guard let endSessionViewController = segue.destination as? EndSessionViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            endSessionViewController.start = start
+            endSessionViewController.interrupts = interrupts
+            endSessionViewController.activities = activities
+            endSessionViewController.category = category
+            
+        default: fatalError("Unexpected segue")
+        }
+    }
 }
 
 // MARK: - Timer
+
 extension CurrentTimerViewController {
     // if I use the name `date` instead of `date_`, it crashes...
     func startTimer(atDate date_: Date? = nil) {
@@ -181,11 +188,11 @@ extension CurrentTimerViewController {
         
         let progress = CGFloat(interval) / CGFloat(goal)
         
-        self.timerLabel.text = timedeltaToString(interval)
-        self.timerLabel.textColor = UIColor(red: 1 - progress,
-                                            green: 0,
-                                            blue: progress,
-                                            alpha: 1.0)
+        timerLabel.text = timedeltaToString(interval)
+        timerLabel.textColor = UIColor(red: 1 - progress,
+                                       green: 0,
+                                       blue: progress,
+                                       alpha: 1.0)
     }
 }
 

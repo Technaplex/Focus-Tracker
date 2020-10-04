@@ -13,36 +13,36 @@ class CreateTimerViewController: UIViewController {
     @IBOutlet var activity: UITextField!
     @IBOutlet var goal: UITextField!
     
-/*
-    @IBAction func start(_ sender: Any) {
-        let presenter = presentingViewController as! UITabBarController
+    /*
+         @IBAction func start(_ sender: Any) {
+             let presenter = presentingViewController as! UITabBarController
         
-        // Definitely feels like there's a better way to do this
-        let timer = (presenter.viewControllers![0] as! UINavigationController).topViewController as! CurrentTimerViewController
+             // Definitely feels like there's a better way to do this
+             let timer = (presenter.viewControllers![0] as! UINavigationController).topViewController as! CurrentTimerViewController
         
-//        timer.activityLabel.text = "Text: Mindful \(type.titleForSegment(at: type.selectedSegmentIndex)!)"
+     //        timer.activityLabel.text = "Text: Mindful \(type.titleForSegment(at: type.selectedSegmentIndex)!)"
         
-        if type.selectedSegmentIndex == 0 {
-            timer.category = Category.mindfulWork
-        } else {
-            timer.category = Category.mindfulPlay
-        }
+             if type.selectedSegmentIndex == 0 {
+                 timer.category = Category.mindfulWork
+             } else {
+                 timer.category = Category.mindfulPlay
+             }
         
-        timer.activity = activity.text!
-        timer.goal = Int(goal.text!)! * 60
+             timer.activity = activity.text!
+             timer.goal = Int(goal.text!)! * 60
         
-        timer.startTimer()
+             timer.startTimer()
         
-        dismiss(animated: true, completion: nil)
-    }
-*/
+             dismiss(animated: true, completion: nil)
+         }
+     */
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
+        hideKeyboardWhenTappedAround()
         navigationController?.navigationBar.prefersLargeTitles = true
-        
     }
+
     func updateDefaultGoalTime() {
         if type.selectedSegmentIndex == 0 {
             goal.text = String(AppSettings.shared.workSessionGoal)
@@ -73,7 +73,6 @@ class CreateTimerViewController: UIViewController {
             currentTimerViewController.goal = Int(goal.text!)! * 60
         default: fatalError("Unexpected segue")
         }
-    
     }
     
     @IBAction func unwindToCreateTimer(unwindSegue: UIStoryboardSegue) {
