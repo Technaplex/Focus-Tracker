@@ -49,5 +49,10 @@ class EndSessionViewController: UIViewController {
             category: category.toInt())
             
         FirestoreManager.shared.addSession(currentSession.id, data: currentSession)
+        print("session saved")
+        
+        self.performSegue(withIdentifier: "unwind", sender: self)
     }
+    
+    
 }

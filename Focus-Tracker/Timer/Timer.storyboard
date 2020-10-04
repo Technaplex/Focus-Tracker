@@ -155,7 +155,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dVI-IX-d5A" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="77A-Ik-Gxv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -292,8 +292,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Save" id="0MM-tL-uPg">
                                             <connections>
-                                                <action selector="saveSession:" destination="lpt-dO-4Uh" id="efV-dr-Rx3"/>
-                                                <segue destination="Ly8-dF-qjw" kind="unwind" unwindAction="unwindToCreateTimerWithUnwindSegue:" id="CDg-QG-7Gb"/>
+                                                <action selector="saveSession:" destination="lpt-dO-4Uh" id="cPy-6A-RPA"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -395,6 +394,7 @@
                         <outlet property="interruptsTextField" destination="3wW-Yn-rkP" id="5Sg-hS-JeM"/>
                         <outlet property="sessionEndDatePicker" destination="ZfJ-p2-dz2" id="iUf-lL-Jgo"/>
                         <outlet property="sessionStartDatePicker" destination="wTT-BH-7wY" id="67p-tr-9HH"/>
+                        <segue destination="Ly8-dF-qjw" kind="unwind" identifier="unwind" unwindAction="unwindToCreateTimerWithUnwindSegue:" id="eDG-xJ-5n8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p2n-Ib-iC5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
