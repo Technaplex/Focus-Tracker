@@ -43,6 +43,8 @@ class AuthViewController: UITabBarController, FUIAuthDelegate {
     }
     
     func showLoginScreen() {
+        authUI?.isInteractiveDismissEnabled = false
+        authUI?.shouldHideCancelButton = true
         let authViewController = authUI!.authViewController()
         self.present(authViewController, animated: true, completion: nil)
     }
