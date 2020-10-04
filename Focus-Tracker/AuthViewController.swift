@@ -46,6 +46,7 @@ class AuthViewController: UITabBarController, FUIAuthDelegate {
         authUI?.isInteractiveDismissEnabled = false
         authUI?.shouldHideCancelButton = true
         let authViewController = authUI!.authViewController()
+        authViewController.navigationBar.topItem?.title = "Welcome to Mindfully"
         self.present(authViewController, animated: true, completion: nil)
     }
     
