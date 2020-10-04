@@ -68,7 +68,7 @@ class CurrentTimerViewController: UIViewController {
             startTimer()
         }
         
-        updateTimer()
+        updateTimerText()
         
         if let timerCategory = AppSettings.shared.timerCategory {
             category = timerCategory
@@ -195,6 +195,10 @@ extension CurrentTimerViewController {
             return
         }
         
+        updateTimerText()
+    }
+    
+    func updateTimerText() {
         let interval = Int(Date().timeIntervalSince(start))
         
         let progress = CGFloat(interval) / CGFloat(goal)

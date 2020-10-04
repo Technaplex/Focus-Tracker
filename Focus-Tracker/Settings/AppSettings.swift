@@ -27,6 +27,7 @@ final class AppSettings {
         static let timerCategory = "timerCategory"
         static let interrupts = "interrupts"
         static let activity = "activity"
+        static let shifts = "shifts"
     }
     
     static func registerDefaults() {
@@ -37,7 +38,8 @@ final class AppSettings {
                                         Key.currentUser: encodeCodable(for: User())!,
                                         Key.timerCategory: 0,
                                         Key.interrupts: 0,
-                                        Key.activity: "None"]
+                                        Key.activity: "None",
+                                        Key.shifts: []]
         AppSettings.store.register(defaults: defaults)
     }
     
@@ -148,6 +150,30 @@ final class AppSettings {
         
         set {
             AppSettings.setString(for: Key.activity, newValue)
+        }
+    }
+    
+    var shifts: [Shift] {
+        get {
+            print(AppSettings.store.object(forKey: Key.shifts))
+            
+            return []
+        }
+        
+        set {
+            AppSettings.store.set(newValue, forKey: Key.shifts)
+        }
+    }
+    
+    func addShift(_ new: Shift) {
+        var s = shifts;
+        s.append(new);
+                
+        do {
+            let enc = try NSKeyedArchiver.archivedData(withRootObject: s, requiringSecureCoding: false)
+            AppSettings.store.set(enc, forKey: Key.shifts)
+        } catch {
+            print("add shift error \(error)")
         }
     }
 }

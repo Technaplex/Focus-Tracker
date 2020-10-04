@@ -11,13 +11,19 @@ class ShiftsDataSource: NSObject {
     private var shifts = [Shift]()
     var delegate: ShiftsDataSourceDelegate?
     
+    func loadShifts() {
+        shifts = AppSettings.shared.shifts
+    }
+    
     func add(shift: Shift) {
         shifts.append(shift)
+        AppSettings.shared.addShift(shift)
         delegate?.shiftValueDidChange()
     }
     
     func clear() {
         shifts = []
+        AppSettings.shared.shifts = []
         delegate?.shiftValueDidChange()
     }
 }
