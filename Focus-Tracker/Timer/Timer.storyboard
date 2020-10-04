@@ -147,6 +147,7 @@
                     <connections>
                         <outlet property="activityLabel" destination="wyg-vL-szw" id="vIH-fh-glP"/>
                         <outlet property="goalLabel" destination="fN9-7J-7Nk" id="FSe-vW-6vH"/>
+                        <outlet property="interruptStepper" destination="l04-Da-atW" id="gNF-D4-HnW"/>
                         <outlet property="interruptValueTextField" destination="q7U-YQ-M5b" id="Xv7-3z-5Z8"/>
                         <outlet property="shiftsTableView" destination="wPr-dD-avZ" id="085-0w-Gpa"/>
                         <outlet property="timerLabel" destination="PEP-Rj-qr1" id="Cw9-Jv-47W"/>

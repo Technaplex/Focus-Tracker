@@ -22,6 +22,7 @@ class CurrentTimerViewController: UIViewController {
     @IBOutlet weak var interruptValueTextField: UITextField!
     @IBOutlet weak var shiftsTableView: UITableView!
     @IBOutlet weak var goalLabel: UILabel!
+    @IBOutlet weak var interruptStepper: UIStepper!
     
     var start: Date!
     var timer: Timer!
@@ -108,6 +109,7 @@ class CurrentTimerViewController: UIViewController {
     }
     
     @IBAction func interruptValueChanged(_ sender: Any) {
+        interruptValueTextField.text = "\(interruptStepper.value)"
     }
     
     func createNewActivity() {
