@@ -36,6 +36,17 @@ class CreateTimerViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 */
+    func updateDefaultGoalTime() {
+        if type.selectedSegmentIndex == 0 {
+            goal.text = String(AppSettings.shared.workSessionGoal)
+        } else {
+            goal.text = String(AppSettings.shared.playSessionGoal)
+        }
+    }
+    
+    @IBAction func sessionTypeChanged(_ sender: Any) {
+        updateDefaultGoalTime()
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -56,5 +67,10 @@ class CreateTimerViewController: UIViewController {
         default: fatalError("Unexpected segue")
         }
     
+    }
+    
+    @IBAction func unwindToCreateTimer(unwindSegue: UIStoryboardSegue) {
+        updateDefaultGoalTime()
+        activity.text = ""
     }
 }

@@ -144,7 +144,6 @@ class CurrentTimerViewController: UIViewController {
 //        default: break;
 //        }
 //    }
-
     
 }
 

@@ -156,7 +156,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dVI-IX-d5A" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="77A-Ik-Gxv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -191,6 +191,9 @@
                                             <segment title="Work"/>
                                             <segment title="Play"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="sessionTypeChanged:" destination="5R7-7v-TcK" eventType="valueChanged" id="ISQ-F2-RmJ"/>
+                                        </connections>
                                     </segmentedControl>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h3x-g3-d7K">
                                         <rect key="frame" x="8" y="87.5" width="304" height="50"/>
@@ -291,6 +294,7 @@
                                         <barButtonItem key="rightBarButtonItem" title="Save" id="0MM-tL-uPg">
                                             <connections>
                                                 <action selector="saveSession:" destination="lpt-dO-4Uh" id="efV-dr-Rx3"/>
+                                                <segue destination="Ly8-dF-qjw" kind="unwind" unwindAction="unwindToCreateTimerWithUnwindSegue:" id="CDg-QG-7Gb"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -388,6 +392,7 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p2n-Ib-iC5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Ly8-dF-qjw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1331.25" y="800"/>
         </scene>
