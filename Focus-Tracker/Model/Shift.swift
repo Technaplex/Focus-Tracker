@@ -17,7 +17,6 @@ struct Shift: Codable {
         DateInterval(start: start, end: end)
     }
     
-    // TODO: Make this not be a dummy time
     var elapsedTimeString: String {
         return timedeltaToString(Int(end.timeIntervalSince(start)))
     }
