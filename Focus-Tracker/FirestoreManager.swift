@@ -75,7 +75,7 @@ class FirestoreManager {
     }
     
     func setDayHours(_ dayHours: HourRange) {
-        db.collection("users").document(userToken).setData(["dayHours": dayHours.hashValue]) { err in
+        db.collection("users").document(userToken).setData(["dayHours": dayHours.hash()]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
             } else {
@@ -85,7 +85,7 @@ class FirestoreManager {
     }
     
     func setWorkHours(_ workHours: HourRange) {
-        db.collection("users").document(userToken).setData(["workHours": workHours.hashValue]) { err in
+        db.collection("users").document(userToken).setData(["workHours": workHours.hash()]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
             } else {
