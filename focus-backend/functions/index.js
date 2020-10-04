@@ -44,7 +44,9 @@ exports.calculateStudyDay = functions.firestore.document('/users/{userId}/sessio
 			} else {
 				histToDate = {};
 			}
-			const date = sessData.date.toMillis();
+			tmpDate = sessData.date.toDate();
+			tmpDate.setHours(0,0,1,0);
+			const date = tmpDate.getTime();
 			const dayStart = date + getTimeInt(userData['dayHours'].slice(1, 4));
 			const dayEnd = date + getTimeInt(userData['dayHours'].slice(4, 7));
 			const workStart = date + getTimeInt(userData['workHours'].slice(1, 4));
