@@ -163,7 +163,12 @@ final class AppSettings {
         }
         
         set {
-            AppSettings.store.set(newValue, forKey: Key.shifts)
+            do {
+                let enc = try NSKeyedArchiver.archivedData(withRootObject: newValue, requiringSecureCoding: false)
+                AppSettings.store.set(enc, forKey: Key.shifts)
+            } catch {
+                print("set shift error \(error)")
+            }
         }
     }
     
@@ -171,17 +176,13 @@ final class AppSettings {
         var s = shifts;
         s.append(new);
                 
-        do {
-            let enc = try NSKeyedArchiver.archivedData(withRootObject: s, requiringSecureCoding: false)
-            AppSettings.store.set(enc, forKey: Key.shifts)
-        } catch {
-            print("add shift error \(error)")
-        }
+        AppSettings.shared.shifts = s
     }
     
     func clearShifts() {
         let s: [Shift] = []
         
+        AppSettings.shared.shifts = s
     }
 }
 
