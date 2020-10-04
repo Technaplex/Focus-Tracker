@@ -94,8 +94,48 @@ class FirestoreManager {
         }
     }
     
-    func getCategories(){
-        db.collection("users").document(userToken)
+    func getStudyDays(_ actId: String, sessId: String, completion: @escaping ([StudyDay]) -> Void){
+        let userRef = db.collection("users").document(userToken)
+        var studyDays = [StudyDay]()
+        userRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let data : [String : Any] = document.data()!
+                let hist : [String : Any] = data["hist"] as! [String : Any]
+                for (key, value) in hist {
+                    let dayValues = value as! [String : Any]
+                    let date = Date(timeIntervalSince1970: Double(key)! / 1000)
+                    let dayHours = HourRange.from_hash(self.convertTime(dayValues["dstart"] as! Int) + self.convertTime(dayValues["dend"] as! Int))
+                    let workHours = HourRange.from_hash(self.convertTime(dayValues["wstart"] as! Int) + self.convertTime(dayValues["wend"] as! Int))
+                    let categories = CategoryInfo(
+                        mindfulWork:
+                            Duration(time: self.convertTime(dayValues["0"] as! Int)),
+                        mindfulPlay:
+                            Duration(time: self.convertTime(dayValues["1"] as! Int)),
+                        mindlessWork:
+                            Duration(time: self.convertTime(dayValues["2"] as! Int)),
+                        mindlessPlay:
+                            Duration(time: self.convertTime(dayValues["3"] as! Int))
+                    )
+                    studyDays.append(StudyDay(date: date, dayHours: dayHours, workHours: workHours, categories: categories))
+                }
+                completion(studyDays)
+            } else {
+                print("Error during Firestore read: \(error)")
+            }
+        }
+    }
+    
+    private func convertTime(_ ms: Int) -> [Int] {
+
+        var seconds: Int = 0
+        var minutes: Int = 0
+        var hours: Int = 0
+        
+        hours = ms / 3600000
+        minutes = (ms - hours * 3600000) / 60000
+        seconds = (ms - hours * 3600000 - minutes * 60000) / 1000
+        
+        return [hours, minutes, seconds]
     }
     /*
     func addActivity(_ actId: String, sessId: String, data: Activity){
@@ -107,3 +147,5 @@ class FirestoreManager {
     }
     */
 }
+
+

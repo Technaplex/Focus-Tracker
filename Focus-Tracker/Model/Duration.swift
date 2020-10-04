@@ -41,4 +41,7 @@ extension Duration {
     init(hour: Int) {
         self.init(hour: hour, minute: 0)
     }
+    init(time: [Int]){
+        self.init(hour: time[0], minute: time[1], second: time[2])
+    }
 }

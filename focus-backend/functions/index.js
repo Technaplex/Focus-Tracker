@@ -23,6 +23,10 @@ function getOverlap(t1, t2, tr1, tr2){
 	return omax - omin
 }
 
+function getTimeInt(lst){
+	return lst[0] * 3600000 + lst[1] * 60000 + lst[2] * 1000
+}
+
 exports.calculateStudyDay = functions.firestore.document('/users/{userId}/sessions/{sessionId}')
 	.onCreate((sess, context) => {
 		const sessData = sess.data();
@@ -41,10 +45,10 @@ exports.calculateStudyDay = functions.firestore.document('/users/{userId}/sessio
 				histToDate = {};
 			}
 			const date = sessData.date.toMillis();
-			const dayStart = date + userData['dayHours'][0];
-			const dayEnd = date + userData['dayHours'][1];
-			const workStart = date + userData['workHours'][0];
-			const workEnd = date + userData['workHours'][1];
+			const dayStart = date + getTimeInt(userData['dayHours'].slice(0, 3));
+			const dayEnd = date + getTimeInt(userData['dayHours'].slice(3, 6));
+			const workStart = date + getTimeInt(userData['workHours'].slice(0, 3));
+			const workEnd = date + getTimeInt(userData['workHours'].slice(3, 6));
 			if (date in histToDate) {
 				dataToday = histToDate[date];
 				studyDay = {
@@ -52,7 +56,11 @@ exports.calculateStudyDay = functions.firestore.document('/users/{userId}/sessio
 					1: dataToday[1],
 					2: dataToday[2],
 					3: dataToday[3],
-					4: dataToday[4]
+					interrupts: dataToday["interrupts"],
+					dstart: dataToday["dstart"],
+					dend: dataToday["dend"],
+					wstart: dataToday["wstart"],
+					wend: dataToday["wend"]
 				};
 			} else {
 				initDayHours = dayEnd - dayStart;
@@ -62,7 +70,11 @@ exports.calculateStudyDay = functions.firestore.document('/users/{userId}/sessio
 					1: 0,
 					2: initWorkHours,
 					3: initDayHours - initWorkHours,
-					4: 0
+					interrupts: 0,
+					dstart: dayStart - date,
+					dend: dayEnd - date,
+					wstart: workStart - date,
+					wend: workEnd - date
 				}
 			}
 			if (sessData.category == 0) {
@@ -72,7 +84,7 @@ exports.calculateStudyDay = functions.firestore.document('/users/{userId}/sessio
 			}
 			studyDay[2] -= getOverlap(sessStart, sessEnd, workStart, workEnd);
 			studyDay[3] = studyDay[3] - getOverlap(sessStart, sessEnd, dayStart, workStart) - getOverlap(sessStart, sessEnd, workEnd, dayStart);
-			studyDay[4] += sessData.interrupts
+			studyDay["interrupts"] += sessData.interrupts
 			histToDate[date] = studyDay;
 			return db.collection("users").doc(context.params.userId).set({"hist": histToDate}, {merge: true})
 		})
