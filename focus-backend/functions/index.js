@@ -38,15 +38,14 @@ exports.calculateStudyDay = functions.firestore.document('/users/{userId}/sessio
 		userData = null
 		return userRef.get().then(doc => {
 			userData = doc.data()
-			console.log(userData)
 			if ('hist' in userData){
 				histToDate = userData['hist'];
 			} else {
 				histToDate = {};
 			}
 			tmpDate = sessData.date.toDate();
-			tmpDate.setHours(0,0,1,0);
-			const date = tmpDate.getTime();
+			tmpDate.setHours(0,0,0,0);
+			const date = tmpDate.getTime() + 86400000;
 			const dayStart = date + getTimeInt(userData['dayHours'].slice(1, 4));
 			const dayEnd = date + getTimeInt(userData['dayHours'].slice(4, 7));
 			const workStart = date + getTimeInt(userData['workHours'].slice(1, 4));
@@ -54,6 +53,7 @@ exports.calculateStudyDay = functions.firestore.document('/users/{userId}/sessio
 			if (date in histToDate) {
 				dataToday = histToDate[date];
 				studyDay = {
+			
 					0: dataToday[0],
 					1: dataToday[1],
 					2: dataToday[2],

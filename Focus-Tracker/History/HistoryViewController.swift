@@ -32,8 +32,8 @@ class HistoryViewController: UICollectionViewController {
         super.viewDidAppear(animated)
         FirestoreManager.shared.getStudyDays(){(studyDays) in
             self.history = studyDays
+            self.applySnapshot(animatingDifferences: true)
         }
-        applySnapshot(animatingDifferences: true)
     }
 
     func makeDataSource() -> DataSource {
