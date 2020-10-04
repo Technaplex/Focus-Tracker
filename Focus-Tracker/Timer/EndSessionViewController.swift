@@ -21,7 +21,6 @@ class EndSessionViewController: UIViewController {
     }
     
     @IBAction func saveSession(_ sender: Any) {
-        print("ending session")
         let presenter = presentingViewController as! UITabBarController
 
         let timer = (presenter.viewControllers![0] as! UINavigationController).topViewController as! CurrentTimerViewController

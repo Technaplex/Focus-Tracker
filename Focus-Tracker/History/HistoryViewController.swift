@@ -24,7 +24,6 @@ class HistoryViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print("CHICKEN")
         configureLayout()
         applySnapshot(animatingDifferences: false)
     }
