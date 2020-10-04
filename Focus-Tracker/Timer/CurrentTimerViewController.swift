@@ -83,9 +83,8 @@ class CurrentTimerViewController: UIViewController {
         updateActivityLabel()
 
         navigationItem.setHidesBackButton(true, animated: true)
-//        if !running {
-//            performSegue(withIdentifier: "create_timer", sender: self)
-//        }
+        
+        shiftsDataSource.loadShifts()
     }
     
     override func viewWillAppear(_ animated: Bool) {

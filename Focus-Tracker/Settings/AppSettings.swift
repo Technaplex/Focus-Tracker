@@ -155,9 +155,11 @@ final class AppSettings {
     
     var shifts: [Shift] {
         get {
-            print(AppSettings.store.object(forKey: Key.shifts))
+            let s = AppSettings.store.object(forKey: Key.shifts)
             
-            return []
+            let dec = NSKeyedUnarchiver.unarchiveObject(with: s as! Data) as? [Shift]
+        
+            return dec ?? [Shift]()
         }
         
         set {
@@ -175,6 +177,11 @@ final class AppSettings {
         } catch {
             print("add shift error \(error)")
         }
+    }
+    
+    func clearShifts() {
+        let s: [Shift] = []
+        
     }
 }
 

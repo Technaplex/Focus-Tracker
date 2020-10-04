@@ -23,7 +23,7 @@ class ShiftsDataSource: NSObject {
     
     func clear() {
         shifts = []
-        AppSettings.shared.shifts = []
+        AppSettings.shared.clearShifts()
         delegate?.shiftValueDidChange()
     }
 }
