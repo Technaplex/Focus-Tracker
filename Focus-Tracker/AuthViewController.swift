@@ -27,6 +27,12 @@ class AuthViewController: UITabBarController, FUIAuthDelegate {
             if let user = user {
                 print("User already logged in.", user)
                 FirestoreManager.shared.userToken = Auth.auth().currentUser!.uid
+                
+                if AppSettings.shared.isFirstRun {
+                    FirestoreManager.shared.setDayHours(AppSettings.shared.dayHours)
+                    FirestoreManager.shared.setWorkHours(AppSettings.shared.workHours)
+                    AppSettings.shared.isFirstRun = false
+                }
             } else {
                 self.showLoginScreen()
             }

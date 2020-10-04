@@ -18,15 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         AppSettings.registerDefaults()
         
-        if AppSettings.shared.isFirstRun {
-            FirestoreManager.shared.setDayHours(AppSettings.shared.dayHours)
-            FirestoreManager.shared.setWorkHours(AppSettings.shared.workHours)
-            AppSettings.shared.isFirstRun = false
-            print("FDSDFSDF")
-        } else {
-            print("NODLES")
-        }
-        
         return true
     }
 
