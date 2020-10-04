@@ -8,67 +8,6 @@
 import Foundation
 import Firebase
 
-struct Session {
-
-    var id: String
-    var date: Date
-    var timeStart: TimeInterval
-    var timeEnd: TimeInterval
-    var dict: [String : Any]{
-        return ["id": id,
-                "date": date,
-                "timeStart": timeStart,
-                "timeEnd": timeEnd]
-    }
-    init?(_ data: [String: Any], fs: Bool = false) {
-        guard let id = data["id"] as? String,
-            let date = fs ? (data["date"] as? Timestamp).dateValue() : data["date"] as? Date,
-            let timeStart = data["timeStart"] as? TimeInterval,
-            let timeEnd = data["timeEnd"] as? TimeInterval else {
-                return nil
-        }
-
-        self.id = id
-        self.date = date
-        self.timeStart = timeStart
-        self.timeEnd = timeEnd
-    }
-
-}
-
-struct Activity {
-
-    var id: String
-    var sessId: String
-    var name: String
-    var duration: TimeInterval
-    var interrupts: Int
-    var dict: [String : Any]{
-        return ["id": id,
-                "sessId": sessId,
-                "name": name,
-                "duration": duration,
-                "interrupts": interrupts]
-    }
-    init?(_ data: [String: Any]) {
-
-        guard let id = data["id"] as? String,
-            let sessId = data["sessId"] as? String,
-            let name = data["name"] as? String,
-            let duration = data["duration"] as? TimeInterval,
-            let interrupts = data["interrupts"] as? Int else {
-                return nil
-        }
-
-        self.id = id
-        self.sessId = sessId
-        self.name = name
-        self.duration = duration
-        self.interrupts = interrupts
-    }
-
-}
-
 class FirestoreManager {
     static let shared = FirestoreManager()
     private var userRef : DocumentReference
@@ -87,7 +26,6 @@ class FirestoreManager {
                 })
             }
         }
-        
         self.userRef = db.collection("users").document(userToken)
     }
     

@@ -12,6 +12,9 @@
 		874EC7E32527E36600DA2B16 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 874EC7E22527E36600DA2B16 /* GoogleService-Info.plist */; };
 		874EC7E62527E37900DA2B16 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874EC7E52527E37900DA2B16 /* AuthViewController.swift */; };
 		8756459C2528FBD5001F5A13 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8756459B2528FBD5001F5A13 /* FirestoreManager.swift */; };
+		87C1357A25294A3E00F00A38 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C1357925294A3E00F00A38 /* Time.swift */; };
+		87C1357D25294A7600F00A38 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C1357C25294A7600F00A38 /* Session.swift */; };
+		87C1358025294AA800F00A38 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C1357F25294AA800F00A38 /* Activity.swift */; };
 		9C10C791831862EDB8080C19 /* Pods_Focus_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13719EB570D37BE27FBA2B22 /* Pods_Focus_Tracker.framework */; };
 		E30EB2FF25267B2E009333F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30EB2FE25267B2E009333F2 /* AppDelegate.swift */; };
 		E30EB30125267B2E009333F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30EB30025267B2E009333F2 /* SceneDelegate.swift */; };
@@ -49,6 +52,9 @@
 		874EC7E22527E36600DA2B16 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		874EC7E52527E37900DA2B16 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		8756459B2528FBD5001F5A13 /* FirestoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		87C1357925294A3E00F00A38 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		87C1357C25294A7600F00A38 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		87C1357F25294AA800F00A38 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		986953283F0CE4FCFC5A868D /* Pods-Focus-Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Focus-Tracker.release.xcconfig"; path = "Target Support Files/Pods-Focus-Tracker/Pods-Focus-Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		E30EB2FB25267B2E009333F2 /* Focus-Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Focus-Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E30EB2FE25267B2E009333F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -164,10 +170,13 @@
 		E35725E22528C6DB00291120 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				87C1357F25294AA800F00A38 /* Activity.swift */,
 				E30EB3312526B69E009333F2 /* HourRange.swift */,
 				E329D80F25280E6F0007A2E2 /* StudyDay.swift */,
 				E329D7E02527B8B00007A2E2 /* Shift.swift */,
 				E35726A82528DF1000291120 /* User.swift */,
+				87C1357925294A3E00F00A38 /* Time.swift */,
+				87C1357C25294A7600F00A38 /* Session.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -341,6 +350,7 @@
 				E30EB3322526B69E009333F2 /* HourRange.swift in Sources */,
 				E30EB32C2526AF45009333F2 /* SettingsTableViewController.swift in Sources */,
 				E329D81025280E6F0007A2E2 /* StudyDay.swift in Sources */,
+				87C1358025294AA800F00A38 /* Activity.swift in Sources */,
 				E329D7E52527CC980007A2E2 /* GoalTimeTableViewCell.swift in Sources */,
 				2038F2422527DB3C000DC9D2 /* ShiftTableViewCell.swift in Sources */,
 				E35726B02528F07A00291120 /* Section.swift in Sources */,
@@ -356,7 +366,9 @@
 				E35726A52528D98800291120 /* HistoryCollectionViewCell.swift in Sources */,
 				E30EB3392526BCFB009333F2 /* HistoryViewController.swift in Sources */,
 				E30EB2FF25267B2E009333F2 /* AppDelegate.swift in Sources */,
+				87C1357D25294A7600F00A38 /* Session.swift in Sources */,
 				E30EB30125267B2E009333F2 /* SceneDelegate.swift in Sources */,
+				87C1357A25294A3E00F00A38 /* Time.swift in Sources */,
 				E357269D2528D45800291120 /* HistoryViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
