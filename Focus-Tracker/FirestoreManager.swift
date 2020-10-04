@@ -12,7 +12,7 @@ import FirebaseFirestore
 class FirestoreManager {
     static let shared = FirestoreManager()
     private let db = Firestore.firestore()
-    private var userToken : String = Auth.auth().currentUser!.uid
+    var userToken : String = ""
 
     // Commented out because unused for Hackathon
     /*
@@ -72,6 +72,14 @@ class FirestoreManager {
                 print("Error on write: \(err)")
             }
         }
+    }
+    
+    func setDayHours(_ dayHours: HourRange) {
+        db.collection("user").document(userToken).setData(["dayHours": dayHours.hashValue])
+    }
+    
+    func setWorkHours(_ workHours: HourRange) {
+        db.collection("user").document(userToken).setData(["workHours": workHours.hashValue])
     }
     
     /*

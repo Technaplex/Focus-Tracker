@@ -51,6 +51,7 @@ final class AppSettings {
         }
         set {
             AppSettings.setCodable(for: Key.dayHours, newValue)
+            FirestoreManager.shared.setDayHours(newValue)
         }
     }
     
@@ -60,6 +61,7 @@ final class AppSettings {
         }
         set {
             AppSettings.setCodable(for: Key.workHours, newValue)
+            FirestoreManager.shared.setWorkHours(newValue)
         }
     }
     

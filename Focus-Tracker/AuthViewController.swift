@@ -26,6 +26,7 @@ class AuthViewController: UITabBarController, FUIAuthDelegate {
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if let user = user {
                 print("User already logged in.", user)
+                FirestoreManager.shared.userToken = Auth.auth().currentUser!.uid
             } else {
                 self.showLoginScreen()
             }
