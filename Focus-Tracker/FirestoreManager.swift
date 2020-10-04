@@ -94,7 +94,7 @@ class FirestoreManager {
         }
     }
     
-    func getStudyDays(_ actId: String, sessId: String, completion: @escaping ([StudyDay]) -> Void){
+    func getStudyDays(completion: @escaping ([StudyDay]) -> Void){
         let userRef = db.collection("users").document(userToken)
         var studyDays = [StudyDay]()
         userRef.getDocument { (document, error) in
